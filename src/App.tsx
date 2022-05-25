@@ -1,8 +1,9 @@
 import React from "react";
 import "./App.css";
+import MainPage from "./components/FourthSem/MainPage";
 
 function App() {
-    return <div className="App">Hello from feedback</div>;
+    return <MainPage />;
 }
 
 export default App;
