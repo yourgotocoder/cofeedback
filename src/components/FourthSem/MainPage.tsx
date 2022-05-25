@@ -106,335 +106,345 @@ const MainPage = () => {
         >
             <Card sx={{ minWidth: "60vw", maxWidth: "95vw", margin: "auto" }}>
                 <CardContent>
-                    {!!questions && (
-                        <div>
-                            <Typography
-                                sx={{ fontSize: 14, textAlign: "center" }}
-                                color="text.primary"
-                                gutterBottom
-                            >
-                                Please provide your valuable feedback
-                            </Typography>
-                            <Box
-                                sx={{
-                                    maxWidth: "100%",
-                                    minWidth: "60%",
-                                    display: "flex",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                    flexDirection: "column",
-                                }}
-                            >
-                                <Stepper
-                                    activeStep={activeStep}
-                                    orientation="vertical"
+                    {!!questions["Elective One"] &&
+                        Object.keys(questions["Elective One"]).length > 1 && (
+                            <div>
+                                <Typography
+                                    sx={{ fontSize: 14, textAlign: "center" }}
+                                    color="text.primary"
+                                    gutterBottom
                                 >
-                                    <Step>
-                                        <StepLabel>
-                                            {steps && steps[0]}
-                                        </StepLabel>
-                                        <StepContent
-                                            TransitionProps={{
-                                                unmountOnExit: false,
-                                            }}
-                                            sx={{
-                                                marginTop: "1rem",
-                                            }}
-                                        >
-                                            <Stack spacing={1}>
-                                                <Box>
-                                                    {!!questions[
-                                                        "Elective One"
-                                                    ] && (
-                                                        <SelectSubjects
-                                                            label="Elective One"
-                                                            subjectObject={
-                                                                questions[
-                                                                    "Elective One"
-                                                                ]
-                                                            }
-                                                            handleElectiveChange={
-                                                                handleElectiveOneChange
-                                                            }
-                                                        />
-                                                    )}
-                                                </Box>
-                                                <Box>
-                                                    {!!questions[
-                                                        "Elective Two"
-                                                    ] && (
-                                                        <SelectSubjects
-                                                            label="Elective Two"
-                                                            subjectObject={
-                                                                questions[
-                                                                    "Elective Two"
-                                                                ]
-                                                            }
-                                                            handleElectiveChange={
-                                                                handleElectiveTwoChange
-                                                            }
-                                                        />
-                                                    )}
-                                                </Box>
-                                                <Box>
-                                                    {!!questions[
-                                                        "Minor Specialization"
-                                                    ] && (
-                                                        <SelectSubjects
-                                                            label="Minor Specialization"
-                                                            subjectObject={
-                                                                questions[
-                                                                    "Minor Specialization"
-                                                                ]
-                                                            }
-                                                            handleElectiveChange={
-                                                                handleMinorChange
-                                                            }
-                                                        />
-                                                    )}
-                                                </Box>
-                                            </Stack>
-                                            <Box sx={{ mb: 2 }}>
-                                                <div>
-                                                    <Button
-                                                        disabled={
-                                                            !selectedElectiveOne ||
-                                                            !selectedElectiveTwo ||
-                                                            !selectedMinorSpecialization
-                                                        }
-                                                        variant="contained"
-                                                        onClick={handleNext}
-                                                        sx={{
-                                                            mt: 1,
-                                                            mr: 1,
-                                                        }}
-                                                    >
-                                                        Continue
-                                                    </Button>
-                                                    <Button
-                                                        disabled={true}
-                                                        onClick={handleBack}
-                                                        sx={{
-                                                            mt: 1,
-                                                            mr: 1,
-                                                        }}
-                                                    >
-                                                        Back
-                                                    </Button>
-                                                </div>
-                                            </Box>
-                                        </StepContent>
-                                    </Step>
-                                    <Step>
-                                        <StepLabel>{steps[1]}</StepLabel>
-                                        <StepContent
-                                            TransitionProps={{
-                                                unmountOnExit: false,
-                                            }}
-                                        >
-                                            <Box>
-                                                <Stepper
-                                                    activeStep={activeInnerStep}
-                                                    orientation="vertical"
-                                                >
-                                                    <Step>
-                                                        <StepLabel>
-                                                            Lable
-                                                        </StepLabel>
-                                                        <StepContent>
-                                                            <Box sx={{ mb: 2 }}>
-                                                                <div>
-                                                                    <Button
-                                                                        variant="contained"
-                                                                        onClick={
-                                                                            handleInnerNext
-                                                                        }
-                                                                        sx={{
-                                                                            mt: 1,
-                                                                            mr: 1,
-                                                                        }}
-                                                                    >
-                                                                        Continue
-                                                                    </Button>
-                                                                    <Button
-                                                                        onClick={
-                                                                            handleInnerBack
-                                                                        }
-                                                                        sx={{
-                                                                            mt: 1,
-                                                                            mr: 1,
-                                                                        }}
-                                                                    >
-                                                                        Back
-                                                                    </Button>
-                                                                </div>
-                                                            </Box>
-                                                        </StepContent>
-                                                    </Step>
-                                                </Stepper>
-                                            </Box>
-                                            <Box sx={{ mb: 2 }}>
-                                                <div>
-                                                    <Button
-                                                        variant="contained"
-                                                        onClick={handleNext}
-                                                        sx={{
-                                                            mt: 1,
-                                                            mr: 1,
-                                                        }}
-                                                    >
-                                                        Continue
-                                                    </Button>
-                                                    <Button
-                                                        onClick={handleBack}
-                                                        sx={{
-                                                            mt: 1,
-                                                            mr: 1,
-                                                        }}
-                                                    >
-                                                        Back
-                                                    </Button>
-                                                </div>
-                                            </Box>
-                                        </StepContent>
-                                    </Step>
-                                    <Step>
-                                        <StepLabel>{steps[2]}</StepLabel>
-                                        <StepContent>
-                                            <Box sx={{ mb: 2 }}>
-                                                <div>
-                                                    <Button
-                                                        variant="contained"
-                                                        onClick={handleNext}
-                                                        sx={{
-                                                            mt: 1,
-                                                            mr: 1,
-                                                        }}
-                                                    >
-                                                        Continue
-                                                    </Button>
-                                                    <Button
-                                                        onClick={handleBack}
-                                                        sx={{
-                                                            mt: 1,
-                                                            mr: 1,
-                                                        }}
-                                                    >
-                                                        Back
-                                                    </Button>
-                                                </div>
-                                            </Box>
-                                        </StepContent>
-                                    </Step>
-                                    <Step>
-                                        <StepLabel>{steps[3]}</StepLabel>
-                                        <StepContent>
-                                            <Box sx={{ mb: 2 }}>
-                                                <div>
-                                                    <Button
-                                                        variant="contained"
-                                                        onClick={handleNext}
-                                                        sx={{
-                                                            mt: 1,
-                                                            mr: 1,
-                                                        }}
-                                                    >
-                                                        Continue
-                                                    </Button>
-                                                    <Button
-                                                        onClick={handleBack}
-                                                        sx={{
-                                                            mt: 1,
-                                                            mr: 1,
-                                                        }}
-                                                    >
-                                                        Back
-                                                    </Button>
-                                                </div>
-                                            </Box>
-                                        </StepContent>
-                                    </Step>
-                                    <Step>
-                                        <StepLabel>{steps[4]}</StepLabel>
-                                        <StepContent>
-                                            <Box sx={{ mb: 2 }}>
-                                                <div>
-                                                    <Button
-                                                        variant="contained"
-                                                        onClick={handleNext}
-                                                        sx={{
-                                                            mt: 1,
-                                                            mr: 1,
-                                                        }}
-                                                    >
-                                                        Continue
-                                                    </Button>
-                                                    <Button
-                                                        onClick={handleBack}
-                                                        sx={{
-                                                            mt: 1,
-                                                            mr: 1,
-                                                        }}
-                                                    >
-                                                        Back
-                                                    </Button>
-                                                </div>
-                                            </Box>
-                                        </StepContent>
-                                    </Step>
-                                    <Step>
-                                        <StepLabel>{steps[5]}</StepLabel>
-                                        <StepContent>
-                                            <Box sx={{ mb: 2 }}>
-                                                <div>
-                                                    <Button
-                                                        variant="contained"
-                                                        onClick={handleNext}
-                                                        sx={{
-                                                            mt: 1,
-                                                            mr: 1,
-                                                        }}
-                                                    >
-                                                        Continue
-                                                    </Button>
-                                                    <Button
-                                                        onClick={handleBack}
-                                                        sx={{
-                                                            mt: 1,
-                                                            mr: 1,
-                                                        }}
-                                                    >
-                                                        Back
-                                                    </Button>
-                                                </div>
-                                            </Box>
-                                        </StepContent>
-                                    </Step>
-                                </Stepper>
-                                {activeStep === steps.length && (
-                                    <Box>
-                                        <Paper
-                                            square
-                                            elevation={0}
-                                            sx={{ p: 3 }}
-                                        >
-                                            <Typography>
-                                                All steps completed -
-                                                you&apos;re finished
-                                            </Typography>
-                                            <Button
-                                                onClick={handleReset}
-                                                sx={{ mt: 1, mr: 1 }}
+                                    Please provide your valuable feedback
+                                </Typography>
+                                <Box
+                                    sx={{
+                                        maxWidth: "100%",
+                                        minWidth: "60%",
+                                        display: "flex",
+                                        justifyContent: "center",
+                                        alignItems: "center",
+                                        flexDirection: "column",
+                                    }}
+                                >
+                                    <Stepper
+                                        activeStep={activeStep}
+                                        orientation="vertical"
+                                    >
+                                        <Step>
+                                            <StepLabel>
+                                                {steps && steps[0]}
+                                            </StepLabel>
+                                            <StepContent
+                                                TransitionProps={{
+                                                    unmountOnExit: false,
+                                                }}
+                                                sx={{
+                                                    marginTop: "1rem",
+                                                }}
                                             >
-                                                Reset
-                                            </Button>
-                                        </Paper>
-                                    </Box>
-                                )}
-                            </Box>
-                        </div>
-                    )}
-                    {!questions && <p>Loading</p>}
+                                                <Stack spacing={1}>
+                                                    <Box>
+                                                        {!!questions[
+                                                            "Elective One"
+                                                        ] && (
+                                                            <SelectSubjects
+                                                                label="Elective One"
+                                                                subjectObject={
+                                                                    questions[
+                                                                        "Elective One"
+                                                                    ]
+                                                                }
+                                                                handleElectiveChange={
+                                                                    handleElectiveOneChange
+                                                                }
+                                                            />
+                                                        )}
+                                                    </Box>
+                                                    <Box>
+                                                        {!!questions[
+                                                            "Elective Two"
+                                                        ] && (
+                                                            <SelectSubjects
+                                                                label="Elective Two"
+                                                                subjectObject={
+                                                                    questions[
+                                                                        "Elective Two"
+                                                                    ]
+                                                                }
+                                                                handleElectiveChange={
+                                                                    handleElectiveTwoChange
+                                                                }
+                                                            />
+                                                        )}
+                                                    </Box>
+                                                    <Box>
+                                                        {!!questions[
+                                                            "Minor Specialization"
+                                                        ] && (
+                                                            <SelectSubjects
+                                                                label="Minor Specialization"
+                                                                subjectObject={
+                                                                    questions[
+                                                                        "Minor Specialization"
+                                                                    ]
+                                                                }
+                                                                handleElectiveChange={
+                                                                    handleMinorChange
+                                                                }
+                                                            />
+                                                        )}
+                                                    </Box>
+                                                </Stack>
+                                                <Box sx={{ mb: 2 }}>
+                                                    <div>
+                                                        <Button
+                                                            disabled={
+                                                                !selectedElectiveOne ||
+                                                                !selectedElectiveTwo ||
+                                                                !selectedMinorSpecialization
+                                                            }
+                                                            variant="contained"
+                                                            onClick={handleNext}
+                                                            sx={{
+                                                                mt: 1,
+                                                                mr: 1,
+                                                            }}
+                                                        >
+                                                            Continue
+                                                        </Button>
+                                                        <Button
+                                                            disabled={true}
+                                                            onClick={handleBack}
+                                                            sx={{
+                                                                mt: 1,
+                                                                mr: 1,
+                                                            }}
+                                                        >
+                                                            Back
+                                                        </Button>
+                                                    </div>
+                                                </Box>
+                                            </StepContent>
+                                        </Step>
+                                        <Step>
+                                            <StepLabel>{steps[1]}</StepLabel>
+                                            <StepContent
+                                                TransitionProps={{
+                                                    unmountOnExit: false,
+                                                }}
+                                            >
+                                                <Box>
+                                                    <Stepper
+                                                        activeStep={
+                                                            activeInnerStep
+                                                        }
+                                                        orientation="vertical"
+                                                    >
+                                                        <Step>
+                                                            <StepLabel>
+                                                                Lable
+                                                            </StepLabel>
+                                                            <StepContent>
+                                                                <Box
+                                                                    sx={{
+                                                                        mb: 2,
+                                                                    }}
+                                                                >
+                                                                    <div>
+                                                                        <Button
+                                                                            variant="contained"
+                                                                            onClick={
+                                                                                handleInnerNext
+                                                                            }
+                                                                            sx={{
+                                                                                mt: 1,
+                                                                                mr: 1,
+                                                                            }}
+                                                                        >
+                                                                            Continue
+                                                                        </Button>
+                                                                        <Button
+                                                                            onClick={
+                                                                                handleInnerBack
+                                                                            }
+                                                                            sx={{
+                                                                                mt: 1,
+                                                                                mr: 1,
+                                                                            }}
+                                                                        >
+                                                                            Back
+                                                                        </Button>
+                                                                    </div>
+                                                                </Box>
+                                                            </StepContent>
+                                                        </Step>
+                                                    </Stepper>
+                                                </Box>
+                                                <Box sx={{ mb: 2 }}>
+                                                    <div>
+                                                        <Button
+                                                            variant="contained"
+                                                            onClick={handleNext}
+                                                            sx={{
+                                                                mt: 1,
+                                                                mr: 1,
+                                                            }}
+                                                        >
+                                                            Continue
+                                                        </Button>
+                                                        <Button
+                                                            onClick={handleBack}
+                                                            sx={{
+                                                                mt: 1,
+                                                                mr: 1,
+                                                            }}
+                                                        >
+                                                            Back
+                                                        </Button>
+                                                    </div>
+                                                </Box>
+                                            </StepContent>
+                                        </Step>
+                                        <Step>
+                                            <StepLabel>{steps[2]}</StepLabel>
+                                            <StepContent>
+                                                <Box sx={{ mb: 2 }}>
+                                                    <div>
+                                                        <Button
+                                                            variant="contained"
+                                                            onClick={handleNext}
+                                                            sx={{
+                                                                mt: 1,
+                                                                mr: 1,
+                                                            }}
+                                                        >
+                                                            Continue
+                                                        </Button>
+                                                        <Button
+                                                            onClick={handleBack}
+                                                            sx={{
+                                                                mt: 1,
+                                                                mr: 1,
+                                                            }}
+                                                        >
+                                                            Back
+                                                        </Button>
+                                                    </div>
+                                                </Box>
+                                            </StepContent>
+                                        </Step>
+                                        <Step>
+                                            <StepLabel>{steps[3]}</StepLabel>
+                                            <StepContent>
+                                                <Box sx={{ mb: 2 }}>
+                                                    <div>
+                                                        <Button
+                                                            variant="contained"
+                                                            onClick={handleNext}
+                                                            sx={{
+                                                                mt: 1,
+                                                                mr: 1,
+                                                            }}
+                                                        >
+                                                            Continue
+                                                        </Button>
+                                                        <Button
+                                                            onClick={handleBack}
+                                                            sx={{
+                                                                mt: 1,
+                                                                mr: 1,
+                                                            }}
+                                                        >
+                                                            Back
+                                                        </Button>
+                                                    </div>
+                                                </Box>
+                                            </StepContent>
+                                        </Step>
+                                        <Step>
+                                            <StepLabel>{steps[4]}</StepLabel>
+                                            <StepContent>
+                                                <Box sx={{ mb: 2 }}>
+                                                    <div>
+                                                        <Button
+                                                            variant="contained"
+                                                            onClick={handleNext}
+                                                            sx={{
+                                                                mt: 1,
+                                                                mr: 1,
+                                                            }}
+                                                        >
+                                                            Continue
+                                                        </Button>
+                                                        <Button
+                                                            onClick={handleBack}
+                                                            sx={{
+                                                                mt: 1,
+                                                                mr: 1,
+                                                            }}
+                                                        >
+                                                            Back
+                                                        </Button>
+                                                    </div>
+                                                </Box>
+                                            </StepContent>
+                                        </Step>
+                                        <Step>
+                                            <StepLabel>{steps[5]}</StepLabel>
+                                            <StepContent>
+                                                <Box sx={{ mb: 2 }}>
+                                                    <div>
+                                                        <Button
+                                                            variant="contained"
+                                                            onClick={handleNext}
+                                                            sx={{
+                                                                mt: 1,
+                                                                mr: 1,
+                                                            }}
+                                                        >
+                                                            Continue
+                                                        </Button>
+                                                        <Button
+                                                            onClick={handleBack}
+                                                            sx={{
+                                                                mt: 1,
+                                                                mr: 1,
+                                                            }}
+                                                        >
+                                                            Back
+                                                        </Button>
+                                                    </div>
+                                                </Box>
+                                            </StepContent>
+                                        </Step>
+                                    </Stepper>
+                                    {activeStep === steps.length && (
+                                        <Box>
+                                            <Paper
+                                                square
+                                                elevation={0}
+                                                sx={{ p: 3 }}
+                                            >
+                                                <Typography>
+                                                    All steps completed -
+                                                    you&apos;re finished
+                                                </Typography>
+                                                <Button
+                                                    onClick={handleReset}
+                                                    sx={{ mt: 1, mr: 1 }}
+                                                >
+                                                    Reset
+                                                </Button>
+                                            </Paper>
+                                        </Box>
+                                    )}
+                                </Box>
+                            </div>
+                        )}
+                    {!!questions["Elective One"] &&
+                        Object.keys(questions["Elective One"]).length === 0 && (
+                            <p>Loading</p>
+                        )}
                 </CardContent>
             </Card>
         </Box>
