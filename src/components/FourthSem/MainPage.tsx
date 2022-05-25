@@ -25,10 +25,6 @@ type Rating = {
   CO5: number;
 };
 
-type Response = {
-  [key: string]: Rating;
-};
-
 interface FeedbackQuestions {
   "Main Subjects"?: SubjectQuestions;
   "Elective One"?: SubjectQuestions;
@@ -52,19 +48,7 @@ const MainPage = () => {
   const [selectedMinorSpecialization, setSelectedMinorSpecialization] =
     useState<string>();
 
-  const [coFeedback, setCoFeedback] = useState({});
-
-  const handleRatingChange = (
-    subjectName: string,
-    coNumber: number,
-    rating: number | null
-  ) => {
-    setCoFeedback((prevValue) => {
-      const newObj = { [subjectName + "_" + coNumber]: rating };
-      const newState = { ...prevValue, newObj };
-      return { newState };
-    });
-  };
+  const [coFeedbackMainSubject, setCoFeedbackMainSubject] = useState<any[]>([]);
 
   const fetchQuestions = async () => {
     const response = await fetch("QuestionsFourthSem.json", {
@@ -74,10 +58,33 @@ const MainPage = () => {
       },
     });
     const data = await response.json();
+    const mainSubjectArray = [];
+    for (let subject in data["Main Subjects"]) {
+      const newObj = {
+        subjectName: subject,
+        co1: null,
+        co2: null,
+        co3: null,
+        co4: null,
+        co5: null,
+      };
+      mainSubjectArray.push(newObj);
+    }
+
     const keys = Object.keys(data);
     keys.unshift("Choose your electives and minor specialization");
     setSteps(keys);
     setQuestions(data);
+    setCoFeedbackMainSubject(mainSubjectArray);
+    console.log(coFeedbackMainSubject)
+  };
+
+  const handleRatingChange = (
+    subjectName: string,
+    coNumber: number,
+    rating: number | null
+  ) => {
+    
   };
 
   const [activeStep, setActiveStep] = React.useState(0);
@@ -99,7 +106,6 @@ const MainPage = () => {
 
   const handleInnerNext = () => {
     setActiveInnerStep((prevActiveStep) => prevActiveStep + 1);
-    console.log(coFeedback);
   };
 
   const handleInnerBack = () => {
@@ -256,21 +262,7 @@ const MainPage = () => {
                                             key={question}
                                             ratingChange={handleRatingChange}
                                             coNumber={indexValue + 1}
-                                            rating={
-                                              (!!coFeedback[
-                                                (keyValue +
-                                                  "_" +
-                                                  (indexValue +
-                                                    1)) as keyof typeof coFeedback
-                                              ] &&
-                                                coFeedback[
-                                                  (keyValue +
-                                                    "_" +
-                                                    (indexValue +
-                                                      1)) as keyof typeof coFeedback
-                                                ]) ||
-                                              null
-                                            }
+                                            rating={null}
                                             subjectName={keyValue}
                                           />
                                         ))}
