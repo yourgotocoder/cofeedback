@@ -10,11 +10,6 @@ import StepLabel from "@mui/material/StepLabel";
 import StepContent from "@mui/material/StepContent";
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
 import SelectSubjects from "./SelectSubjects";
 
 type SubjectQuestions = {
@@ -29,27 +24,6 @@ interface FeedbackQuestions {
     "Minor Specialization": SubjectQuestions;
 }
 
-const steps = [
-    {
-        label: "Select campaign settings",
-        description: `For each ad campaign that you create, you can control how much
-                you're willing to spend on clicks and conversions, which networks
-                and geographical locations you want your ads to show on, and more.`,
-    },
-    {
-        label: "Create an ad group",
-        description:
-            "An ad group contains one or more ads which target a shared set of keywords.",
-    },
-    {
-        label: "Create an ad",
-        description: `Try out different ad text to see what brings in the most customers,
-                and learn how to enhance your ads using features like ad extensions.
-                If you run into any problems with your ads, find out how to tell if
-                they're running and how to resolve approval issues.`,
-    },
-];
-
 const MainPage = () => {
     const [questions, setQuestions] = useState<FeedbackQuestions>({
         "Minor Specialization": {},
@@ -59,6 +33,12 @@ const MainPage = () => {
         Lab: {},
     });
 
+    const [steps, setSteps] = useState<string[]>([""]);
+    const [selectedElectiveOne, setSelectedElectiveOne] = useState<string>();
+    const [selectedElectiveTwo, setSelectedElectiveTwo] = useState<string>();
+    const [selectedMinorSpecialization, setSelectedMinorSpecialization] =
+        useState<string>();
+
     const fetchQuestions = async () => {
         const response = await fetch("QuestionsFourthSem.json", {
             headers: {
@@ -67,6 +47,9 @@ const MainPage = () => {
             },
         });
         const data = await response.json();
+        const keys = Object.keys(data);
+        keys.unshift("Choose your electives and minor specialization");
+        setSteps(keys);
         setQuestions(data);
     };
 
@@ -74,9 +57,24 @@ const MainPage = () => {
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
+        console.log(
+            selectedElectiveOne,
+            selectedElectiveTwo,
+            selectedMinorSpecialization
+        );
     };
 
     const handleBack = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    };
+
+    const [activeInnerStep, setActiveInnerStep] = React.useState(0);
+
+    const handleInnerNext = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    };
+
+    const handleInnerBack = () => {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
     };
 
@@ -89,7 +87,13 @@ const MainPage = () => {
     }, []);
 
     const handleElectiveOneChange = (value: string) => {
-        console.log(value);
+        setSelectedElectiveOne(value);
+    };
+    const handleElectiveTwoChange = (value: string) => {
+        setSelectedElectiveTwo(value);
+    };
+    const handleMinorChange = (value: string) => {
+        setSelectedMinorSpecialization(value);
     };
 
     return (
@@ -125,60 +129,37 @@ const MainPage = () => {
                                 >
                                     <Step>
                                         <StepLabel>
-                                            Choose your electives and minor
-                                            specialization
+                                            {steps && steps[0]}
                                         </StepLabel>
-                                        <StepContent>
+                                        <StepContent
+                                            TransitionProps={{
+                                                unmountOnExit: false,
+                                            }}
+                                            sx={{
+                                                marginTop: "1rem",
+                                            }}
+                                        >
                                             <Stack spacing={1}>
-                                                <Box>
-                                                    <FormControl>
-                                                        <FormLabel id="demo-row-radio-buttons-group-label">
-                                                            Elective 1
-                                                        </FormLabel>
-                                                        <RadioGroup
-                                                            row
-                                                            aria-labelledby="demo-row-radio-buttons-group-label"
-                                                            name="row-radio-buttons-group"
-                                                            onChange={(e) =>
-                                                                handleElectiveOneChange(
-                                                                    e.target
-                                                                        .value
-                                                                )
-                                                            }
-                                                        >
-                                                            {!!questions[
-                                                                "Elective One"
-                                                            ] &&
-                                                                Object.keys(
-                                                                    questions[
-                                                                        "Elective One"
-                                                                    ]
-                                                                ).map(
-                                                                    (
-                                                                        keyName
-                                                                    ) => (
-                                                                        <FormControlLabel
-                                                                            key={
-                                                                                keyName
-                                                                            }
-                                                                            value={
-                                                                                keyName
-                                                                            }
-                                                                            control={
-                                                                                <Radio />
-                                                                            }
-                                                                            label={
-                                                                                keyName
-                                                                            }
-                                                                        />
-                                                                    )
-                                                                )}
-                                                        </RadioGroup>
-                                                    </FormControl>
-                                                </Box>
                                                 <Box>
                                                     {!!questions[
                                                         "Elective One"
+                                                    ] && (
+                                                        <SelectSubjects
+                                                            label="Elective One"
+                                                            subjectObject={
+                                                                questions[
+                                                                    "Elective One"
+                                                                ]
+                                                            }
+                                                            handleElectiveChange={
+                                                                handleElectiveOneChange
+                                                            }
+                                                        />
+                                                    )}
+                                                </Box>
+                                                <Box>
+                                                    {!!questions[
+                                                        "Elective Two"
                                                     ] && (
                                                         <SelectSubjects
                                                             label="Elective Two"
@@ -188,13 +169,108 @@ const MainPage = () => {
                                                                 ]
                                                             }
                                                             handleElectiveChange={
-                                                                handleElectiveOneChange
+                                                                handleElectiveTwoChange
                                                             }
                                                         />
                                                     )}
                                                 </Box>
-                                                <Box>3</Box>
+                                                <Box>
+                                                    {!!questions[
+                                                        "Minor Specialization"
+                                                    ] && (
+                                                        <SelectSubjects
+                                                            label="Minor Specialization"
+                                                            subjectObject={
+                                                                questions[
+                                                                    "Minor Specialization"
+                                                                ]
+                                                            }
+                                                            handleElectiveChange={
+                                                                handleMinorChange
+                                                            }
+                                                        />
+                                                    )}
+                                                </Box>
                                             </Stack>
+                                            <Box sx={{ mb: 2 }}>
+                                                <div>
+                                                    <Button
+                                                        disabled={
+                                                            !selectedElectiveOne ||
+                                                            !selectedElectiveTwo ||
+                                                            !selectedMinorSpecialization
+                                                        }
+                                                        variant="contained"
+                                                        onClick={handleNext}
+                                                        sx={{
+                                                            mt: 1,
+                                                            mr: 1,
+                                                        }}
+                                                    >
+                                                        Continue
+                                                    </Button>
+                                                    <Button
+                                                        disabled={true}
+                                                        onClick={handleBack}
+                                                        sx={{
+                                                            mt: 1,
+                                                            mr: 1,
+                                                        }}
+                                                    >
+                                                        Back
+                                                    </Button>
+                                                </div>
+                                            </Box>
+                                        </StepContent>
+                                    </Step>
+                                    <Step>
+                                        <StepLabel>{steps[1]}</StepLabel>
+                                        <StepContent
+                                            TransitionProps={{
+                                                unmountOnExit: false,
+                                            }}
+                                        >
+                                            <Box>
+                                                <Stepper
+                                                    activeStep={activeInnerStep}
+                                                    orientation="vertical"
+                                                >
+                                                    <Step>
+                                                        <StepLabel>
+                                                            Lable
+                                                        </StepLabel>
+                                                        <StepContent>
+                                                            <Box sx={{ mb: 2 }}>
+                                                                <div>
+                                                                    <Button
+                                                                        variant="contained"
+                                                                        onClick={
+                                                                            handleInnerNext
+                                                                        }
+                                                                        sx={{
+                                                                            mt: 1,
+                                                                            mr: 1,
+                                                                        }}
+                                                                    >
+                                                                        Continue
+                                                                    </Button>
+                                                                    <Button
+                                                                        onClick={
+                                                                            handleInnerBack
+                                                                        }
+                                                                        sx={{
+                                                                            mt: 1,
+                                                                            mr: 1,
+                                                                        }}
+                                                                    >
+                                                                        Back
+                                                                    </Button>
+                                                                </div>
+                                                            </Box>
+                                                        </StepContent>
+                                                    </Step>
+                                                </Stepper>
+                                            </Box>
                                             <Box sx={{ mb: 2 }}>
                                                 <div>
                                                     <Button
