@@ -1,165 +1,131 @@
 {
-    "Main Subjects": [
-        {
-            "MA1401(Numerical Methods, Complex and Fourier Analysis)": [
-                "Apply concept of Predicate Calculus in computer science like design of computing machines, artificial intelligence, definition of data structures for programming languages etc",
-                "Explain basic concepts from Proof Theory, including languages, formulas, and deductions, and use them appropriately.",
-                "Identify the axiomatic formulation of modern probability theory and think of modern variables as an intrinsic need for the analysis of random phenomena.",
-                "Analyze probability models and functions of random variables based on single and multiple random variables.",
-                "Formulate and interpret confidence intervals to estimate means, standard deviations and proportions for populations."
-            ]
-        },
-        {
-            "CS1403(DBMS)": [
-                "Describe fundamental elements of a relational database management system",
-                "Design entity-relationship diagrams to represent simple database application scenarios",
-                "Explain the basic concepts of relational data model, Entity-relationship model, Relational database design, relational algebra and database language SQL",
-                "Apply and relate the concept of transaction, concurrency control and recovery in database.",
-                "Analyze various Normalization techniques and improve the database design by normalization"
-            ]
-        },
-        {
-            "CS1405(Design and Analysis of Algorithms)": [
-                "Define asymptotic notations and solve problems related to it",
-                "Calculate time and space complexities for recursive/non-recursive algorithm based on following algorithm design techniques - divide and conquer, greedy, dynamic programming and branch and bound.",
-                "Select appropriate algorithm design technique to solve a given problem.",
-                "Explain the working of existing algorithm / algorithm design techniques ",
-                "Discuss and describe the classes P, NP, and NP-Complete"
-            ]
-        },
-        {
-            "CS1406(Advanced COA)": [
-                "Review Computer System Architecture.",
-                "Evaluate complexities in data representation and processing.  ",
-                "Apply concepts of parallel processing and multiprocessor architectures in reviewing processors. ",
-                "Solve problems related to multiprocessing , distributed processing and non von Neumann architectures.",
-                "Illustrate the concept of data flow computers, Reduction computer architecture and systolic architecture."
-            ]
-        }
-    ],
-    "Elective One": [
-        {
-            "CS1421(Java)": [
-                "Demonstrate an ability describe and recall the various object oriented concept",
-                "Formulate and interpret an object oriented model and design solution using object oriented concepts.",
-                "Ability to illustrate a diverse set of design solutions using techniques of Interface, Packages, File Handling, Multi-threading, etc.",
-                "Select and design methodology using bottom up approach and solve open ended problems using Java.",
-                "Define and create modern engineering tools, techniques and resources to build software using Java programming language.    "
-            ]
-        },
-        {
-            "CS1435(Python Programming)": [
-                "Define the basic structure of python programming.",
-                "Differentiate imperative, functional and procedural programming features in Python",
-                "Practice features for designing and implementing python program.",
-                "Compose applications using various libraries and concepts of Python.",
-                "Select methods to build and package Python modules for reusability"
-            ]
-        }
-    ],
-    "Elective Two": [
-        {
-            "CS1440(Internet Technology and Society)": [
-                "Describe while identifying the impact of technology and internet on the modern society",
-                "Interpret software freedom principles and free/open-source licensing system",
-                "Identify ethical issues related to surveillance system, digital divide and identify data privacy concerns",
-                "Prioritize privacy concerns by applying free & open-source software solutions",
-                "Recognize the impact of engineering and industrial practices on social contexts."
-            ]
-        },
-        {
-            "CS 1442(UI UX)": [
-                "Select and utilize design thinking processes and UX/UI tools,",
-                "Differentiate between user interface and user experience design",
-                "Discover how typography and layout enrich the user experience",
-                "Distinguish various tools available for user interface design",
-                "Assess various HCI (human-computer interaction) and the psychology behind user decision-making."
-            ]
-        },
-        {
-            "CS 1423(ERP)": [
-                "Identify the important business functions provided by typical business software such as enterprise resource planning and customer relationship management.",
-                "Illustrate basic concepts of ERP systems for manufacturing or service companies",
-                "Analyze the technical aspect of telecommunication systems, internet and their roles in business environment.",
-                "Reframe open-ended problem descriptions to feasible solutions",
-                "Illustrate the use of various tools used in ERP for industry "
-            ]
-        },
-        {
-            "CS1436(Fundamentals of Web Technologies)": [
-                "Identify the various terms and components of HTML, CSS, JavaScript, PHP and Drupal",
-                "Illustrate various components of web development languages",
-                "Connect different modules of open source technologies for website development",
-                "Select appropriate web technology for implementing solution to a given problem",
-                "Construct a web domain using appropriate tools and techniques"
-            ]
-        }
-    ],
-    "Lab": [
-        {
-            "CS1462(DBMS lab)": [
-                "Select appropriate SQL/MongoDB commands and functions for a given query on the database. ",
-                "Infer constraints and relationships between tables from conceptual/logical level schema and convert them into relationship and integrity constraints at the physical level schema.",
-                "Write Oracle PL/SQL Programs for data processing.",
-                "Design nested queries for efficient data processing on the database.",
-                "Test an SQL interface of a multi-user relational DBMS package to create, secure, populate, maintain, and query a database."
-            ]
-        },
-        {
-            "CS1464(Advanced Programming Lab)": [
-                "Discuss the concept of objects and class.",
-                "Evaluate requirements for given problem and decide the functionalities of programs accordingly.",
-                "Illustrate a diverse set of problem solutions using techniques of Interface, Packages, File Handling, Multi-threading, etc",
-                "Apply the concept java network program to establish connection between client and server.",
-                "Design modern website to fulfill users requirement.."
-            ]
-        },
-        {
-            "CS1465(Algorithm Lab)": [
-                "Calculate time and space complexities for algorithms using mathematical models",
-                "Calculate time and space complexities for algorithms by performing an empirical measurement",
-                "Select appropriate algorithm design technique to solve a given problem",
-                "Write a computer program to implement any algorithm using a programming language",
-                "Choose the most optimal algorithm by comparing time and space complexities"
-            ]
-        }
-    ],
-    "Minor Specialization": [
-        {
-            "CS1844(Probability and Statistics in Data Analytics)": [
-                "Demonstrate an ability to describe the basic concepts of probability and random variables.",
-                "Demonstrate an ability to discuss and analyze random sampling and statistical inference concepts.",
-                "Demonstrate an ability to calculate and decide the estimation and testing of hypothesis.",
-                "Demonstrate an ability to collect, evaluate and design the model using representation of data and different descriptive statistics.",
-                "Demonstrate an ability to analyze and examine the different regression and variance."
-            ]
-        },
-        {
-            "CS1841(Signals and Network )": [
-                "Understand mathematical description and representation of continuous and discrete time signal",
-                "Evaluate the signals in frequency domain using Fourier series and Fourier transforms.",
-                "Development of the mathematical skills to solve problems based on the limitations of Fourier transform and need for Laplace transform to analyze the system in s- domai",
-                "Apply fundamental principles of data communication and networking",
-                "Explain the working of waveform coding techniques and analyse their performance."
-            ]
-        },
-        {
-            "CS1843( Introduction to IOT & Microprocessor)": [
-                "Understanding of impact of information technology solutions on the society",
-                "Understanding the vision of IOT from a global context.",
-                "Understand the application area of IOT.",
-                "Realization of different microprocessor based IOT system.",
-                "Design and development of IOT enabled device and system."
-            ]
-        },
-        {
-            "CS1842(Introduction to Machine Learning)": [
-                "Apply data analytics techniques and tools to produce knowledge from a given dataset.",
-                "Analyze and apply statistical and probabilistic approach for the development of a model using large dataset.",
-                "Create and evaluate the model using suitable machine learning algorithms.",
-                "Formulate statistical hypothesis testing and inference for the model development.",
-                "Explain the dataset using different data representation tools."
-            ]
-        }
-    ]
+    "Main Subjects": {
+        "MA1401(Numerical Methods, Complex and Fourier Analysis)": [
+            "Apply concept of Predicate Calculus in computer science like design of computing machines, artificial intelligence, definition of data structures for programming languages etc",
+            "Explain basic concepts from Proof Theory, including languages, formulas, and deductions, and use them appropriately.",
+            "Identify the axiomatic formulation of modern probability theory and think of modern variables as an intrinsic need for the analysis of random phenomena.",
+            "Analyze probability models and functions of random variables based on single and multiple random variables.",
+            "Formulate and interpret confidence intervals to estimate means, standard deviations and proportions for populations."
+        ],
+        "CS1403(DBMS)": [
+            "Describe fundamental elements of a relational database management system",
+            "Design entity-relationship diagrams to represent simple database application scenarios",
+            "Explain the basic concepts of relational data model, Entity-relationship model, Relational database design, relational algebra and database language SQL",
+            "Apply and relate the concept of transaction, concurrency control and recovery in database.",
+            "Analyze various Normalization techniques and improve the database design by normalization"
+        ],
+        "CS1405(Design and Analysis of Algorithms)": [
+            "Define asymptotic notations and solve problems related to it",
+            "Calculate time and space complexities for recursive/non-recursive algorithm based on following algorithm design techniques - divide and conquer, greedy, dynamic programming and branch and bound.",
+            "Select appropriate algorithm design technique to solve a given problem.",
+            "Explain the working of existing algorithm / algorithm design techniques ",
+            "Discuss and describe the classes P, NP, and NP-Complete"
+        ],
+        "CS1406(Advanced COA)": [
+            "Review Computer System Architecture.",
+            "Evaluate complexities in data representation and processing.  ",
+            "Apply concepts of parallel processing and multiprocessor architectures in reviewing processors. ",
+            "Solve problems related to multiprocessing , distributed processing and non von Neumann architectures.",
+            "Illustrate the concept of data flow computers, Reduction computer architecture and systolic architecture."
+        ]
+    },
+    "Elective One": {
+        "CS1421(Java)": [
+            "Demonstrate an ability describe and recall the various object oriented concept",
+            "Formulate and interpret an object oriented model and design solution using object oriented concepts.",
+            "Ability to illustrate a diverse set of design solutions using techniques of Interface, Packages, File Handling, Multi-threading, etc.",
+            "Select and design methodology using bottom up approach and solve open ended problems using Java.",
+            "Define and create modern engineering tools, techniques and resources to build software using Java programming language.    "
+        ],
+        "CS1435(Python Programming)": [
+            "Define the basic structure of python programming.",
+            "Differentiate imperative, functional and procedural programming features in Python",
+            "Practice features for designing and implementing python program.",
+            "Compose applications using various libraries and concepts of Python.",
+            "Select methods to build and package Python modules for reusability"
+        ]
+    },
+    "Elective Two": {
+        "CS1440(Internet Technology and Society)": [
+            "Describe while identifying the impact of technology and internet on the modern society",
+            "Interpret software freedom principles and free/open-source licensing system",
+            "Identify ethical issues related to surveillance system, digital divide and identify data privacy concerns",
+            "Prioritize privacy concerns by applying free & open-source software solutions",
+            "Recognize the impact of engineering and industrial practices on social contexts."
+        ],
+        "CS 1442(UI UX)": [
+            "Select and utilize design thinking processes and UX/UI tools,",
+            "Differentiate between user interface and user experience design",
+            "Discover how typography and layout enrich the user experience",
+            "Distinguish various tools available for user interface design",
+            "Assess various HCI (human-computer interaction) and the psychology behind user decision-making."
+        ],
+        "CS 1423(ERP)": [
+            "Identify the important business functions provided by typical business software such as enterprise resource planning and customer relationship management.",
+            "Illustrate basic concepts of ERP systems for manufacturing or service companies",
+            "Analyze the technical aspect of telecommunication systems, internet and their roles in business environment.",
+            "Reframe open-ended problem descriptions to feasible solutions",
+            "Illustrate the use of various tools used in ERP for industry "
+        ],
+        "CS1436(Fundamentals of Web Technologies)": [
+            "Identify the various terms and components of HTML, CSS, JavaScript, PHP and Drupal",
+            "Illustrate various components of web development languages",
+            "Connect different modules of open source technologies for website development",
+            "Select appropriate web technology for implementing solution to a given problem",
+            "Construct a web domain using appropriate tools and techniques"
+        ]
+    },
+    "Lab": {
+        "CS1462(DBMS lab)": [
+            "Select appropriate SQL/MongoDB commands and functions for a given query on the database. ",
+            "Infer constraints and relationships between tables from conceptual/logical level schema and convert them into relationship and integrity constraints at the physical level schema.",
+            "Write Oracle PL/SQL Programs for data processing.",
+            "Design nested queries for efficient data processing on the database.",
+            "Test an SQL interface of a multi-user relational DBMS package to create, secure, populate, maintain, and query a database."
+        ],
+        "CS1464(Advanced Programming Lab)": [
+            "Discuss the concept of objects and class.",
+            "Evaluate requirements for given problem and decide the functionalities of programs accordingly.",
+            "Illustrate a diverse set of problem solutions using techniques of Interface, Packages, File Handling, Multi-threading, etc",
+            "Apply the concept java network program to establish connection between client and server.",
+            "Design modern website to fulfill users requirement.."
+        ],
+        "CS1465(Algorithm Lab)": [
+            "Calculate time and space complexities for algorithms using mathematical models",
+            "Calculate time and space complexities for algorithms by performing an empirical measurement",
+            "Select appropriate algorithm design technique to solve a given problem",
+            "Write a computer program to implement any algorithm using a programming language",
+            "Choose the most optimal algorithm by comparing time and space complexities"
+        ]
+    },
+    "Minor Specialization": {
+        "CS1844(Probability and Statistics in Data Analytics)": [
+            "Demonstrate an ability to describe the basic concepts of probability and random variables.",
+            "Demonstrate an ability to discuss and analyze random sampling and statistical inference concepts.",
+            "Demonstrate an ability to calculate and decide the estimation and testing of hypothesis.",
+            "Demonstrate an ability to collect, evaluate and design the model using representation of data and different descriptive statistics.",
+            "Demonstrate an ability to analyze and examine the different regression and variance."
+        ],
+        "CS1841(Signals and Network )": [
+            "Understand mathematical description and representation of continuous and discrete time signal",
+            "Evaluate the signals in frequency domain using Fourier series and Fourier transforms.",
+            "Development of the mathematical skills to solve problems based on the limitations of Fourier transform and need for Laplace transform to analyze the system in s- domai",
+            "Apply fundamental principles of data communication and networking",
+            "Explain the working of waveform coding techniques and analyse their performance."
+        ],
+        "CS1843( Introduction to IOT & Microprocessor)": [
+            "Understanding of impact of information technology solutions on the society",
+            "Understanding the vision of IOT from a global context.",
+            "Understand the application area of IOT.",
+            "Realization of different microprocessor based IOT system.",
+            "Design and development of IOT enabled device and system."
+        ],
+        "CS1842(Introduction to Machine Learning)": [
+            "Apply data analytics techniques and tools to produce knowledge from a given dataset.",
+            "Analyze and apply statistical and probabilistic approach for the development of a model using large dataset.",
+            "Create and evaluate the model using suitable machine learning algorithms.",
+            "Formulate statistical hypothesis testing and inference for the model development.",
+            "Explain the dataset using different data representation tools. "
+        ]
+    }
 }
