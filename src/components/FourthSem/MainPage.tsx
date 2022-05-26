@@ -58,7 +58,7 @@ const MainPage = () => {
       },
     });
     const data = await response.json();
-    
+
     const keys = Object.keys(data);
     keys.unshift("Choose your electives and minor specialization");
     setSteps(keys);
@@ -70,9 +70,11 @@ const MainPage = () => {
     coNumber: number,
     rating: number | null
   ) => {
-    let newField = { subject: subjectName, co: coNumber, rating }
-    const indexOFExisting = coFeedback.findIndex(el => (el.subject === subjectName) && (el.co === coNumber))
-    console.log(indexOFExisting)
+    let newField = { subject: subjectName, co: coNumber, rating };
+    const indexOFExisting = coFeedback.findIndex(
+      (el) => el.subject === subjectName && el.co === coNumber
+    );
+    console.log(indexOFExisting);
     if (indexOFExisting === -1) {
       setCoFeedback([...coFeedback, newField]);
     } else {
@@ -101,7 +103,7 @@ const MainPage = () => {
 
   const handleInnerNext = () => {
     setActiveInnerStep((prevActiveStep) => prevActiveStep + 1);
-    console.log(coFeedback)
+    console.log(coFeedback);
   };
 
   const handleInnerBack = () => {
@@ -343,8 +345,27 @@ const MainPage = () => {
                       </StepContent>
                     </Step>
                     <Step>
-                      <StepLabel>{steps[2]}</StepLabel>
+                      <StepLabel>
+                        {(!!selectedElectiveOne && selectedElectiveOne) ||
+                          "Elective One"}
+                      </StepLabel>
                       <StepContent TransitionProps={{ unmountOnExit: false }}>
+                        <Box>
+                          {!!questions["Elective One"] &&
+                            !!selectedElectiveOne &&
+                            questions["Elective One"][selectedElectiveOne].map(
+                              (element, indexValue) => (
+                                <Questions
+                                  key={element}
+                                  label={element}
+                                  coNumber={indexValue + 1}
+                                  rating={null}
+                                  subjectName={selectedElectiveOne}
+                                  ratingChange={handleRatingChange}
+                                />
+                              )
+                            )}
+                        </Box>
                         <Box sx={{ mb: 2 }}>
                           <div>
                             <Button
@@ -371,8 +392,27 @@ const MainPage = () => {
                       </StepContent>
                     </Step>
                     <Step>
-                      <StepLabel>{steps[3]}</StepLabel>
+                      <StepLabel>
+                        {(!!selectedElectiveTwo && selectedElectiveTwo) ||
+                          steps[3]}
+                      </StepLabel>
                       <StepContent TransitionProps={{ unmountOnExit: false }}>
+                        <Box>
+                          {!!questions["Elective Two"] &&
+                            !!selectedElectiveTwo &&
+                            questions["Elective Two"][selectedElectiveTwo].map(
+                              (element, indexValue) => (
+                                <Questions
+                                  key={element}
+                                  label={element}
+                                  coNumber={indexValue + 1}
+                                  rating={null}
+                                  subjectName={selectedElectiveTwo}
+                                  ratingChange={handleRatingChange}
+                                />
+                              )
+                            )}
+                        </Box>
                         <Box sx={{ mb: 2 }}>
                           <div>
                             <Button
@@ -427,8 +467,28 @@ const MainPage = () => {
                       </StepContent>
                     </Step>
                     <Step>
-                      <StepLabel>{steps[5]}</StepLabel>
+                      <StepLabel>
+                        {(!!selectedMinorSpecialization &&
+                          selectedMinorSpecialization) ||
+                          steps[5]}
+                      </StepLabel>
                       <StepContent TransitionProps={{ unmountOnExit: false }}>
+                        <Box>
+                          {!!questions["Minor Specialization"] &&
+                            !!selectedMinorSpecialization &&
+                            questions["Minor Specialization"][selectedMinorSpecialization].map(
+                              (element, indexValue) => (
+                                <Questions
+                                  key={element}
+                                  label={element}
+                                  coNumber={indexValue + 1}
+                                  rating={null}
+                                  subjectName={selectedMinorSpecialization}
+                                  ratingChange={handleRatingChange}
+                                />
+                              )
+                            )}
+                        </Box>
                         <Box sx={{ mb: 2 }}>
                           <div>
                             <Button
