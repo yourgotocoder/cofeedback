@@ -28,7 +28,7 @@ function getLabelText(value: number) {
 }
 
 const BasicRating = (props: Props) => {
-  const [value, setValue] = React.useState<number | null>(props.rating);
+  const [value, setValue] = React.useState<number | null>(null);
   const [hover, setHover] = React.useState(-1);
 
   return (
@@ -37,6 +37,7 @@ const BasicRating = (props: Props) => {
         width: 200,
         display: "flex",
         alignItems: "center",
+        flexDirection: "column"
       }}
     >
       <Rating
@@ -45,7 +46,7 @@ const BasicRating = (props: Props) => {
         precision={1}
         getLabelText={getLabelText}
         onChange={(event, newValue) => {
-          props.ratingChange(props.subjectName, props.coNumber, newValue)
+          setValue(newValue)
         }}
         onChangeActive={(event, newHover) => {
           setHover(newHover);
@@ -53,7 +54,14 @@ const BasicRating = (props: Props) => {
         emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
       />
       {value !== null && (
-        <Box sx={{ ml: 2 }}>{labels[hover !== -1 ? hover : value]}</Box>
+         <Box sx={{ ml: 2 }}>{labels[hover !== -1 ? hover : value]}</Box>
+         
+      )}
+      { value === null && (
+         <Box sx={{ ml: 2 }}>
+           <Typography sx={{color: "red"}}>Please provide a rating</Typography>
+         </Box>
+      
       )}
     </Box>
   );
