@@ -12,6 +12,7 @@ import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import SelectSubjects from "./SelectSubjects";
 import Questions from "../Questions";
+import Loading from "../Loading";
 
 type SubjectQuestions = {
     [key: string]: string[];
@@ -971,7 +972,7 @@ const MainPage = () => {
                         )}
                     {!!questions["Elective One"] &&
                         Object.keys(questions["Elective One"]).length === 0 && (
-                            <p>Loading</p>
+                            <Loading></Loading>
                         )}
                 </CardContent>
             </Card>
