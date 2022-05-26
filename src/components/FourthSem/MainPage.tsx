@@ -78,7 +78,6 @@ const MainPage = () => {
         const indexOFExisting = coFeedback.findIndex(
             (el) => el.subject === subjectName && el.co === coNumber
         );
-        console.log(subjectName, coNumber, rating);
         if (indexOFExisting === -1) {
             if (rating !== null) {
                 setCoFeedback([...coFeedback, newField]);
@@ -100,11 +99,6 @@ const MainPage = () => {
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
-        console.log(
-            selectedElectiveOne,
-            selectedElectiveTwo,
-            selectedMinorSpecialization
-        );
     };
 
     const handleBack = () => {
@@ -115,7 +109,6 @@ const MainPage = () => {
 
     const handleInnerNext = () => {
         setActiveInnerStep((prevActiveStep) => prevActiveStep + 1);
-        console.log(coFeedback);
     };
 
     const handleInnerBack = () => {
