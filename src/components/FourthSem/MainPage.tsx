@@ -110,6 +110,16 @@ const MainPage = () => {
     setActiveInnerStep((prevActiveStep) => prevActiveStep - 1);
   };
 
+  const [activeLabStep, setLabInnerStep] = React.useState(0);
+
+  const handleLabNext = () => {
+    setLabInnerStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleLabBack = () => {
+    setLabInnerStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
   const handleReset = () => {
     setActiveStep(0);
   };
@@ -441,28 +451,96 @@ const MainPage = () => {
                     <Step>
                       <StepLabel>{steps[4]}</StepLabel>
                       <StepContent TransitionProps={{ unmountOnExit: false }}>
-                        <Box sx={{ mb: 2 }}>
-                          <div>
-                            <Button
-                              variant="contained"
-                              onClick={handleNext}
-                              sx={{
-                                mt: 1,
-                                mr: 1,
-                              }}
-                            >
-                              Continue
-                            </Button>
-                            <Button
-                              onClick={handleBack}
-                              sx={{
-                                mt: 1,
-                                mr: 1,
-                              }}
-                            >
-                              Back
-                            </Button>
-                          </div>
+                        <Box>
+                          <Stepper
+                            activeStep={activeLabStep}
+                            orientation="vertical"
+                          >
+                            {!!questions["Lab"] &&
+                              Object.keys(questions["Lab"]).map(
+                                (keyValue) => (
+                                  <Step key={keyValue}>
+                                    <StepLabel>{keyValue}</StepLabel>
+                                    <StepContent
+                                      TransitionProps={{ unmountOnExit: false }}
+                                    >
+                                      {!!questions["Lab"] &&
+                                        questions["Lab"][
+                                          keyValue
+                                        ].map((question, indexValue) => (
+                                          <Questions
+                                            label={question}
+                                            key={question}
+                                            ratingChange={handleRatingChange}
+                                            coNumber={indexValue + 1}
+                                            rating={null}
+                                            subjectName={keyValue}
+                                          />
+                                        ))}
+                                      {activeLabStep ===
+                                      (!!questions["Lab"] &&
+                                        Object.keys(questions["Lab"])
+                                          .length - 1) ? (
+                                        <Box>
+                                          <>
+                                            <Button
+                                              onClick={handleNext}
+                                              variant="contained"
+                                              sx={{ mt: 1, mr: 1 }}
+                                            >
+                                              Next
+                                            </Button>
+
+                                            <Button
+                                              onClick={handleLabBack}
+                                              sx={{ mt: 1, mr: 1 }}
+                                              variant="outlined"
+                                            >
+                                              Back
+                                            </Button>
+                                          </>
+                                        </Box>
+                                      ) : (
+                                        <Box
+                                          sx={{
+                                            mb: 2,
+                                          }}
+                                        >
+                                          <div>
+                                            <Button
+                                              variant="contained"
+                                              onClick={handleLabNext}
+                                              sx={{
+                                                mt: 1,
+                                                mr: 1,
+                                              }}
+                                            >
+                                              Continue
+                                            </Button>
+                                            {activeLabStep === 0 ? (
+                                              <Button
+                                                onClick={handleBack}
+                                                sx={{ mt: 1, mr: 1 }}
+                                              >
+                                                Back
+                                              </Button>
+                                            ) : (
+                                              <Button
+                                                onClick={handleLabBack}
+                                                sx={{ mt: 1, mr: 1 }}
+                                                variant="outlined"
+                                              >
+                                                Back
+                                              </Button>
+                                            )}
+                                          </div>
+                                        </Box>
+                                      )}
+                                    </StepContent>
+                                  </Step>
+                                )
+                              )}
+                          </Stepper>
                         </Box>
                       </StepContent>
                     </Step>
@@ -476,18 +554,18 @@ const MainPage = () => {
                         <Box>
                           {!!questions["Minor Specialization"] &&
                             !!selectedMinorSpecialization &&
-                            questions["Minor Specialization"][selectedMinorSpecialization].map(
-                              (element, indexValue) => (
-                                <Questions
-                                  key={element}
-                                  label={element}
-                                  coNumber={indexValue + 1}
-                                  rating={null}
-                                  subjectName={selectedMinorSpecialization}
-                                  ratingChange={handleRatingChange}
-                                />
-                              )
-                            )}
+                            questions["Minor Specialization"][
+                              selectedMinorSpecialization
+                            ].map((element, indexValue) => (
+                              <Questions
+                                key={element}
+                                label={element}
+                                coNumber={indexValue + 1}
+                                rating={null}
+                                subjectName={selectedMinorSpecialization}
+                                ratingChange={handleRatingChange}
+                              />
+                            ))}
                         </Box>
                         <Box sx={{ mb: 2 }}>
                           <div>
