@@ -13,17 +13,11 @@ import Stack from "@mui/material/Stack";
 import SelectSubjects from "./SelectSubjects";
 import Questions from "../Questions";
 import Loading from "../Loading";
+import Alert from "@mui/material/Alert";
+import AnimatedText from "../AnimatedText";
 
 type SubjectQuestions = {
     [key: string]: string[];
-};
-
-type Rating = {
-    CO1: number;
-    CO2: number;
-    CO3: number;
-    CO4: number;
-    CO5: number;
 };
 
 interface FeedbackQuestions {
@@ -42,6 +36,10 @@ const MainPage = () => {
         "Main Subjects": {},
         Lab: {},
     });
+
+    const [initialLoading, setInitialLoading] = useState(true);
+    const [submitting, setSubmitting] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
 
     const [steps, setSteps] = useState<string[]>([""]);
     const [selectedElectiveOne, setSelectedElectiveOne] = useState<string>();
@@ -64,6 +62,7 @@ const MainPage = () => {
         keys.unshift("Choose your electives and minor specialization");
         setSteps(keys);
         setQuestions(data);
+        setInitialLoading(false);
     };
 
     const handleRatingChange = (
@@ -144,7 +143,7 @@ const MainPage = () => {
     };
 
     const handleSubmit = async () => {
-        console.log(coFeedback);
+        setSubmitting(true);
         const response = await fetch(`${process.env.REACT_APP_API_ROUTE}`, {
             method: "POST",
             body: JSON.stringify(coFeedback),
@@ -153,325 +152,281 @@ const MainPage = () => {
             },
         });
         const data = await response.json();
-        console.log(data);
+        if (response.ok) {
+            setSubmitted(true);
+        }
     };
 
-    return (
-        <Box
-            sx={{
-                minWidth: "100vw",
-                minHeight: "100vh",
-                paddingTop: "2rem",
-            }}
-        >
-            <Card sx={{ minWidth: "60vw", maxWidth: "95vw", margin: "auto" }}>
-                <CardContent>
-                    {!!questions["Elective One"] &&
-                        Object.keys(questions["Elective One"]).length > 1 && (
-                            <div>
-                                <Typography
-                                    sx={{ fontSize: 14, textAlign: "center" }}
-                                    color="text.primary"
-                                    gutterBottom
-                                >
-                                    Please provide your valuable feedback
-                                </Typography>
-                                <Box
-                                    sx={{
-                                        maxWidth: "100%",
-                                        minWidth: "60%",
-                                        display: "flex",
-                                        justifyContent: "center",
-                                        alignItems: "center",
-                                        flexDirection: "column",
-                                    }}
-                                >
-                                    <Stepper
-                                        activeStep={activeStep}
-                                        orientation="vertical"
+    let content;
+
+    if (initialLoading) {
+        content = <Loading />;
+    }
+
+    if (!initialLoading) {
+        content = (
+            <Box
+                sx={{
+                    minWidth: "100vw",
+                    minHeight: "100vh",
+                    paddingTop: "2rem",
+                }}
+            >
+                <Card
+                    sx={{ minWidth: "60vw", maxWidth: "95vw", margin: "auto" }}
+                >
+                    <CardContent>
+                        {!!questions["Elective One"] &&
+                            Object.keys(questions["Elective One"]).length >
+                                1 && (
+                                <div>
+                                    <Typography
+                                        sx={{
+                                            fontSize: 14,
+                                            textAlign: "center",
+                                        }}
+                                        color="text.primary"
+                                        gutterBottom
                                     >
-                                        <Step>
-                                            <StepLabel>
-                                                {steps && steps[0]}
-                                            </StepLabel>
-                                            <StepContent
-                                                TransitionProps={{
-                                                    unmountOnExit: false,
-                                                }}
-                                                sx={{
-                                                    marginTop: "1rem",
-                                                }}
-                                            >
-                                                <Stack spacing={1}>
-                                                    <Box>
-                                                        {!!questions[
-                                                            "Elective One"
-                                                        ] && (
-                                                            <SelectSubjects
-                                                                label="Elective One"
-                                                                subjectObject={
-                                                                    questions[
-                                                                        "Elective One"
-                                                                    ]
+                                        Please provide your valuable feedback
+                                    </Typography>
+                                    <Box
+                                        sx={{
+                                            maxWidth: "100%",
+                                            minWidth: "60%",
+                                            display: "flex",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                            flexDirection: "column",
+                                        }}
+                                    >
+                                        <Stepper
+                                            activeStep={activeStep}
+                                            orientation="vertical"
+                                        >
+                                            <Step>
+                                                <StepLabel>
+                                                    {steps && steps[0]}
+                                                </StepLabel>
+                                                <StepContent
+                                                    TransitionProps={{
+                                                        unmountOnExit: false,
+                                                    }}
+                                                    sx={{
+                                                        marginTop: "1rem",
+                                                    }}
+                                                >
+                                                    <Stack spacing={1}>
+                                                        <Box>
+                                                            {!!questions[
+                                                                "Elective One"
+                                                            ] && (
+                                                                <SelectSubjects
+                                                                    label="Elective One"
+                                                                    subjectObject={
+                                                                        questions[
+                                                                            "Elective One"
+                                                                        ]
+                                                                    }
+                                                                    handleElectiveChange={
+                                                                        handleElectiveOneChange
+                                                                    }
+                                                                />
+                                                            )}
+                                                        </Box>
+                                                        <Box>
+                                                            {!!questions[
+                                                                "Elective Two"
+                                                            ] && (
+                                                                <SelectSubjects
+                                                                    label="Elective Two"
+                                                                    subjectObject={
+                                                                        questions[
+                                                                            "Elective Two"
+                                                                        ]
+                                                                    }
+                                                                    handleElectiveChange={
+                                                                        handleElectiveTwoChange
+                                                                    }
+                                                                />
+                                                            )}
+                                                        </Box>
+                                                        <Box>
+                                                            {!!questions[
+                                                                "Minor Specialization"
+                                                            ] && (
+                                                                <SelectSubjects
+                                                                    label="Minor Specialization"
+                                                                    subjectObject={
+                                                                        questions[
+                                                                            "Minor Specialization"
+                                                                        ]
+                                                                    }
+                                                                    handleElectiveChange={
+                                                                        handleMinorChange
+                                                                    }
+                                                                />
+                                                            )}
+                                                        </Box>
+                                                    </Stack>
+                                                    <Box sx={{ mb: 2 }}>
+                                                        <div>
+                                                            <Button
+                                                                disabled={
+                                                                    !selectedElectiveOne ||
+                                                                    !selectedElectiveTwo ||
+                                                                    !selectedMinorSpecialization
                                                                 }
-                                                                handleElectiveChange={
-                                                                    handleElectiveOneChange
+                                                                variant="contained"
+                                                                onClick={
+                                                                    handleNext
                                                                 }
-                                                            />
-                                                        )}
+                                                                sx={{
+                                                                    mt: 1,
+                                                                    mr: 1,
+                                                                }}
+                                                            >
+                                                                Continue
+                                                            </Button>
+                                                            <Button
+                                                                disabled={true}
+                                                                onClick={
+                                                                    handleBack
+                                                                }
+                                                                sx={{
+                                                                    mt: 1,
+                                                                    mr: 1,
+                                                                }}
+                                                            >
+                                                                Back
+                                                            </Button>
+                                                        </div>
                                                     </Box>
+                                                </StepContent>
+                                            </Step>
+                                            <Step>
+                                                <StepLabel>
+                                                    {steps[1]}
+                                                </StepLabel>
+                                                <StepContent
+                                                    TransitionProps={{
+                                                        unmountOnExit: false,
+                                                    }}
+                                                >
                                                     <Box>
-                                                        {!!questions[
-                                                            "Elective Two"
-                                                        ] && (
-                                                            <SelectSubjects
-                                                                label="Elective Two"
-                                                                subjectObject={
-                                                                    questions[
-                                                                        "Elective Two"
-                                                                    ]
-                                                                }
-                                                                handleElectiveChange={
-                                                                    handleElectiveTwoChange
-                                                                }
-                                                            />
-                                                        )}
-                                                    </Box>
-                                                    <Box>
-                                                        {!!questions[
-                                                            "Minor Specialization"
-                                                        ] && (
-                                                            <SelectSubjects
-                                                                label="Minor Specialization"
-                                                                subjectObject={
-                                                                    questions[
-                                                                        "Minor Specialization"
-                                                                    ]
-                                                                }
-                                                                handleElectiveChange={
-                                                                    handleMinorChange
-                                                                }
-                                                            />
-                                                        )}
-                                                    </Box>
-                                                </Stack>
-                                                <Box sx={{ mb: 2 }}>
-                                                    <div>
-                                                        <Button
-                                                            disabled={
-                                                                !selectedElectiveOne ||
-                                                                !selectedElectiveTwo ||
-                                                                !selectedMinorSpecialization
+                                                        <Stepper
+                                                            activeStep={
+                                                                activeInnerStep
                                                             }
-                                                            variant="contained"
-                                                            onClick={handleNext}
-                                                            sx={{
-                                                                mt: 1,
-                                                                mr: 1,
-                                                            }}
+                                                            orientation="vertical"
                                                         >
-                                                            Continue
-                                                        </Button>
-                                                        <Button
-                                                            disabled={true}
-                                                            onClick={handleBack}
-                                                            sx={{
-                                                                mt: 1,
-                                                                mr: 1,
-                                                            }}
-                                                        >
-                                                            Back
-                                                        </Button>
-                                                    </div>
-                                                </Box>
-                                            </StepContent>
-                                        </Step>
-                                        <Step>
-                                            <StepLabel>{steps[1]}</StepLabel>
-                                            <StepContent
-                                                TransitionProps={{
-                                                    unmountOnExit: false,
-                                                }}
-                                            >
-                                                <Box>
-                                                    <Stepper
-                                                        activeStep={
-                                                            activeInnerStep
-                                                        }
-                                                        orientation="vertical"
-                                                    >
-                                                        {!!questions[
-                                                            "Main Subjects"
-                                                        ] &&
-                                                            Object.keys(
-                                                                questions[
-                                                                    "Main Subjects"
-                                                                ]
-                                                            ).map(
-                                                                (
-                                                                    keyValue,
-                                                                    indexOfStep
-                                                                ) => (
-                                                                    <Step
-                                                                        key={
-                                                                            keyValue
-                                                                        }
-                                                                    >
-                                                                        <StepLabel>
-                                                                            {
+                                                            {!!questions[
+                                                                "Main Subjects"
+                                                            ] &&
+                                                                Object.keys(
+                                                                    questions[
+                                                                        "Main Subjects"
+                                                                    ]
+                                                                ).map(
+                                                                    (
+                                                                        keyValue,
+                                                                        indexOfStep
+                                                                    ) => (
+                                                                        <Step
+                                                                            key={
                                                                                 keyValue
                                                                             }
-                                                                        </StepLabel>
-                                                                        <StepContent
-                                                                            TransitionProps={{
-                                                                                unmountOnExit:
-                                                                                    false,
-                                                                            }}
                                                                         >
-                                                                            {!!questions[
-                                                                                "Main Subjects"
-                                                                            ] &&
-                                                                                questions[
-                                                                                    "Main Subjects"
-                                                                                ][
+                                                                            <StepLabel>
+                                                                                {
                                                                                     keyValue
-                                                                                ].map(
-                                                                                    (
-                                                                                        question,
-                                                                                        indexValue
-                                                                                    ) => (
-                                                                                        <Questions
-                                                                                            label={
-                                                                                                question
-                                                                                            }
-                                                                                            key={
-                                                                                                question
-                                                                                            }
-                                                                                            ratingChange={
-                                                                                                handleRatingChange
-                                                                                            }
-                                                                                            coNumber={
-                                                                                                indexValue +
-                                                                                                1
-                                                                                            }
-                                                                                            rating={
-                                                                                                null
-                                                                                            }
-                                                                                            subjectName={
-                                                                                                keyValue
-                                                                                            }
-                                                                                        />
-                                                                                    )
-                                                                                )}
-                                                                            {activeInnerStep ===
-                                                                            (!!questions[
-                                                                                "Main Subjects"
-                                                                            ] &&
-                                                                                Object.keys(
+                                                                                }
+                                                                            </StepLabel>
+                                                                            <StepContent
+                                                                                TransitionProps={{
+                                                                                    unmountOnExit:
+                                                                                        false,
+                                                                                }}
+                                                                            >
+                                                                                {!!questions[
+                                                                                    "Main Subjects"
+                                                                                ] &&
                                                                                     questions[
                                                                                         "Main Subjects"
-                                                                                    ]
-                                                                                )
-                                                                                    .length -
-                                                                                    1) ? (
-                                                                                <Box>
-                                                                                    <>
-                                                                                        <Button
-                                                                                            onClick={
-                                                                                                handleNext
-                                                                                            }
-                                                                                            variant="contained"
-                                                                                            sx={{
-                                                                                                mt: 1,
-                                                                                                mr: 1,
-                                                                                            }}
-                                                                                            disabled={
-                                                                                                (indexOfStep ===
-                                                                                                    0 &&
-                                                                                                    coFeedback.length <
-                                                                                                        5) ||
-                                                                                                (indexOfStep ===
-                                                                                                    1 &&
-                                                                                                    coFeedback.length <
-                                                                                                        10) ||
-                                                                                                (indexOfStep ===
-                                                                                                    2 &&
-                                                                                                    coFeedback.length <
-                                                                                                        15) ||
-                                                                                                (indexOfStep ===
-                                                                                                    3 &&
-                                                                                                    coFeedback.length <
-                                                                                                        20)
-                                                                                            }
-                                                                                        >
-                                                                                            Next
-                                                                                        </Button>
-
-                                                                                        <Button
-                                                                                            onClick={
-                                                                                                handleInnerBack
-                                                                                            }
-                                                                                            sx={{
-                                                                                                mt: 1,
-                                                                                                mr: 1,
-                                                                                            }}
-                                                                                            variant="outlined"
-                                                                                        >
-                                                                                            Back
-                                                                                        </Button>
-                                                                                    </>
-                                                                                </Box>
-                                                                            ) : (
-                                                                                <Box
-                                                                                    sx={{
-                                                                                        mb: 2,
-                                                                                    }}
-                                                                                >
-                                                                                    <div>
-                                                                                        <Button
-                                                                                            variant="contained"
-                                                                                            onClick={
-                                                                                                handleInnerNext
-                                                                                            }
-                                                                                            sx={{
-                                                                                                mt: 1,
-                                                                                                mr: 1,
-                                                                                            }}
-                                                                                            disabled={
-                                                                                                (indexOfStep ===
-                                                                                                    0 &&
-                                                                                                    coFeedback.length <
-                                                                                                        5) ||
-                                                                                                (indexOfStep ===
-                                                                                                    1 &&
-                                                                                                    coFeedback.length <
-                                                                                                        10) ||
-                                                                                                (indexOfStep ===
-                                                                                                    2 &&
-                                                                                                    coFeedback.length <
-                                                                                                        15) ||
-                                                                                                (indexOfStep ===
-                                                                                                    3 &&
-                                                                                                    coFeedback.length <
-                                                                                                        20)
-                                                                                            }
-                                                                                        >
-                                                                                            Continue
-                                                                                        </Button>
-                                                                                        {activeInnerStep ===
-                                                                                        0 ? (
+                                                                                    ][
+                                                                                        keyValue
+                                                                                    ].map(
+                                                                                        (
+                                                                                            question,
+                                                                                            indexValue
+                                                                                        ) => (
+                                                                                            <Questions
+                                                                                                label={
+                                                                                                    question
+                                                                                                }
+                                                                                                key={
+                                                                                                    question
+                                                                                                }
+                                                                                                ratingChange={
+                                                                                                    handleRatingChange
+                                                                                                }
+                                                                                                coNumber={
+                                                                                                    indexValue +
+                                                                                                    1
+                                                                                                }
+                                                                                                rating={
+                                                                                                    null
+                                                                                                }
+                                                                                                subjectName={
+                                                                                                    keyValue
+                                                                                                }
+                                                                                            />
+                                                                                        )
+                                                                                    )}
+                                                                                {activeInnerStep ===
+                                                                                (!!questions[
+                                                                                    "Main Subjects"
+                                                                                ] &&
+                                                                                    Object.keys(
+                                                                                        questions[
+                                                                                            "Main Subjects"
+                                                                                        ]
+                                                                                    )
+                                                                                        .length -
+                                                                                        1) ? (
+                                                                                    <Box>
+                                                                                        <>
                                                                                             <Button
                                                                                                 onClick={
-                                                                                                    handleBack
+                                                                                                    handleNext
                                                                                                 }
+                                                                                                variant="contained"
                                                                                                 sx={{
                                                                                                     mt: 1,
                                                                                                     mr: 1,
                                                                                                 }}
+                                                                                                disabled={
+                                                                                                    (indexOfStep ===
+                                                                                                        0 &&
+                                                                                                        coFeedback.length <
+                                                                                                            5) ||
+                                                                                                    (indexOfStep ===
+                                                                                                        1 &&
+                                                                                                        coFeedback.length <
+                                                                                                            10) ||
+                                                                                                    (indexOfStep ===
+                                                                                                        2 &&
+                                                                                                        coFeedback.length <
+                                                                                                            15) ||
+                                                                                                    (indexOfStep ===
+                                                                                                        3 &&
+                                                                                                        coFeedback.length <
+                                                                                                            20)
+                                                                                                }
                                                                                             >
-                                                                                                Back
+                                                                                                Next
                                                                                             </Button>
-                                                                                        ) : (
+
                                                                                             <Button
                                                                                                 onClick={
                                                                                                     handleInnerBack
@@ -484,361 +439,381 @@ const MainPage = () => {
                                                                                             >
                                                                                                 Back
                                                                                             </Button>
-                                                                                        )}
-                                                                                    </div>
-                                                                                </Box>
-                                                                            )}
-                                                                        </StepContent>
-                                                                    </Step>
+                                                                                        </>
+                                                                                    </Box>
+                                                                                ) : (
+                                                                                    <Box
+                                                                                        sx={{
+                                                                                            mb: 2,
+                                                                                        }}
+                                                                                    >
+                                                                                        <div>
+                                                                                            <Button
+                                                                                                variant="contained"
+                                                                                                onClick={
+                                                                                                    handleInnerNext
+                                                                                                }
+                                                                                                sx={{
+                                                                                                    mt: 1,
+                                                                                                    mr: 1,
+                                                                                                }}
+                                                                                                disabled={
+                                                                                                    (indexOfStep ===
+                                                                                                        0 &&
+                                                                                                        coFeedback.length <
+                                                                                                            5) ||
+                                                                                                    (indexOfStep ===
+                                                                                                        1 &&
+                                                                                                        coFeedback.length <
+                                                                                                            10) ||
+                                                                                                    (indexOfStep ===
+                                                                                                        2 &&
+                                                                                                        coFeedback.length <
+                                                                                                            15) ||
+                                                                                                    (indexOfStep ===
+                                                                                                        3 &&
+                                                                                                        coFeedback.length <
+                                                                                                            20)
+                                                                                                }
+                                                                                            >
+                                                                                                Continue
+                                                                                            </Button>
+                                                                                            {activeInnerStep ===
+                                                                                            0 ? (
+                                                                                                <Button
+                                                                                                    onClick={
+                                                                                                        handleBack
+                                                                                                    }
+                                                                                                    sx={{
+                                                                                                        mt: 1,
+                                                                                                        mr: 1,
+                                                                                                    }}
+                                                                                                >
+                                                                                                    Back
+                                                                                                </Button>
+                                                                                            ) : (
+                                                                                                <Button
+                                                                                                    onClick={
+                                                                                                        handleInnerBack
+                                                                                                    }
+                                                                                                    sx={{
+                                                                                                        mt: 1,
+                                                                                                        mr: 1,
+                                                                                                    }}
+                                                                                                    variant="outlined"
+                                                                                                >
+                                                                                                    Back
+                                                                                                </Button>
+                                                                                            )}
+                                                                                        </div>
+                                                                                    </Box>
+                                                                                )}
+                                                                            </StepContent>
+                                                                        </Step>
+                                                                    )
+                                                                )}
+                                                        </Stepper>
+                                                    </Box>
+                                                    <Box sx={{ mb: 2 }}>
+                                                        <div>
+                                                            <Button
+                                                                onClick={
+                                                                    handleBack
+                                                                }
+                                                                sx={{
+                                                                    mt: 1,
+                                                                    mr: 1,
+                                                                }}
+                                                            >
+                                                                Back
+                                                            </Button>
+                                                        </div>
+                                                    </Box>
+                                                </StepContent>
+                                            </Step>
+                                            <Step>
+                                                <StepLabel>
+                                                    {(!!selectedElectiveOne &&
+                                                        selectedElectiveOne) ||
+                                                        "Elective One"}
+                                                </StepLabel>
+                                                <StepContent
+                                                    TransitionProps={{
+                                                        unmountOnExit: false,
+                                                    }}
+                                                >
+                                                    <Box>
+                                                        {!!questions[
+                                                            "Elective One"
+                                                        ] &&
+                                                            !!selectedElectiveOne &&
+                                                            questions[
+                                                                "Elective One"
+                                                            ][
+                                                                selectedElectiveOne
+                                                            ].map(
+                                                                (
+                                                                    element,
+                                                                    indexValue
+                                                                ) => (
+                                                                    <Questions
+                                                                        key={
+                                                                            element
+                                                                        }
+                                                                        label={
+                                                                            element
+                                                                        }
+                                                                        coNumber={
+                                                                            indexValue +
+                                                                            1
+                                                                        }
+                                                                        rating={
+                                                                            null
+                                                                        }
+                                                                        subjectName={
+                                                                            selectedElectiveOne
+                                                                        }
+                                                                        ratingChange={
+                                                                            handleRatingChange
+                                                                        }
+                                                                    />
                                                                 )
                                                             )}
-                                                    </Stepper>
-                                                </Box>
-                                                <Box sx={{ mb: 2 }}>
-                                                    <div>
-                                                        <Button
-                                                            onClick={handleBack}
-                                                            sx={{
-                                                                mt: 1,
-                                                                mr: 1,
-                                                            }}
-                                                        >
-                                                            Back
-                                                        </Button>
-                                                    </div>
-                                                </Box>
-                                            </StepContent>
-                                        </Step>
-                                        <Step>
-                                            <StepLabel>
-                                                {(!!selectedElectiveOne &&
-                                                    selectedElectiveOne) ||
-                                                    "Elective One"}
-                                            </StepLabel>
-                                            <StepContent
-                                                TransitionProps={{
-                                                    unmountOnExit: false,
-                                                }}
-                                            >
-                                                <Box>
-                                                    {!!questions[
-                                                        "Elective One"
-                                                    ] &&
-                                                        !!selectedElectiveOne &&
-                                                        questions[
-                                                            "Elective One"
-                                                        ][
-                                                            selectedElectiveOne
-                                                        ].map(
-                                                            (
-                                                                element,
-                                                                indexValue
-                                                            ) => (
-                                                                <Questions
-                                                                    key={
-                                                                        element
-                                                                    }
-                                                                    label={
-                                                                        element
-                                                                    }
-                                                                    coNumber={
-                                                                        indexValue +
-                                                                        1
-                                                                    }
-                                                                    rating={
-                                                                        null
-                                                                    }
-                                                                    subjectName={
-                                                                        selectedElectiveOne
-                                                                    }
-                                                                    ratingChange={
-                                                                        handleRatingChange
-                                                                    }
-                                                                />
-                                                            )
-                                                        )}
-                                                </Box>
-                                                <Box sx={{ mb: 2 }}>
-                                                    <div>
-                                                        <Button
-                                                            variant="contained"
-                                                            onClick={handleNext}
-                                                            sx={{
-                                                                mt: 1,
-                                                                mr: 1,
-                                                            }}
-                                                            disabled={
-                                                                coFeedback.length <
-                                                                25
-                                                            }
-                                                        >
-                                                            Continue
-                                                        </Button>
-                                                        <Button
-                                                            onClick={handleBack}
-                                                            sx={{
-                                                                mt: 1,
-                                                                mr: 1,
-                                                            }}
-                                                        >
-                                                            Back
-                                                        </Button>
-                                                    </div>
-                                                </Box>
-                                            </StepContent>
-                                        </Step>
-                                        <Step>
-                                            <StepLabel>
-                                                {(!!selectedElectiveTwo &&
-                                                    selectedElectiveTwo) ||
-                                                    steps[3]}
-                                            </StepLabel>
-                                            <StepContent
-                                                TransitionProps={{
-                                                    unmountOnExit: false,
-                                                }}
-                                            >
-                                                <Box>
-                                                    {!!questions[
-                                                        "Elective Two"
-                                                    ] &&
-                                                        !!selectedElectiveTwo &&
-                                                        questions[
+                                                    </Box>
+                                                    <Box sx={{ mb: 2 }}>
+                                                        <div>
+                                                            <Button
+                                                                variant="contained"
+                                                                onClick={
+                                                                    handleNext
+                                                                }
+                                                                sx={{
+                                                                    mt: 1,
+                                                                    mr: 1,
+                                                                }}
+                                                                disabled={
+                                                                    coFeedback.length <
+                                                                    25
+                                                                }
+                                                            >
+                                                                Continue
+                                                            </Button>
+                                                            <Button
+                                                                onClick={
+                                                                    handleBack
+                                                                }
+                                                                sx={{
+                                                                    mt: 1,
+                                                                    mr: 1,
+                                                                }}
+                                                            >
+                                                                Back
+                                                            </Button>
+                                                        </div>
+                                                    </Box>
+                                                </StepContent>
+                                            </Step>
+                                            <Step>
+                                                <StepLabel>
+                                                    {(!!selectedElectiveTwo &&
+                                                        selectedElectiveTwo) ||
+                                                        steps[3]}
+                                                </StepLabel>
+                                                <StepContent
+                                                    TransitionProps={{
+                                                        unmountOnExit: false,
+                                                    }}
+                                                >
+                                                    <Box>
+                                                        {!!questions[
                                                             "Elective Two"
-                                                        ][
-                                                            selectedElectiveTwo
-                                                        ].map(
-                                                            (
-                                                                element,
-                                                                indexValue
-                                                            ) => (
-                                                                <Questions
-                                                                    key={
-                                                                        element
-                                                                    }
-                                                                    label={
-                                                                        element
-                                                                    }
-                                                                    coNumber={
-                                                                        indexValue +
-                                                                        1
-                                                                    }
-                                                                    rating={
-                                                                        null
-                                                                    }
-                                                                    subjectName={
-                                                                        selectedElectiveTwo
-                                                                    }
-                                                                    ratingChange={
-                                                                        handleRatingChange
-                                                                    }
-                                                                />
-                                                            )
-                                                        )}
-                                                </Box>
-                                                <Box sx={{ mb: 2 }}>
-                                                    <div>
-                                                        <Button
-                                                            variant="contained"
-                                                            onClick={handleNext}
-                                                            disabled={
-                                                                coFeedback.length <
-                                                                30
-                                                            }
-                                                            sx={{
-                                                                mt: 1,
-                                                                mr: 1,
-                                                            }}
-                                                        >
-                                                            Continue
-                                                        </Button>
-                                                        <Button
-                                                            onClick={handleBack}
-                                                            sx={{
-                                                                mt: 1,
-                                                                mr: 1,
-                                                            }}
-                                                        >
-                                                            Back
-                                                        </Button>
-                                                    </div>
-                                                </Box>
-                                            </StepContent>
-                                        </Step>
-                                        <Step>
-                                            <StepLabel>{steps[4]}</StepLabel>
-                                            <StepContent
-                                                TransitionProps={{
-                                                    unmountOnExit: false,
-                                                }}
-                                            >
-                                                <Box>
-                                                    <Stepper
-                                                        activeStep={
-                                                            activeLabStep
-                                                        }
-                                                        orientation="vertical"
-                                                    >
-                                                        {!!questions["Lab"] &&
-                                                            Object.keys(
-                                                                questions["Lab"]
-                                                            ).map(
+                                                        ] &&
+                                                            !!selectedElectiveTwo &&
+                                                            questions[
+                                                                "Elective Two"
+                                                            ][
+                                                                selectedElectiveTwo
+                                                            ].map(
                                                                 (
-                                                                    keyValue,
-                                                                    indexOfStep
+                                                                    element,
+                                                                    indexValue
                                                                 ) => (
-                                                                    <Step
+                                                                    <Questions
                                                                         key={
-                                                                            keyValue
+                                                                            element
                                                                         }
-                                                                    >
-                                                                        <StepLabel>
-                                                                            {
+                                                                        label={
+                                                                            element
+                                                                        }
+                                                                        coNumber={
+                                                                            indexValue +
+                                                                            1
+                                                                        }
+                                                                        rating={
+                                                                            null
+                                                                        }
+                                                                        subjectName={
+                                                                            selectedElectiveTwo
+                                                                        }
+                                                                        ratingChange={
+                                                                            handleRatingChange
+                                                                        }
+                                                                    />
+                                                                )
+                                                            )}
+                                                    </Box>
+                                                    <Box sx={{ mb: 2 }}>
+                                                        <div>
+                                                            <Button
+                                                                variant="contained"
+                                                                onClick={
+                                                                    handleNext
+                                                                }
+                                                                disabled={
+                                                                    coFeedback.length <
+                                                                    30
+                                                                }
+                                                                sx={{
+                                                                    mt: 1,
+                                                                    mr: 1,
+                                                                }}
+                                                            >
+                                                                Continue
+                                                            </Button>
+                                                            <Button
+                                                                onClick={
+                                                                    handleBack
+                                                                }
+                                                                sx={{
+                                                                    mt: 1,
+                                                                    mr: 1,
+                                                                }}
+                                                            >
+                                                                Back
+                                                            </Button>
+                                                        </div>
+                                                    </Box>
+                                                </StepContent>
+                                            </Step>
+                                            <Step>
+                                                <StepLabel>
+                                                    {steps[4]}
+                                                </StepLabel>
+                                                <StepContent
+                                                    TransitionProps={{
+                                                        unmountOnExit: false,
+                                                    }}
+                                                >
+                                                    <Box>
+                                                        <Stepper
+                                                            activeStep={
+                                                                activeLabStep
+                                                            }
+                                                            orientation="vertical"
+                                                        >
+                                                            {!!questions[
+                                                                "Lab"
+                                                            ] &&
+                                                                Object.keys(
+                                                                    questions[
+                                                                        "Lab"
+                                                                    ]
+                                                                ).map(
+                                                                    (
+                                                                        keyValue,
+                                                                        indexOfStep
+                                                                    ) => (
+                                                                        <Step
+                                                                            key={
                                                                                 keyValue
                                                                             }
-                                                                        </StepLabel>
-                                                                        <StepContent
-                                                                            TransitionProps={{
-                                                                                unmountOnExit:
-                                                                                    false,
-                                                                            }}
                                                                         >
-                                                                            {!!questions[
-                                                                                "Lab"
-                                                                            ] &&
-                                                                                questions[
-                                                                                    "Lab"
-                                                                                ][
+                                                                            <StepLabel>
+                                                                                {
                                                                                     keyValue
-                                                                                ].map(
-                                                                                    (
-                                                                                        question,
-                                                                                        indexValue
-                                                                                    ) => (
-                                                                                        <Questions
-                                                                                            label={
-                                                                                                question
-                                                                                            }
-                                                                                            key={
-                                                                                                question
-                                                                                            }
-                                                                                            ratingChange={
-                                                                                                handleRatingChange
-                                                                                            }
-                                                                                            coNumber={
-                                                                                                indexValue +
-                                                                                                1
-                                                                                            }
-                                                                                            rating={
-                                                                                                null
-                                                                                            }
-                                                                                            subjectName={
-                                                                                                keyValue
-                                                                                            }
-                                                                                        />
-                                                                                    )
-                                                                                )}
-                                                                            {activeLabStep ===
-                                                                            (!!questions[
-                                                                                "Lab"
-                                                                            ] &&
-                                                                                Object.keys(
+                                                                                }
+                                                                            </StepLabel>
+                                                                            <StepContent
+                                                                                TransitionProps={{
+                                                                                    unmountOnExit:
+                                                                                        false,
+                                                                                }}
+                                                                            >
+                                                                                {!!questions[
+                                                                                    "Lab"
+                                                                                ] &&
                                                                                     questions[
                                                                                         "Lab"
-                                                                                    ]
-                                                                                )
-                                                                                    .length -
-                                                                                    1) ? (
-                                                                                <Box>
-                                                                                    <>
-                                                                                        <Button
-                                                                                            onClick={
-                                                                                                handleNext
-                                                                                            }
-                                                                                            variant="contained"
-                                                                                            disabled={
-                                                                                                (indexOfStep ===
-                                                                                                    0 &&
-                                                                                                    coFeedback.length <
-                                                                                                        35) ||
-                                                                                                (indexOfStep ===
-                                                                                                    1 &&
-                                                                                                    coFeedback.length <
-                                                                                                        40) ||
-                                                                                                (indexOfStep ===
-                                                                                                    2 &&
-                                                                                                    coFeedback.length <
-                                                                                                        45)
-                                                                                            }
-                                                                                            sx={{
-                                                                                                mt: 1,
-                                                                                                mr: 1,
-                                                                                            }}
-                                                                                        >
-                                                                                            Next
-                                                                                        </Button>
-
-                                                                                        <Button
-                                                                                            onClick={
-                                                                                                handleLabBack
-                                                                                            }
-                                                                                            sx={{
-                                                                                                mt: 1,
-                                                                                                mr: 1,
-                                                                                            }}
-                                                                                            variant="outlined"
-                                                                                        >
-                                                                                            Back
-                                                                                        </Button>
-                                                                                    </>
-                                                                                </Box>
-                                                                            ) : (
-                                                                                <Box
-                                                                                    sx={{
-                                                                                        mb: 2,
-                                                                                    }}
-                                                                                >
-                                                                                    <div>
-                                                                                        <Button
-                                                                                            variant="contained"
-                                                                                            onClick={
-                                                                                                handleLabNext
-                                                                                            }
-                                                                                            sx={{
-                                                                                                mt: 1,
-                                                                                                mr: 1,
-                                                                                            }}
-                                                                                            disabled={
-                                                                                                (indexOfStep ===
-                                                                                                    0 &&
-                                                                                                    coFeedback.length <
-                                                                                                        35) ||
-                                                                                                (indexOfStep ===
-                                                                                                    1 &&
-                                                                                                    coFeedback.length <
-                                                                                                        40) ||
-                                                                                                (indexOfStep ===
-                                                                                                    2 &&
-                                                                                                    coFeedback.length <
-                                                                                                        45)
-                                                                                            }
-                                                                                        >
-                                                                                            Continue
-                                                                                        </Button>
-                                                                                        {activeLabStep ===
-                                                                                        0 ? (
+                                                                                    ][
+                                                                                        keyValue
+                                                                                    ].map(
+                                                                                        (
+                                                                                            question,
+                                                                                            indexValue
+                                                                                        ) => (
+                                                                                            <Questions
+                                                                                                label={
+                                                                                                    question
+                                                                                                }
+                                                                                                key={
+                                                                                                    question
+                                                                                                }
+                                                                                                ratingChange={
+                                                                                                    handleRatingChange
+                                                                                                }
+                                                                                                coNumber={
+                                                                                                    indexValue +
+                                                                                                    1
+                                                                                                }
+                                                                                                rating={
+                                                                                                    null
+                                                                                                }
+                                                                                                subjectName={
+                                                                                                    keyValue
+                                                                                                }
+                                                                                            />
+                                                                                        )
+                                                                                    )}
+                                                                                {activeLabStep ===
+                                                                                (!!questions[
+                                                                                    "Lab"
+                                                                                ] &&
+                                                                                    Object.keys(
+                                                                                        questions[
+                                                                                            "Lab"
+                                                                                        ]
+                                                                                    )
+                                                                                        .length -
+                                                                                        1) ? (
+                                                                                    <Box>
+                                                                                        <>
                                                                                             <Button
                                                                                                 onClick={
-                                                                                                    handleBack
+                                                                                                    handleNext
+                                                                                                }
+                                                                                                variant="contained"
+                                                                                                disabled={
+                                                                                                    (indexOfStep ===
+                                                                                                        0 &&
+                                                                                                        coFeedback.length <
+                                                                                                            35) ||
+                                                                                                    (indexOfStep ===
+                                                                                                        1 &&
+                                                                                                        coFeedback.length <
+                                                                                                            40) ||
+                                                                                                    (indexOfStep ===
+                                                                                                        2 &&
+                                                                                                        coFeedback.length <
+                                                                                                            45)
                                                                                                 }
                                                                                                 sx={{
                                                                                                     mt: 1,
                                                                                                     mr: 1,
                                                                                                 }}
                                                                                             >
-                                                                                                Back
+                                                                                                Next
                                                                                             </Button>
-                                                                                        ) : (
+
                                                                                             <Button
                                                                                                 onClick={
                                                                                                     handleLabBack
@@ -851,133 +826,208 @@ const MainPage = () => {
                                                                                             >
                                                                                                 Back
                                                                                             </Button>
-                                                                                        )}
-                                                                                    </div>
-                                                                                </Box>
-                                                                            )}
-                                                                        </StepContent>
-                                                                    </Step>
+                                                                                        </>
+                                                                                    </Box>
+                                                                                ) : (
+                                                                                    <Box
+                                                                                        sx={{
+                                                                                            mb: 2,
+                                                                                        }}
+                                                                                    >
+                                                                                        <div>
+                                                                                            <Button
+                                                                                                variant="contained"
+                                                                                                onClick={
+                                                                                                    handleLabNext
+                                                                                                }
+                                                                                                sx={{
+                                                                                                    mt: 1,
+                                                                                                    mr: 1,
+                                                                                                }}
+                                                                                                disabled={
+                                                                                                    (indexOfStep ===
+                                                                                                        0 &&
+                                                                                                        coFeedback.length <
+                                                                                                            35) ||
+                                                                                                    (indexOfStep ===
+                                                                                                        1 &&
+                                                                                                        coFeedback.length <
+                                                                                                            40) ||
+                                                                                                    (indexOfStep ===
+                                                                                                        2 &&
+                                                                                                        coFeedback.length <
+                                                                                                            45)
+                                                                                                }
+                                                                                            >
+                                                                                                Continue
+                                                                                            </Button>
+                                                                                            {activeLabStep ===
+                                                                                            0 ? (
+                                                                                                <Button
+                                                                                                    onClick={
+                                                                                                        handleBack
+                                                                                                    }
+                                                                                                    sx={{
+                                                                                                        mt: 1,
+                                                                                                        mr: 1,
+                                                                                                    }}
+                                                                                                >
+                                                                                                    Back
+                                                                                                </Button>
+                                                                                            ) : (
+                                                                                                <Button
+                                                                                                    onClick={
+                                                                                                        handleLabBack
+                                                                                                    }
+                                                                                                    sx={{
+                                                                                                        mt: 1,
+                                                                                                        mr: 1,
+                                                                                                    }}
+                                                                                                    variant="outlined"
+                                                                                                >
+                                                                                                    Back
+                                                                                                </Button>
+                                                                                            )}
+                                                                                        </div>
+                                                                                    </Box>
+                                                                                )}
+                                                                            </StepContent>
+                                                                        </Step>
+                                                                    )
+                                                                )}
+                                                        </Stepper>
+                                                    </Box>
+                                                </StepContent>
+                                            </Step>
+                                            <Step>
+                                                <StepLabel>
+                                                    {(!!selectedMinorSpecialization &&
+                                                        selectedMinorSpecialization) ||
+                                                        steps[5]}
+                                                </StepLabel>
+                                                <StepContent
+                                                    TransitionProps={{
+                                                        unmountOnExit: false,
+                                                    }}
+                                                >
+                                                    <Box>
+                                                        {!!questions[
+                                                            "Minor Specialization"
+                                                        ] &&
+                                                            !!selectedMinorSpecialization &&
+                                                            questions[
+                                                                "Minor Specialization"
+                                                            ][
+                                                                selectedMinorSpecialization
+                                                            ].map(
+                                                                (
+                                                                    element,
+                                                                    indexValue
+                                                                ) => (
+                                                                    <Questions
+                                                                        key={
+                                                                            element
+                                                                        }
+                                                                        label={
+                                                                            element
+                                                                        }
+                                                                        coNumber={
+                                                                            indexValue +
+                                                                            1
+                                                                        }
+                                                                        rating={
+                                                                            null
+                                                                        }
+                                                                        subjectName={
+                                                                            selectedMinorSpecialization
+                                                                        }
+                                                                        ratingChange={
+                                                                            handleRatingChange
+                                                                        }
+                                                                    />
                                                                 )
                                                             )}
-                                                    </Stepper>
-                                                </Box>
-                                            </StepContent>
-                                        </Step>
-                                        <Step>
-                                            <StepLabel>
-                                                {(!!selectedMinorSpecialization &&
-                                                    selectedMinorSpecialization) ||
-                                                    steps[5]}
-                                            </StepLabel>
-                                            <StepContent
-                                                TransitionProps={{
-                                                    unmountOnExit: false,
-                                                }}
-                                            >
-                                                <Box>
-                                                    {!!questions[
-                                                        "Minor Specialization"
-                                                    ] &&
-                                                        !!selectedMinorSpecialization &&
-                                                        questions[
-                                                            "Minor Specialization"
-                                                        ][
-                                                            selectedMinorSpecialization
-                                                        ].map(
-                                                            (
-                                                                element,
-                                                                indexValue
-                                                            ) => (
-                                                                <Questions
-                                                                    key={
-                                                                        element
-                                                                    }
-                                                                    label={
-                                                                        element
-                                                                    }
-                                                                    coNumber={
-                                                                        indexValue +
-                                                                        1
-                                                                    }
-                                                                    rating={
-                                                                        null
-                                                                    }
-                                                                    subjectName={
-                                                                        selectedMinorSpecialization
-                                                                    }
-                                                                    ratingChange={
-                                                                        handleRatingChange
-                                                                    }
-                                                                />
-                                                            )
-                                                        )}
-                                                </Box>
-                                                <Box sx={{ mb: 2 }}>
-                                                    <div>
-                                                        <Button
-                                                            variant="contained"
-                                                            onClick={handleNext}
-                                                            sx={{
-                                                                mt: 1,
-                                                                mr: 1,
-                                                            }}
-                                                            disabled={
-                                                                coFeedback.length <
-                                                                50
-                                                            }
-                                                        >
-                                                            Continue
-                                                        </Button>
-                                                        <Button
-                                                            onClick={handleBack}
-                                                            sx={{
-                                                                mt: 1,
-                                                                mr: 1,
-                                                            }}
-                                                        >
-                                                            Back
-                                                        </Button>
-                                                    </div>
-                                                </Box>
-                                            </StepContent>
-                                        </Step>
-                                    </Stepper>
-                                    {activeStep === steps.length && (
-                                        <Box>
-                                            <Paper
-                                                square
-                                                elevation={1}
-                                                sx={{
-                                                    p: 3,
-                                                    textAlign: "center",
-                                                }}
-                                            >
-                                                <Typography>
-                                                    All steps completed - Submit
-                                                    if you are satisfied with
-                                                    your selections
-                                                </Typography>
-                                                <Button
-                                                    onClick={handleSubmit}
-                                                    sx={{ mt: 1, mr: 1 }}
-                                                    variant="contained"
+                                                    </Box>
+                                                    <Box sx={{ mb: 2 }}>
+                                                        <div>
+                                                            <Button
+                                                                variant="contained"
+                                                                onClick={
+                                                                    handleNext
+                                                                }
+                                                                sx={{
+                                                                    mt: 1,
+                                                                    mr: 1,
+                                                                }}
+                                                                disabled={
+                                                                    coFeedback.length <
+                                                                    50
+                                                                }
+                                                            >
+                                                                Continue
+                                                            </Button>
+                                                            <Button
+                                                                onClick={
+                                                                    handleBack
+                                                                }
+                                                                sx={{
+                                                                    mt: 1,
+                                                                    mr: 1,
+                                                                }}
+                                                            >
+                                                                Back
+                                                            </Button>
+                                                        </div>
+                                                    </Box>
+                                                </StepContent>
+                                            </Step>
+                                        </Stepper>
+                                        {activeStep === steps.length && (
+                                            <Box>
+                                                <Paper
+                                                    square
+                                                    elevation={1}
+                                                    sx={{
+                                                        p: 3,
+                                                        textAlign: "center",
+                                                    }}
                                                 >
-                                                    Submit
-                                                </Button>
-                                            </Paper>
-                                        </Box>
-                                    )}
-                                </Box>
-                            </div>
-                        )}
-                    {!!questions["Elective One"] &&
-                        Object.keys(questions["Elective One"]).length === 0 && (
-                            <Loading></Loading>
-                        )}
-                </CardContent>
-            </Card>
-        </Box>
-    );
+                                                    <Typography>
+                                                        All steps completed -
+                                                        Submit if you are
+                                                        satisfied with your
+                                                        selections
+                                                    </Typography>
+                                                    <Button
+                                                        onClick={handleSubmit}
+                                                        disabled={submitting}
+                                                        sx={{ mt: 1, mr: 1 }}
+                                                        variant="contained"
+                                                    >
+                                                        Submit
+                                                    </Button>
+                                                    {submitting && (
+                                                        <AnimatedText word="Submitting"></AnimatedText>
+                                                    )}
+                                                </Paper>
+                                            </Box>
+                                        )}
+                                    </Box>
+                                </div>
+                            )}
+                    </CardContent>
+                </Card>
+            </Box>
+        );
+    }
+
+    if (submitted) {
+        content = (
+            <Alert severity="success">Feedback submitted successfully</Alert>
+        );
+    }
+
+    return <>{content}</>;
 };
 
 export default MainPage;
