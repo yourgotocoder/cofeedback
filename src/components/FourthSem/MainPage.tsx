@@ -128,10 +128,6 @@ const MainPage = () => {
         setLabInnerStep((prevActiveStep) => prevActiveStep - 1);
     };
 
-    const handleReset = () => {
-        setActiveStep(0);
-    };
-
     useEffect(() => {
         fetchQuestions();
     }, []);
@@ -146,8 +142,17 @@ const MainPage = () => {
         setSelectedMinorSpecialization(value);
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         console.log(coFeedback);
+        const response = await fetch("http://localhost:3011/submit-feedback", {
+            method: "POST",
+            body: JSON.stringify(coFeedback),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        const data = await response.json();
+        console.log(data);
     };
 
     return (
