@@ -144,7 +144,7 @@ const MainPage = () => {
 
     const handleSubmit = async () => {
         console.log(coFeedback);
-        const response = await fetch("http://localhost:3011/submit-feedback", {
+        const response = await fetch(`${process.env.REACT_APP_API_ROUTE}`, {
             method: "POST",
             body: JSON.stringify(coFeedback),
             headers: {
