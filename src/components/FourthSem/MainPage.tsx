@@ -48,7 +48,7 @@ const MainPage = () => {
   const [selectedMinorSpecialization, setSelectedMinorSpecialization] =
     useState<string>();
 
-  const [coFeedbackMainSubject, setCoFeedbackMainSubject] = useState<any[]>([]);
+  const [coFeedback, setCoFeedback] = useState<any[]>([]);
 
   const fetchQuestions = async () => {
     const response = await fetch("QuestionsFourthSem.json", {
@@ -58,24 +58,11 @@ const MainPage = () => {
       },
     });
     const data = await response.json();
-    const mainSubjectArray = [];
-    for (let subject in data["Main Subjects"]) {
-      const newObj = {
-        subjectName: subject,
-        co1: null,
-        co2: null,
-        co3: null,
-        co4: null,
-        co5: null,
-      };
-      mainSubjectArray.push(newObj);
-    }
-
+    
     const keys = Object.keys(data);
     keys.unshift("Choose your electives and minor specialization");
     setSteps(keys);
     setQuestions(data);
-    setCoFeedbackMainSubject(mainSubjectArray);
   };
 
   const handleRatingChange = (
@@ -83,7 +70,16 @@ const MainPage = () => {
     coNumber: number,
     rating: number | null
   ) => {
-    
+    let newField = { subject: subjectName, co: coNumber, rating }
+    const indexOFExisting = coFeedback.findIndex(el => (el.subject === subjectName) && (el.co === coNumber))
+    console.log(indexOFExisting)
+    if (indexOFExisting === -1) {
+      setCoFeedback([...coFeedback, newField]);
+    } else {
+      const newFeedBackState = [...coFeedback];
+      newFeedBackState[indexOFExisting] = newField;
+      setCoFeedback(newFeedBackState);
+    }
   };
 
   const [activeStep, setActiveStep] = React.useState(0);
@@ -105,6 +101,7 @@ const MainPage = () => {
 
   const handleInnerNext = () => {
     setActiveInnerStep((prevActiveStep) => prevActiveStep + 1);
+    console.log(coFeedback)
   };
 
   const handleInnerBack = () => {

@@ -46,7 +46,8 @@ const BasicRating = (props: Props) => {
         precision={1}
         getLabelText={getLabelText}
         onChange={(event, newValue) => {
-          setValue(newValue)
+          setValue(newValue);
+          props.ratingChange(props.subjectName, props.coNumber, newValue);
         }}
         onChangeActive={(event, newHover) => {
           setHover(newHover);
