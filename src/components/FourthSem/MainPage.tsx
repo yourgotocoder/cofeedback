@@ -76,7 +76,6 @@ const MainPage = () => {
     setSteps(keys);
     setQuestions(data);
     setCoFeedbackMainSubject(mainSubjectArray);
-    console.log(coFeedbackMainSubject)
   };
 
   const handleRatingChange = (
