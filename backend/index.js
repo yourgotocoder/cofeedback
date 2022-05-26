@@ -12,10 +12,32 @@ app.use(express.json());
 
 app.post("/submit-feedback", async (req, res) => {
     const { body } = req;
+    const transformedDataToBeSaved = body.reduce((prevValue, currentValue) => {
+        const arrayToBeReturned = [...prevValue];
+        const newElement = {};
+        const foundIndex = arrayToBeReturned.findIndex(
+            (element, indexNumber) => element.subject === currentValue.subject
+        );
+        if (foundIndex === -1) {
+            newElement.subject = currentValue.subject;
+            newElement["CO" + currentValue.co] = currentValue.rating;
+            arrayToBeReturned.push(newElement);
+        } else {
+            arrayToBeReturned[foundIndex]["CO" + currentValue.co] =
+                currentValue.rating;
+        }
+        return arrayToBeReturned;
+    }, []);
     const client = await MongoClient.connect(process.env.DB_URL);
     const db = client.db("feedback");
     const collection = db.collection("feedback-data");
-    console.log(body);
+    const date = new Date().toString();
+    const dataToBeSaved = {
+        date,
+        data: transformedDataToBeSaved,
+    };
+    const savedPost = await collection.insertOne(dataToBeSaved);
+    client.close();
     res.json({ error: false, message: "Feedback submitted successfully" });
 });
 
