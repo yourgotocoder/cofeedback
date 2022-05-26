@@ -37,6 +37,10 @@ const MainPage = () => {
         Lab: {},
     });
 
+    const [progress, setProgress] = React.useState(0);
+    const [buffer, setBuffer] = React.useState(10);
+    const progressRef = React.useRef(() => {});
+
     const [initialLoading, setInitialLoading] = useState(true);
     const [submitting, setSubmitting] = useState(false);
     const [submitted, setSubmitted] = useState(false);
@@ -151,9 +155,27 @@ const MainPage = () => {
                 "Content-Type": "application/json",
             },
         });
+
+        progressRef.current = () => {
+            if (progress > 100) {
+                setProgress(0);
+                setBuffer(10);
+            } else {
+                const diff = Math.random() * 10;
+                const diff2 = Math.random() * 10;
+                setProgress(progress + diff);
+                setBuffer(progress + diff + diff2);
+            }
+        };
+
+        const timer = setInterval(() => {
+            progressRef.current();
+        }, 500);
+
         const data = await response.json();
         if (response.ok) {
             setSubmitted(true);
+            clearInterval(timer);
         }
     };
 
@@ -1007,7 +1029,9 @@ const MainPage = () => {
                                                         Submit
                                                     </Button>
                                                     {submitting && (
-                                                        <AnimatedText word="Submitting"></AnimatedText>
+                                                        <>
+                                                            <AnimatedText word="Submitting"></AnimatedText>
+                                                        </>
                                                     )}
                                                 </Paper>
                                             </Box>
