@@ -63,7 +63,7 @@ const MainPage = () => {
         const data = await response.json();
 
         const keys = Object.keys(data);
-        keys.unshift("Choose your electives and minor specialization");
+        keys.unshift("Choose your electives");
         setSteps(keys);
         setQuestions(data);
         setInitialLoading(false);
