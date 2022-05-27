@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const { MongoClient } = require("mongodb");
 const json2xls = require("json2xls");
+let xlsx = require("json-as-xlsx");
 require("dotenv").config();
 
 const app = express();
@@ -77,6 +78,52 @@ app.post("/submit-feedback-6th-sem", async (req, res) => {
 app.get("/get-excel-data-4th-sem", async (req, res) => {
     const client = await MongoClient.connect(process.env.DB_URL);
     const collection = client.db("feedback").collection("feedback-data");
+    const data = await collection.find().toArray();
+    const justData = data.map((el) => el.data);
+    const reducedData = justData.reduce((previousValues, currentValue) => {
+        for (let element of currentValue) {
+            const indexOfSubjectSheet = previousValues.findIndex(
+                (el) => el.sheet === element.subject
+            );
+            if (indexOfSubjectSheet === -1) {
+                const sheetToBeInserted = {
+                    sheet: element.subject,
+                    columns: [
+                        { label: "CO1", value: "CO1" },
+                        { label: "CO2", value: "CO2" },
+                        { label: "CO3", value: "CO3" },
+                        { label: "CO4", value: "CO4" },
+                        { label: "CO5", value: "CO5" },
+                    ],
+                    content: [
+                        {
+                            CO1: element.CO1,
+                            CO2: element.CO2,
+                            CO3: element.CO3,
+                            CO4: element.CO4,
+                            CO5: element.CO5,
+                        },
+                    ],
+                };
+                previousValues.push(sheetToBeInserted);
+            } else if (indexOfSubjectSheet !== -1) {
+                previousValues[indexOfSubjectSheet].content.push({
+                    CO1: element.CO1,
+                    CO2: element.CO2,
+                    CO3: element.CO3,
+                    CO4: element.CO4,
+                    CO5: element.CO5,
+                });
+            }
+        }
+        return previousValues;
+    }, []);
+    const setting = {
+        fileName: "MySpreadsheet", // Name of the resulting spreadsheet
+        extraLength: 3,
+    };
+    xlsx(reducedData, setting);
+    res.json({ message: "Success" });
 });
 
 app.get("", (req, res) => {
