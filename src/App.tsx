@@ -18,7 +18,8 @@ function App() {
                     handleSemesterSelected={handleSemesterSelected}
                 />
             )}
-            {semester === 4 ? <MainPage4thSem /> : <MainPage6thSem />}
+            {semester === 4 && <MainPage4thSem />}{" "}
+            {semester === 6 && <MainPage6thSem />}
         </>
     );
 }
