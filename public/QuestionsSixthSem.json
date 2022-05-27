@@ -1,0 +1,124 @@
+{
+    "Main Subjects": {
+        "FLAT (CS1604)": [
+            "Explain different concepts in automata theory and formal languages.",
+            "Produce various grammars and their acceptors.",
+            "Analyze the various language acceptors.",
+            "Acquire a fundamental understanding of computational models related to decidability and recursive enumerability.",
+            "Illustrate various proofs using mathematical principles."
+        ],
+        "COMPUTER NETWORKS II (CS1606)": [
+            "Understand and discover the engineering fundamentals involved in Computer Network and other related frame work.",
+            "Identify the complex engineering problem relating computer network relating to host Identification data delivery and routing.",
+            "Ability to formulate a solution plan and methodology for an engineering problem concerning Computer Networking like Sub network, super network, and DNS etc.",
+            "Ability to formulate and interpret a model based on the Computer Networks and its related framework.",
+            "Understand and explain basic responsibilities/concept of protocols in protocol present stack ,DNS, DHCP ,security, etc."
+        ],
+        "LTCS (CS1651)": [
+            "Discuss various recent technologies used in computer science associated with research and application.",
+            "Select optimal design scheme suitable for data analytics techniques and tools for extraction of knowledge.",
+            "Identify modern engineering tools, techniques and resources to solve various Computer Vision, Big Data, Block chain Problems, etc.",
+            "Classify machine learning algorithms for sovling Artificial Intelligence problems or other related probems.",
+            "Decide the individual specialization from the recent trends in computer science of their interest."
+        ]
+    },
+    "Elective One": {
+        "SOCIAL NETWORK ANALYIS (CS1641)": [
+            "Explain and extend the competence in structural properties of Social Networks fundamentals.",
+            "Illustrate the ability to formulate and interpret several Social Network models.",
+            "Represent the mathematical representation and analyse Social Network results.",
+            "Compare and analyze Social Network Data to reach a valid conclusion.",
+            "Define competence in Social Network Analysis fundamentals."
+        ],
+        "AGILE METHODOLOGY (CS1650)": [
+            "Explain the philosophy and historical context of agile methods.",
+            " Enumerate the common agile practices and principles based on the contemporary scientific discourse.",
+            "Analyze the strengths and weaknesses of an agile approach within a particular development context.",
+            "Modify selected agile practices and principles based on own experience from project.",
+            "Employ the latest tools in agile methodology."
+        ],
+        "SOFT SKILLS AND INTERPERSONAL COMMUNICATION (CS1657)": [
+            "Define and describe personality types, communication styles, low/high context cultures and other terms and concepts important for interpersonal and communication skills.",
+            "Apply principles of negotiations to persuade and negotiate with idealistic and practical moral values.",
+            "Analyze, explain and solve conflicts using principles of conflict resolution.",
+            "Describe and explain principles of behavioral psychology.",
+            "Manage time, stress, criticism, and team by formulating strategies appropriate for the situation and type of people."
+        ],
+        "DESIGN THINKING (CS1669)": [
+            "Express the design process as a tool for innovation",
+            "Understand the unique needs of a company around specific challenges",
+            "Demonstrate the value of developing a local network and assist students in making lasting connections with the business community.",
+            "Develop communication skills necessary to facilitate high performance team formation and maintenance and build empathy for target audiences from different cultures.",
+            "Develop and test innovative ideas through a rapid iteration cycle."
+        ],
+        "HASKELL PROGRAMMING (CS1670)": [
+            "Write substantial, well-typed programs using a purely functional programming language such as Haskell.",
+            "Apply functional programming techniques such as recursion, higher order functions, and pattern matching to solve problems and build data structures.",
+            "Define and use types that make use of type classes and polymorphism.",
+            "Explain functional constructs such as functors and monads to build powerful, reusable abstractions.",
+            "Develop formal, equational reasoning to software development."
+        ]
+    },
+    "Elective Two": {
+        "SPEECH AND NATURAL LANGUAGE PROCESSING (CS1646)": [
+            "Define the concepts used for describing and analyzing language.",
+            "Explain semantics related to the language.",
+            "Construct language models for understanding pragmatics of the language.",
+            "Illustrate modeling concepts using programming languages like Python.",
+            "Evaluate basic language modeling techniques using some standard dataset."
+        ],
+        "MACHINE LEARNING (CS1741)": [
+            "Display sufficient understanding of mathematical and engineering fundamentals in the perspective of machine learning theory.",
+            "Identify problems that can be solved using machine learning techniques.",
+            "Appreciate the importance of tolerance of imprecision and uncertainty for design of robust and low-cost intelligent machines.",
+            "Investigate a problem to identify technical issues and solve the problems using various machine learning techniques.",
+            "Design real-life applications using machine learning techniques."
+        ],
+        "ARTIFICIAL INTELLIGENCE (CS1759/1644)": [
+            "Identify areas in engineering and real life where Artificial Intelligence (AI) can find its application.",
+            "Discuss the role of mathematical  and statistical models in AI.",
+            "Demonstrate an ability to formulate problems using AI",
+            "Analyse techniques and resources to solve AI problems.",
+            "Test techniques and resources to solve AI problems."
+        ],
+        "INTERNET OF THINGS (CS1757)": [
+            "Show competence in engineering fundamentals through solutions to real world problems Using Networking Technologies.",
+            "Identify solutions to complex engineering problems pertaining to real world.",
+            "Formulate a solution plan and methodology for an engineering problem using IoT.",
+            "Plan investigation of technical issues and requirements pertaining to IoT applications.",
+            "Select and apply discipline specific tools, techniques and resources for IoT applications for various domains."
+        ],
+        "BLOCK CHAIN CODING (CS1760)": [
+            "Describe crypto currencies and blockchain fundamentals.",
+            "Explain individual building blocks and understand the working mechanism of any blockchain technology.",
+            "Discover the modern engineering tools, techniques and resources in the field of blockchain technology.",
+            "Differentiate between different version of Blockchain technology.",
+            "Illustrate use of blockchain technology in a broader context like health, banking sector and identify security concerns in blockchain technology."
+        ]
+    },
+    "Lab": {
+        "COMPUTER NETWORKS LAB": [
+            "Identify and understand various functions used in socket programs.",
+            "Develop and test of socket program for client server interaction for various purpose.",
+            "Implementing and Validate Sub network with static and various dynamic routing protocols.",
+            "Analyze the packet structure of various protocols used for communication.",
+            "Understand the fundamentals of SDN."
+        ],
+        "PARALLEL PROGRAMMING LAB(": [
+            "Classify the different parallel programming constructs.",
+            "Simulate various parallel programming constructs in any high-level language.",
+            "Select appropriate constructs to be used in different algorithms.",
+            "Justify the output of a program in solving different problems and evaluate its performance and effectiveness.",
+            "Compare the performance of programs designed on two different paradigms."
+        ]
+    },
+    "Mini Project": {
+        "MINI PROJECT (CS1671)": [
+            "Identify and distinguish issues related to real life applications.",
+            "Develop a computational model to meet the desired requirements identified within ethical and realistic constraints.",
+            "Select appropriate modern programming languages and technologies known, to develop a sustainable and a robust solution.",
+            "Analyse the results achieved to understand the performance of the system for optimal result achievement.",
+            "Summarize the important attributes and performance analysis of the proposed system."
+        ]
+    }
+}
