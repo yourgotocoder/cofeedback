@@ -141,20 +141,20 @@ const MainPage = () => {
 
     const handleSubmit = async () => {
         setSubmitting(true);
-        // const response = await fetch(
-        //     `${process.env.REACT_APP_API_ROUTE_6TH_SEM}`,
-        //     {
-        //         method: "POST",
-        //         body: JSON.stringify(coFeedback),
-        //         headers: {
-        //             "Content-Type": "application/json",
-        //         },
-        //     }
-        // );
-        // const data = await response.json();
-        // if (response.ok) {
-        //     setSubmitted(true);
-        // }
+        const response = await fetch(
+            `${process.env.REACT_APP_API_ROUTE_6TH_SEM}`,
+            {
+                method: "POST",
+                body: JSON.stringify(coFeedback),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+        const data = await response.json();
+        if (response.ok) {
+            setSubmitted(true);
+        }
         console.log(coFeedback);
     };
 
