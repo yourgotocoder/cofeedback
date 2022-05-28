@@ -88,7 +88,7 @@ app.get("/get-excel-data-4th-sem", async (req, res) => {
     }, []);
     const reducedData = justData.reduce(
         (previousValues, currentValue, currentIndex) => {
-            currentValue.subject = currentValue.subject.split("(")[0];
+            currentValue.subject = currentValue.subject.substring(0, 30);
             const indexOfSubjectSheet = previousValues.findIndex(
                 (el) => el.sheet === currentValue.subject
             );
