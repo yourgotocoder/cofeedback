@@ -10,14 +10,50 @@ const GetExcel = (props: Props) => {
         fetch("http://localhost:3011/get-excel-data-4th-sem")
             .then((response) => response.json())
             .then((data) => {
-                set_4thSemData(data.data);
-                console.log(data.data);
+                const arrayWithTotals = data.data.map((element: any) => {
+                    let objToBeInserted = {
+                        SNo: "Average",
+                        CO1: 0,
+                        CO2: 0,
+                        CO3: 0,
+                        CO4: 0,
+                        CO5: 0,
+                    };
+                    for (let content of element.content) {
+                        objToBeInserted.CO1 += content.CO1;
+                        objToBeInserted.CO2 += content.CO2;
+                        objToBeInserted.CO3 += content.CO3;
+                        objToBeInserted.CO4 += content.CO4;
+                        objToBeInserted.CO5 += content.CO5;
+                    }
+                    objToBeInserted.CO1 = +(
+                        objToBeInserted.CO1 / element.content.length
+                    ).toFixed(3);
+                    objToBeInserted.CO2 = +(
+                        objToBeInserted.CO2 / element.content.length
+                    ).toFixed(3);
+                    objToBeInserted.CO3 = +(
+                        objToBeInserted.CO3 / element.content.length
+                    ).toFixed(3);
+                    objToBeInserted.CO4 = +(
+                        objToBeInserted.CO4 / element.content.length
+                    ).toFixed(3);
+                    objToBeInserted.CO5 = +(
+                        objToBeInserted.CO5 / element.content.length
+                    ).toFixed(3);
+
+                    element.content.push(objToBeInserted);
+                    return element;
+                });
+                set_4thSemData(arrayWithTotals);
+                console.log(arrayWithTotals);
             });
     }, []);
 
     const handleDownload = () => {
         const setting = {
             fileName: "4thSemFeedbackData",
+            extraLength: 3,
         };
         if (_4thSemData) {
             xlsx(_4thSemData, setting);
