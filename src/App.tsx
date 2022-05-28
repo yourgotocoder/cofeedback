@@ -3,6 +3,7 @@ import "./App.css";
 import MainPage6thSem from "./components/SixthSem/MainPage";
 import MainPage4thSem from "./components/FourthSem/MainPage";
 import SelectSemester from "./components/SelectSemester";
+import GetExcel from "./components/GetExcel";
 
 function App() {
     const [semester, setSemester] = useState<number | null>(null);
@@ -13,13 +14,14 @@ function App() {
 
     return (
         <>
-            {semester === null && (
+            {/* {semester === null && (
                 <SelectSemester
                     handleSemesterSelected={handleSemesterSelected}
                 />
             )}
             {semester === 4 && <MainPage4thSem />}{" "}
-            {semester === 6 && <MainPage6thSem />}
+            {semester === 6 && <MainPage6thSem />} */}
+            <GetExcel />
         </>
     );
 }
