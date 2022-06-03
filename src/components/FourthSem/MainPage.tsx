@@ -65,6 +65,8 @@ const MainPage = () => {
         const keys = Object.keys(data);
         keys.unshift("Choose your electives and minor specialization");
         setSteps(keys);
+        data["Minor Specialization"].None = [];
+        console.log(data);
         setQuestions(data);
         setInitialLoading(false);
     };
@@ -914,90 +916,97 @@ const MainPage = () => {
                                                     </Box>
                                                 </StepContent>
                                             </Step>
-                                            <Step>
-                                                <StepLabel>
-                                                    {(!!selectedMinorSpecialization &&
-                                                        selectedMinorSpecialization) ||
-                                                        steps[5]}
-                                                </StepLabel>
-                                                <StepContent
-                                                    TransitionProps={{
-                                                        unmountOnExit: false,
-                                                    }}
-                                                >
-                                                    <Box>
-                                                        {!!questions[
-                                                            "Minor Specialization"
-                                                        ] &&
-                                                            !!selectedMinorSpecialization &&
-                                                            questions[
-                                                                "Minor Specialization"
-                                                            ][
-                                                                selectedMinorSpecialization
-                                                            ].map(
-                                                                (
-                                                                    element,
-                                                                    indexValue
-                                                                ) => (
-                                                                    <Questions
-                                                                        key={
-                                                                            element
+                                            {selectedMinorSpecialization &&
+                                                selectedMinorSpecialization !==
+                                                    "None" && (
+                                                    <Step>
+                                                        <StepLabel>
+                                                            {(!!selectedMinorSpecialization &&
+                                                                selectedMinorSpecialization) ||
+                                                                steps[5]}
+                                                        </StepLabel>
+                                                        <StepContent
+                                                            TransitionProps={{
+                                                                unmountOnExit:
+                                                                    false,
+                                                            }}
+                                                        >
+                                                            <Box>
+                                                                {!!questions[
+                                                                    "Minor Specialization"
+                                                                ] &&
+                                                                    !!selectedMinorSpecialization &&
+                                                                    questions[
+                                                                        "Minor Specialization"
+                                                                    ][
+                                                                        selectedMinorSpecialization
+                                                                    ].map(
+                                                                        (
+                                                                            element,
+                                                                            indexValue
+                                                                        ) => (
+                                                                            <Questions
+                                                                                key={
+                                                                                    element
+                                                                                }
+                                                                                label={
+                                                                                    element
+                                                                                }
+                                                                                coNumber={
+                                                                                    indexValue +
+                                                                                    1
+                                                                                }
+                                                                                rating={
+                                                                                    null
+                                                                                }
+                                                                                subjectName={
+                                                                                    selectedMinorSpecialization
+                                                                                }
+                                                                                ratingChange={
+                                                                                    handleRatingChange
+                                                                                }
+                                                                            />
+                                                                        )
+                                                                    )}
+                                                            </Box>
+                                                            <Box sx={{ mb: 2 }}>
+                                                                <div>
+                                                                    <Button
+                                                                        variant="contained"
+                                                                        onClick={
+                                                                            handleNext
                                                                         }
-                                                                        label={
-                                                                            element
+                                                                        sx={{
+                                                                            mt: 1,
+                                                                            mr: 1,
+                                                                        }}
+                                                                        disabled={
+                                                                            coFeedback.length <
+                                                                            50
                                                                         }
-                                                                        coNumber={
-                                                                            indexValue +
-                                                                            1
+                                                                    >
+                                                                        Continue
+                                                                    </Button>
+                                                                    <Button
+                                                                        onClick={
+                                                                            handleBack
                                                                         }
-                                                                        rating={
-                                                                            null
-                                                                        }
-                                                                        subjectName={
-                                                                            selectedMinorSpecialization
-                                                                        }
-                                                                        ratingChange={
-                                                                            handleRatingChange
-                                                                        }
-                                                                    />
-                                                                )
-                                                            )}
-                                                    </Box>
-                                                    <Box sx={{ mb: 2 }}>
-                                                        <div>
-                                                            <Button
-                                                                variant="contained"
-                                                                onClick={
-                                                                    handleNext
-                                                                }
-                                                                sx={{
-                                                                    mt: 1,
-                                                                    mr: 1,
-                                                                }}
-                                                                disabled={
-                                                                    coFeedback.length <
-                                                                    50
-                                                                }
-                                                            >
-                                                                Continue
-                                                            </Button>
-                                                            <Button
-                                                                onClick={
-                                                                    handleBack
-                                                                }
-                                                                sx={{
-                                                                    mt: 1,
-                                                                    mr: 1,
-                                                                }}
-                                                            >
-                                                                Back
-                                                            </Button>
-                                                        </div>
-                                                    </Box>
-                                                </StepContent>
-                                            </Step>
+                                                                        sx={{
+                                                                            mt: 1,
+                                                                            mr: 1,
+                                                                        }}
+                                                                    >
+                                                                        Back
+                                                                    </Button>
+                                                                </div>
+                                                            </Box>
+                                                        </StepContent>
+                                                    </Step>
+                                                )}
                                         </Stepper>
-                                        {activeStep === steps.length && (
+                                        {(selectedMinorSpecialization === "None"
+                                            ? activeStep === steps.length - 1
+                                            : activeStep === steps.length) && (
                                             <Box>
                                                 <Paper
                                                     square
