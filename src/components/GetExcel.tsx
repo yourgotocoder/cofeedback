@@ -12,7 +12,7 @@ const GetExcel = (props: Props) => {
             .then((data) => {
                 const arrayWithTotals = data.data.map((element: any) => {
                     let objToBeInserted = {
-                        SNo: "Average",
+                        SNo: "Avg",
                         CO1: 0,
                         CO2: 0,
                         CO3: 0,
