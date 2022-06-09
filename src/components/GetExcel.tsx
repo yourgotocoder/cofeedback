@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 
 type Props = {};
 
-const trandformData = (data: any) => {
+const transformData = (data: any) => {
     const arrayWithTotals = data.data.map((element: any) => {
         let objToBeInserted = {
             SNo: "Avg",
@@ -51,8 +51,15 @@ const GetExcel = (props: Props) => {
         fetch("http://localhost:3011/get-excel-data-4th-sem")
             .then((response) => response.json())
             .then((data) => {
-                const arrayWithTotals = trandformData(data);
+                const arrayWithTotals = transformData(data);
                 set_4thSemData(arrayWithTotals);
+                console.log(arrayWithTotals);
+            });
+        fetch("http://localhost:3011/get-excel-data-6th-sem")
+            .then((response) => response.json())
+            .then((data) => {
+                const arrayWithTotals = transformData(data);
+                set_6thSemData(arrayWithTotals);
                 console.log(arrayWithTotals);
             });
     }, []);
