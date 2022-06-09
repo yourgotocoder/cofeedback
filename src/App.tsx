@@ -14,14 +14,14 @@ function App() {
 
     return (
         <>
-            {semester === null && (
+            {/* {semester === null && (
                 <SelectSemester
                     handleSemesterSelected={handleSemesterSelected}
                 />
             )}
             {semester === 4 && <MainPage4thSem />}{" "}
-            {semester === 6 && <MainPage6thSem />}
-            {/* <GetExcel /> */}
+            {semester === 6 && <MainPage6thSem />} */}
+            <GetExcel />
         </>
     );
 }
