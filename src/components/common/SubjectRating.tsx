@@ -4,10 +4,17 @@ import Rating from "./Rating";
 
 type Props = {
   subjectLabel: string;
+  subjectRatings: (
+    subjectName: string,
+    label: string,
+    rating: number | null
+  ) => void;
 };
 
 const SubjectRating = (props: Props) => {
-  const handleRatingChange = (label: string, rating: number | null) => {};
+  const handleRatingChange = (label: string, rating: number | null) => {
+    props.subjectRatings(props.subjectLabel, label, rating);
+  };
 
   return (
     <Card sx={{ m: 2 }}>

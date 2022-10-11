@@ -83,6 +83,10 @@ const MainPageContent = () => {
     setElectiveThree(value);
   };
 
+  const handleSubjectRatingChange = (subjectName: string, label: string, value: number | null) => {
+    console.log(subjectName, label, value)
+  }
+
   return (
     <Box
       sx={{
@@ -138,6 +142,7 @@ const MainPageContent = () => {
                             <SubjectRating
                               key={subject}
                               subjectLabel={subject}
+                              subjectRatings={handleSubjectRatingChange}
                             ></SubjectRating>
                           ))}
                         </Box>
