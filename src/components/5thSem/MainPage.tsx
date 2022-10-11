@@ -8,14 +8,10 @@ import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import StepContent from "@mui/material/StepContent";
-import Paper from "@mui/material/Paper";
-import Stack from "@mui/material/Stack";
 import SelectSubjects from "./SelectSubjects";
-import Questions from "../common/Questions";
 import Loading from "../common/Loading";
-import Alert from "@mui/material/Alert";
-import AnimatedText from "../common/AnimatedText";
 import SubjectRating from "../common/SubjectRating";
+import FeedbackParameters from "../../FeedbackParameters";
 
 const steps = ["Select Electives", "Feedback"];
 
@@ -44,6 +40,12 @@ const ElectiveIII: string[] = [
   "CS1541 DIGITAL IMAGE PROCESSING",
   "CS1669 DESIGN THINKING",
 ];
+
+const ratingKeys = FeedbackParameters.reduce(
+  (acc, key) => ({ ...acc, [key]: null }),
+  {}
+);
+
 const MainPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -57,30 +59,55 @@ const MainPage = () => {
 };
 
 const MainPageContent = () => {
+  const [ratingsDetail, setRatingsDetail] = useState<any>({});
+
+  useEffect(() => {
+    MainSubjects.forEach((subject) => {
+      setRatingsDetail((prevValue: any) => {
+        return {
+          ...prevValue,
+          [subject]: { ...ratingKeys },
+        };
+      });
+    });
+    Labs.forEach((subject) => {
+      setRatingsDetail((prevValue: any) => {
+        return {
+          ...prevValue,
+          [subject]: { ...ratingKeys },
+        };
+      });
+    });
+  }, []);
+
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleReset = () => {
-    setActiveStep(0);
-  };
-
   const [electiveTwo, setElectiveTwo] = useState("");
 
   const handleElectiveTwoChange = (value: string) => {
     setElectiveTwo(value);
+    setRatingsDetail((prevValue: any) => {
+      return {
+        ...prevValue,
+        electiveTwo: { [value]: { ...ratingKeys } },
+      };
+    });
   };
 
   const [electiveThree, setElectiveThree] = useState("");
 
   const handleElectiveThreeChange = (value: string) => {
     setElectiveThree(value);
+    setRatingsDetail((prevValue: any) => {
+      return {
+        ...prevValue,
+        electiveThree: { [value]: { ...ratingKeys } },
+      };
+    });
   };
 
   const handleSubjectRatingChange = (
@@ -88,8 +115,58 @@ const MainPageContent = () => {
     label: string,
     value: number | null
   ) => {
-    console.log(subjectName, label, value);
+    setRatingsDetail((prevValue: any) => {
+      return {
+        ...prevValue,
+        [subjectName]: {
+          ...prevValue[subjectName],
+          [label]: value,
+        },
+      };
+    });
   };
+
+  const handleSubjectRatingChangeElectiveTwo = (
+    subjectName: string,
+    label: string,
+    value: number | null
+  ) => {
+    setRatingsDetail((prevValue: any) => {
+      return {
+        ...prevValue,
+        electiveTwo: {
+          ...prevValue.electiveTwo,
+          [subjectName]: {
+            ...prevValue.electiveTwo[subjectName],
+            [label]: value,
+          },
+        },
+      };
+    });
+  };
+
+  const handleSubjectRatingChangeElectiveThree = (
+    subjectName: string,
+    label: string,
+    value: number | null
+  ) => {
+    setRatingsDetail((prevValue: any) => {
+      return {
+        ...prevValue,
+        electiveThree: {
+          ...prevValue.electiveThree,
+          [subjectName]: {
+            ...prevValue.electiveThree[subjectName],
+            [label]: value,
+          },
+        },
+      };
+    });
+  };
+
+  const handleSubmit = () => {
+    console.log(ratingsDetail)
+  }
 
   return (
     <Box
@@ -99,7 +176,7 @@ const MainPageContent = () => {
         paddingTop: "2rem",
       }}
     >
-      <Card sx={{ minWidth: "60vw", maxWidth: "95vw", margin: "auto" }}>
+      <Card sx={{ minWidth: "60vw", maxWidth: "100vw", margin: "auto" }}>
         <CardContent>
           <div>
             <Typography
@@ -127,7 +204,7 @@ const MainPageContent = () => {
                     </StepLabel>
                     <StepContent TransitionProps={{ unmountOnExit: false }}>
                       {index === 0 && (
-                        <Typography>
+                        <>
                           <SelectSubjects
                             label="Elective II"
                             subjectObject={ElectiveII}
@@ -138,7 +215,7 @@ const MainPageContent = () => {
                             subjectObject={ElectiveIII}
                             handleElectiveChange={handleElectiveThreeChange}
                           />
-                        </Typography>
+                        </>
                       )}
                       {index === 1 && (
                         <Box sx={{ m: 1 }}>
@@ -152,13 +229,17 @@ const MainPageContent = () => {
                           {electiveTwo !== "" && (
                             <SubjectRating
                               subjectLabel={electiveTwo}
-                              subjectRatings={handleSubjectRatingChange}
+                              subjectRatings={
+                                handleSubjectRatingChangeElectiveTwo
+                              }
                             />
                           )}
                           {electiveThree !== "" && (
                             <SubjectRating
                               subjectLabel={electiveThree}
-                              subjectRatings={handleSubjectRatingChange}
+                              subjectRatings={
+                                handleSubjectRatingChangeElectiveThree
+                              }
                             />
                           )}
                           {Labs.map((subject) => (
@@ -172,36 +253,25 @@ const MainPageContent = () => {
                       )}
                       <Box sx={{ mb: 2 }}>
                         <div>
-                          <Button
-                            variant="contained"
-                            onClick={handleNext}
-                            sx={{ mt: 1, mr: 1 }}
-                          >
-                            {index === steps.length - 1 ? "Finish" : "Continue"}
-                          </Button>
-                          <Button
-                            disabled={index === 0}
-                            onClick={handleBack}
-                            sx={{ mt: 1, mr: 1 }}
-                          >
-                            Back
-                          </Button>
+                          {index === steps.length - 1 ? (
+                            <Button variant="contained" sx={{ mt: 1, mr: 1 }} onClick={handleSubmit}>
+                              Submit
+                            </Button>
+                          ) : (
+                            <Button
+                              variant="contained"
+                              onClick={handleNext}
+                              sx={{ mt: 1, mr: 1 }}
+                            >
+                              Continue
+                            </Button>
+                          )}
                         </div>
                       </Box>
                     </StepContent>
                   </Step>
                 ))}
               </Stepper>
-              {activeStep === steps.length && (
-                <Paper square elevation={0} sx={{ p: 3 }}>
-                  <Typography>
-                    All steps completed - you&apos;re finished
-                  </Typography>
-                  <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
-                    Reset
-                  </Button>
-                </Paper>
-              )}
             </Box>
           </div>
         </CardContent>

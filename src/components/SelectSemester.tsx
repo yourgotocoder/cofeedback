@@ -38,7 +38,7 @@ const SelectSemester = (props: Props) => {
         </CardContent>
         <CardActions sx={{ display: "flex", flexDirection: "column" }}>
           {semesters.map((sem) => (
-            <div style={{ marginTop: "1.2rem" }}>
+            <div style={{ marginTop: "1.2rem" }} key={sem}>
               <Button
                 variant="contained"
                 onClick={() => props.handleSemesterSelected(sem)}

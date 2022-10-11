@@ -17,12 +17,12 @@ const SubjectRating = (props: Props) => {
   };
 
   return (
-    <Card sx={{ m: 2 }}>
+    <Card sx={{ m: 2, maxWidth: "100vw", minWidth: "100%" }}>
       <CardContent>
         {props.subjectLabel}
         <Box sx={{ paddingLeft: 2 }}>
           {FeedbackParameters.map((feedback) => (
-            <div style={{ padding: 2, marginTop: 1, marginBottom: 1 }}>
+            <div style={{ padding: 2, marginTop: 1, marginBottom: 1 }} key={feedback}>
               {feedback}{" "}
               <Rating
                 key={feedback}
