@@ -83,9 +83,13 @@ const MainPageContent = () => {
     setElectiveThree(value);
   };
 
-  const handleSubjectRatingChange = (subjectName: string, label: string, value: number | null) => {
-    console.log(subjectName, label, value)
-  }
+  const handleSubjectRatingChange = (
+    subjectName: string,
+    label: string,
+    value: number | null
+  ) => {
+    console.log(subjectName, label, value);
+  };
 
   return (
     <Box
@@ -144,6 +148,25 @@ const MainPageContent = () => {
                               subjectLabel={subject}
                               subjectRatings={handleSubjectRatingChange}
                             ></SubjectRating>
+                          ))}
+                          {electiveTwo !== "" && (
+                            <SubjectRating
+                              subjectLabel={electiveTwo}
+                              subjectRatings={handleSubjectRatingChange}
+                            />
+                          )}
+                          {electiveThree !== "" && (
+                            <SubjectRating
+                              subjectLabel={electiveThree}
+                              subjectRatings={handleSubjectRatingChange}
+                            />
+                          )}
+                          {Labs.map((subject) => (
+                            <SubjectRating
+                              key={subject}
+                              subjectLabel={subject}
+                              subjectRatings={handleSubjectRatingChange}
+                            />
                           ))}
                         </Box>
                       )}
