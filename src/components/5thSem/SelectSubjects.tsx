@@ -1,4 +1,3 @@
-import React from "react";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -7,7 +6,7 @@ import FormLabel from "@mui/material/FormLabel";
 import Paper from "@mui/material/Paper";
 
 type Props = {
-  subjectObject: Object | undefined;
+  subjectObject: string[];
   label: string;
   handleElectiveChange: (value: string) => void;
 };
@@ -26,7 +25,7 @@ const SelectSubjects = (props: Props) => {
           onChange={(e) => props.handleElectiveChange(e.target.value)}
         >
           {!!props.subjectObject &&
-            Object.keys(props.subjectObject).map((keyName) => (
+            props.subjectObject.map((keyName) => (
               <FormControlLabel
                 key={keyName}
                 value={keyName}

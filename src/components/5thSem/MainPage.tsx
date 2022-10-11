@@ -15,88 +15,48 @@ import Questions from "../common/Questions";
 import Loading from "../common/Loading";
 import Alert from "@mui/material/Alert";
 import AnimatedText from "../common/AnimatedText";
+import SubjectRating from "../common/SubjectRating";
 
-type SubjectQuestions = {
-  [key: string]: string[];
+const steps = ["Select Electives", "Feedback"];
+
+const MainSubjects: string[] = [
+  "MA1502 PROBABILITY, STATISTICS AND STOCHASTIC PROCESSES",
+  "CS1502 OPERATING SYSTEM",
+  "CS 1508 COMPUTER NETWORKS-I",
+  "CS 1509 SOFTWARE ENGINEERING",
+];
+
+const Labs: string[] = [
+  "CS 1561 OPERATING SYSTEM LAB",
+  "CS 1566 SOFTWARE ENGINEERING AND OBJECT ORIENTED ANALYSIS LAB",
+  "CS 1567 SCRIPTING LANGUAGE LAB",
+];
+
+const ElectiveII: string[] = [
+  "CS1537 ADVANCED WEB TECHNOLOGIES",
+  "CS1535 GRAPH THEORY",
+  "CS1532 ADVANCED JAVA PROGRAMMING",
+];
+
+const ElectiveIII: string[] = [
+  "CS1759/1644 ARTIFICIAL INTELLIGENCE",
+  "CS1545 ARTIFICIAL NEURAL NETWORK",
+  "CS1541 DIGITAL IMAGE PROCESSING",
+  "CS1669 DESIGN THINKING",
+];
+const MainPage = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => setIsLoading(false), 500);
+  }, []);
+
+  let content = <Loading />;
+  if (!isLoading) content = <MainPageContent />;
+  return content;
 };
 
-interface FeedbackQuestions {
-  "Main Subjects"?: SubjectQuestions;
-  "Elective One"?: SubjectQuestions;
-  "Elective Two"?: SubjectQuestions;
-  Lab?: SubjectQuestions;
-  "Minor Specialization": SubjectQuestions;
-}
-
-const MainPage = () => {
-  const [questions, setQuestions] = useState<FeedbackQuestions>({
-    "Minor Specialization": {},
-    "Elective One": {},
-    "Elective Two": {},
-    "Main Subjects": {},
-    Lab: {},
-  });
-
-  const [progress, setProgress] = React.useState(0);
-  const [buffer, setBuffer] = React.useState(10);
-  const progressRef = React.useRef(() => {});
-
-  const [initialLoading, setInitialLoading] = useState(true);
-  const [submitting, setSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-
-  const [steps, setSteps] = useState<string[]>([""]);
-  const [selectedElectiveOne, setSelectedElectiveOne] = useState<string>();
-  const [selectedElectiveTwo, setSelectedElectiveTwo] = useState<string>();
-  const [selectedMinorSpecialization, setSelectedMinorSpecialization] =
-    useState<string>();
-
-  const [coFeedback, setCoFeedback] = useState<any[]>([]);
-
-  const fetchQuestions = async () => {
-    const response = await fetch("QuestionsFourthSem.json", {
-      headers: {
-        "Content-Type": "appication/json",
-        Accept: "application/json",
-      },
-    });
-    const data = await response.json();
-
-    const keys = Object.keys(data);
-    keys.unshift("Choose your electives and minor specialization");
-    setSteps(keys);
-    data["Minor Specialization"].None = [];
-    console.log(data);
-    setQuestions(data);
-    setInitialLoading(false);
-  };
-
-  const handleRatingChange = (
-    subjectName: string,
-    coNumber: number,
-    rating: number | null
-  ) => {
-    let newField = { subject: subjectName, co: coNumber, rating };
-    const indexOFExisting = coFeedback.findIndex(
-      (el) => el.subject === subjectName && el.co === coNumber
-    );
-    if (indexOFExisting === -1) {
-      if (rating !== null) {
-        setCoFeedback([...coFeedback, newField]);
-      }
-    } else {
-      if (rating !== null) {
-        const newFeedBackState = [...coFeedback];
-        newFeedBackState[indexOFExisting] = newField;
-        setCoFeedback(newFeedBackState);
-      } else {
-        const newFeedBackState = [...coFeedback];
-        newFeedBackState.splice(indexOFExisting, 1);
-        setCoFeedback(newFeedBackState);
-      }
-    }
-  };
-
+const MainPageContent = () => {
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
@@ -107,673 +67,119 @@ const MainPage = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const [activeInnerStep, setActiveInnerStep] = React.useState(0);
-
-  const handleInnerNext = () => {
-    setActiveInnerStep((prevActiveStep) => prevActiveStep + 1);
+  const handleReset = () => {
+    setActiveStep(0);
   };
 
-  const handleInnerBack = () => {
-    setActiveInnerStep((prevActiveStep) => prevActiveStep - 1);
-  };
+  const [electiveTwo, setElectiveTwo] = useState("");
 
-  const [activeLabStep, setLabInnerStep] = React.useState(0);
-
-  const handleLabNext = () => {
-    setLabInnerStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleLabBack = () => {
-    setLabInnerStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  useEffect(() => {
-    fetchQuestions();
-  }, []);
-
-  const handleElectiveOneChange = (value: string) => {
-    setSelectedElectiveOne(value);
-  };
   const handleElectiveTwoChange = (value: string) => {
-    setSelectedElectiveTwo(value);
-  };
-  const handleMinorChange = (value: string) => {
-    setSelectedMinorSpecialization(value);
+    setElectiveTwo(value);
   };
 
-  const handleSubmit = async () => {
-    setSubmitting(true);
-    const response = await fetch(`${process.env.REACT_APP_API_ROUTE}`, {
-      method: "POST",
-      body: JSON.stringify(coFeedback),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+  const [electiveThree, setElectiveThree] = useState("");
 
-    progressRef.current = () => {
-      if (progress > 100) {
-        setProgress(0);
-        setBuffer(10);
-      } else {
-        const diff = Math.random() * 10;
-        const diff2 = Math.random() * 10;
-        setProgress(progress + diff);
-        setBuffer(progress + diff + diff2);
-      }
-    };
-
-    const timer = setInterval(() => {
-      progressRef.current();
-    }, 500);
-
-    const data = await response.json();
-    if (response.ok && data) {
-      setSubmitted(true);
-      clearInterval(timer);
-    }
+  const handleElectiveThreeChange = (value: string) => {
+    setElectiveThree(value);
   };
 
-  let content;
-
-  if (initialLoading) {
-    content = <Loading />;
-  }
-
-  if (!initialLoading) {
-    content = (
-      <Box
-        sx={{
-          minWidth: "100vw",
-          minHeight: "100vh",
-          paddingTop: "2rem",
-        }}
-      >
-        <Card sx={{ minWidth: "60vw", maxWidth: "95vw", margin: "auto" }}>
-          <CardContent>
-            {!!questions["Elective One"] &&
-              Object.keys(questions["Elective One"]).length > 1 && (
-                <div>
-                  <Typography
-                    sx={{
-                      fontSize: 14,
-                      textAlign: "center",
-                    }}
-                    color="text.primary"
-                    gutterBottom
-                  >
-                    Please provide your valuable feedback
-                  </Typography>
-                  <Box
-                    sx={{
-                      maxWidth: "100%",
-                      minWidth: "60%",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <Stepper activeStep={activeStep} orientation="vertical">
-                      <Step>
-                        <StepLabel>{steps && steps[0]}</StepLabel>
-                        <StepContent
-                          TransitionProps={{
-                            unmountOnExit: false,
-                          }}
-                          sx={{
-                            marginTop: "1rem",
-                          }}
-                        >
-                          <Stack spacing={1}>
-                            <Box>
-                              {!!questions["Elective One"] && (
-                                <SelectSubjects
-                                  label="Elective One"
-                                  subjectObject={questions["Elective One"]}
-                                  handleElectiveChange={handleElectiveOneChange}
-                                />
-                              )}
-                            </Box>
-                            <Box>
-                              {!!questions["Elective Two"] && (
-                                <SelectSubjects
-                                  label="Elective Two"
-                                  subjectObject={questions["Elective Two"]}
-                                  handleElectiveChange={handleElectiveTwoChange}
-                                />
-                              )}
-                            </Box>
-                            <Box>
-                              {!!questions["Minor Specialization"] && (
-                                <SelectSubjects
-                                  label="Minor Specialization"
-                                  subjectObject={
-                                    questions["Minor Specialization"]
-                                  }
-                                  handleElectiveChange={handleMinorChange}
-                                />
-                              )}
-                            </Box>
-                          </Stack>
-                          <Box sx={{ mb: 2 }}>
-                            <div>
-                              <Button
-                                disabled={
-                                  !selectedElectiveOne ||
-                                  !selectedElectiveTwo ||
-                                  !selectedMinorSpecialization
-                                }
-                                variant="contained"
-                                onClick={handleNext}
-                                sx={{
-                                  mt: 1,
-                                  mr: 1,
-                                }}
-                              >
-                                Continue
-                              </Button>
-                              <Button
-                                disabled={true}
-                                onClick={handleBack}
-                                sx={{
-                                  mt: 1,
-                                  mr: 1,
-                                }}
-                              >
-                                Back
-                              </Button>
-                            </div>
-                          </Box>
-                        </StepContent>
-                      </Step>
-                      <Step>
-                        <StepLabel>{steps[1]}</StepLabel>
-                        <StepContent
-                          TransitionProps={{
-                            unmountOnExit: false,
-                          }}
-                        >
-                          <Box>
-                            <Stepper
-                              activeStep={activeInnerStep}
-                              orientation="vertical"
-                            >
-                              {!!questions["Main Subjects"] &&
-                                Object.keys(questions["Main Subjects"]).map(
-                                  (keyValue, indexOfStep) => (
-                                    <Step key={keyValue}>
-                                      <StepLabel>{keyValue}</StepLabel>
-                                      <StepContent
-                                        TransitionProps={{
-                                          unmountOnExit: false,
-                                        }}
-                                      >
-                                        {!!questions["Main Subjects"] &&
-                                          questions["Main Subjects"][
-                                            keyValue
-                                          ].map((question, indexValue) => (
-                                            <Questions
-                                              label={question}
-                                              key={question}
-                                              ratingChange={handleRatingChange}
-                                              coNumber={indexValue + 1}
-                                              rating={null}
-                                              subjectName={keyValue}
-                                            />
-                                          ))}
-                                        {activeInnerStep ===
-                                        (!!questions["Main Subjects"] &&
-                                          Object.keys(
-                                            questions["Main Subjects"]
-                                          ).length - 1) ? (
-                                          <Box>
-                                            <>
-                                              <Button
-                                                onClick={handleNext}
-                                                variant="contained"
-                                                sx={{
-                                                  mt: 1,
-                                                  mr: 1,
-                                                }}
-                                                disabled={
-                                                  (indexOfStep === 0 &&
-                                                    coFeedback.length < 5) ||
-                                                  (indexOfStep === 1 &&
-                                                    coFeedback.length < 10) ||
-                                                  (indexOfStep === 2 &&
-                                                    coFeedback.length < 15) ||
-                                                  (indexOfStep === 3 &&
-                                                    coFeedback.length < 20)
-                                                }
-                                              >
-                                                Next
-                                              </Button>
-
-                                              <Button
-                                                onClick={handleInnerBack}
-                                                sx={{
-                                                  mt: 1,
-                                                  mr: 1,
-                                                }}
-                                                variant="outlined"
-                                              >
-                                                Back
-                                              </Button>
-                                            </>
-                                          </Box>
-                                        ) : (
-                                          <Box
-                                            sx={{
-                                              mb: 2,
-                                            }}
-                                          >
-                                            <div>
-                                              <Button
-                                                variant="contained"
-                                                onClick={handleInnerNext}
-                                                sx={{
-                                                  mt: 1,
-                                                  mr: 1,
-                                                }}
-                                                disabled={
-                                                  (indexOfStep === 0 &&
-                                                    coFeedback.length < 5) ||
-                                                  (indexOfStep === 1 &&
-                                                    coFeedback.length < 10) ||
-                                                  (indexOfStep === 2 &&
-                                                    coFeedback.length < 15) ||
-                                                  (indexOfStep === 3 &&
-                                                    coFeedback.length < 20)
-                                                }
-                                              >
-                                                Continue
-                                              </Button>
-                                              {activeInnerStep === 0 ? (
-                                                <Button
-                                                  onClick={handleBack}
-                                                  sx={{
-                                                    mt: 1,
-                                                    mr: 1,
-                                                  }}
-                                                >
-                                                  Back
-                                                </Button>
-                                              ) : (
-                                                <Button
-                                                  onClick={handleInnerBack}
-                                                  sx={{
-                                                    mt: 1,
-                                                    mr: 1,
-                                                  }}
-                                                  variant="outlined"
-                                                >
-                                                  Back
-                                                </Button>
-                                              )}
-                                            </div>
-                                          </Box>
-                                        )}
-                                      </StepContent>
-                                    </Step>
-                                  )
-                                )}
-                            </Stepper>
-                          </Box>
-                          <Box sx={{ mb: 2 }}>
-                            <div>
-                              <Button
-                                onClick={handleBack}
-                                sx={{
-                                  mt: 1,
-                                  mr: 1,
-                                }}
-                              >
-                                Back
-                              </Button>
-                            </div>
-                          </Box>
-                        </StepContent>
-                      </Step>
-                      <Step>
-                        <StepLabel>
-                          {(!!selectedElectiveOne && selectedElectiveOne) ||
-                            "Elective One"}
-                        </StepLabel>
-                        <StepContent
-                          TransitionProps={{
-                            unmountOnExit: false,
-                          }}
-                        >
-                          <Box>
-                            {!!questions["Elective One"] &&
-                              !!selectedElectiveOne &&
-                              questions["Elective One"][
-                                selectedElectiveOne
-                              ].map((element, indexValue) => (
-                                <Questions
-                                  key={element}
-                                  label={element}
-                                  coNumber={indexValue + 1}
-                                  rating={null}
-                                  subjectName={selectedElectiveOne}
-                                  ratingChange={handleRatingChange}
-                                />
-                              ))}
-                          </Box>
-                          <Box sx={{ mb: 2 }}>
-                            <div>
-                              <Button
-                                variant="contained"
-                                onClick={handleNext}
-                                sx={{
-                                  mt: 1,
-                                  mr: 1,
-                                }}
-                                disabled={coFeedback.length < 25}
-                              >
-                                Continue
-                              </Button>
-                              <Button
-                                onClick={handleBack}
-                                sx={{
-                                  mt: 1,
-                                  mr: 1,
-                                }}
-                              >
-                                Back
-                              </Button>
-                            </div>
-                          </Box>
-                        </StepContent>
-                      </Step>
-                      <Step>
-                        <StepLabel>
-                          {(!!selectedElectiveTwo && selectedElectiveTwo) ||
-                            steps[3]}
-                        </StepLabel>
-                        <StepContent
-                          TransitionProps={{
-                            unmountOnExit: false,
-                          }}
-                        >
-                          <Box>
-                            {!!questions["Elective Two"] &&
-                              !!selectedElectiveTwo &&
-                              questions["Elective Two"][
-                                selectedElectiveTwo
-                              ].map((element, indexValue) => (
-                                <Questions
-                                  key={element}
-                                  label={element}
-                                  coNumber={indexValue + 1}
-                                  rating={null}
-                                  subjectName={selectedElectiveTwo}
-                                  ratingChange={handleRatingChange}
-                                />
-                              ))}
-                          </Box>
-                          <Box sx={{ mb: 2 }}>
-                            <div>
-                              <Button
-                                variant="contained"
-                                onClick={handleNext}
-                                disabled={coFeedback.length < 30}
-                                sx={{
-                                  mt: 1,
-                                  mr: 1,
-                                }}
-                              >
-                                Continue
-                              </Button>
-                              <Button
-                                onClick={handleBack}
-                                sx={{
-                                  mt: 1,
-                                  mr: 1,
-                                }}
-                              >
-                                Back
-                              </Button>
-                            </div>
-                          </Box>
-                        </StepContent>
-                      </Step>
-                      <Step>
-                        <StepLabel>{steps[4]}</StepLabel>
-                        <StepContent
-                          TransitionProps={{
-                            unmountOnExit: false,
-                          }}
-                        >
-                          <Box>
-                            <Stepper
-                              activeStep={activeLabStep}
-                              orientation="vertical"
-                            >
-                              {!!questions["Lab"] &&
-                                Object.keys(questions["Lab"]).map(
-                                  (keyValue, indexOfStep) => (
-                                    <Step key={keyValue}>
-                                      <StepLabel>{keyValue}</StepLabel>
-                                      <StepContent
-                                        TransitionProps={{
-                                          unmountOnExit: false,
-                                        }}
-                                      >
-                                        {!!questions["Lab"] &&
-                                          questions["Lab"][keyValue].map(
-                                            (question, indexValue) => (
-                                              <Questions
-                                                label={question}
-                                                key={question}
-                                                ratingChange={
-                                                  handleRatingChange
-                                                }
-                                                coNumber={indexValue + 1}
-                                                rating={null}
-                                                subjectName={keyValue}
-                                              />
-                                            )
-                                          )}
-                                        {activeLabStep ===
-                                        (!!questions["Lab"] &&
-                                          Object.keys(questions["Lab"]).length -
-                                            1) ? (
-                                          <Box>
-                                            <>
-                                              <Button
-                                                onClick={handleNext}
-                                                variant="contained"
-                                                disabled={
-                                                  (indexOfStep === 0 &&
-                                                    coFeedback.length < 35) ||
-                                                  (indexOfStep === 1 &&
-                                                    coFeedback.length < 40) ||
-                                                  (indexOfStep === 2 &&
-                                                    coFeedback.length < 45)
-                                                }
-                                                sx={{
-                                                  mt: 1,
-                                                  mr: 1,
-                                                }}
-                                              >
-                                                Next
-                                              </Button>
-
-                                              <Button
-                                                onClick={handleLabBack}
-                                                sx={{
-                                                  mt: 1,
-                                                  mr: 1,
-                                                }}
-                                                variant="outlined"
-                                              >
-                                                Back
-                                              </Button>
-                                            </>
-                                          </Box>
-                                        ) : (
-                                          <Box
-                                            sx={{
-                                              mb: 2,
-                                            }}
-                                          >
-                                            <div>
-                                              <Button
-                                                variant="contained"
-                                                onClick={handleLabNext}
-                                                sx={{
-                                                  mt: 1,
-                                                  mr: 1,
-                                                }}
-                                                disabled={
-                                                  (indexOfStep === 0 &&
-                                                    coFeedback.length < 35) ||
-                                                  (indexOfStep === 1 &&
-                                                    coFeedback.length < 40) ||
-                                                  (indexOfStep === 2 &&
-                                                    coFeedback.length < 45)
-                                                }
-                                              >
-                                                Continue
-                                              </Button>
-                                              {activeLabStep === 0 ? (
-                                                <Button
-                                                  onClick={handleBack}
-                                                  sx={{
-                                                    mt: 1,
-                                                    mr: 1,
-                                                  }}
-                                                >
-                                                  Back
-                                                </Button>
-                                              ) : (
-                                                <Button
-                                                  onClick={handleLabBack}
-                                                  sx={{
-                                                    mt: 1,
-                                                    mr: 1,
-                                                  }}
-                                                  variant="outlined"
-                                                >
-                                                  Back
-                                                </Button>
-                                              )}
-                                            </div>
-                                          </Box>
-                                        )}
-                                      </StepContent>
-                                    </Step>
-                                  )
-                                )}
-                            </Stepper>
-                          </Box>
-                        </StepContent>
-                      </Step>
-                      {selectedMinorSpecialization &&
-                        selectedMinorSpecialization !== "None" && (
-                          <Step>
-                            <StepLabel>
-                              {(!!selectedMinorSpecialization &&
-                                selectedMinorSpecialization) ||
-                                steps[5]}
-                            </StepLabel>
-                            <StepContent
-                              TransitionProps={{
-                                unmountOnExit: false,
-                              }}
-                            >
-                              <Box>
-                                {!!questions["Minor Specialization"] &&
-                                  !!selectedMinorSpecialization &&
-                                  questions["Minor Specialization"][
-                                    selectedMinorSpecialization
-                                  ].map((element, indexValue) => (
-                                    <Questions
-                                      key={element}
-                                      label={element}
-                                      coNumber={indexValue + 1}
-                                      rating={null}
-                                      subjectName={selectedMinorSpecialization}
-                                      ratingChange={handleRatingChange}
-                                    />
-                                  ))}
-                              </Box>
-                              <Box sx={{ mb: 2 }}>
-                                <div>
-                                  <Button
-                                    variant="contained"
-                                    onClick={handleNext}
-                                    sx={{
-                                      mt: 1,
-                                      mr: 1,
-                                    }}
-                                    disabled={coFeedback.length < 50}
-                                  >
-                                    Continue
-                                  </Button>
-                                  <Button
-                                    onClick={handleBack}
-                                    sx={{
-                                      mt: 1,
-                                      mr: 1,
-                                    }}
-                                  >
-                                    Back
-                                  </Button>
-                                </div>
-                              </Box>
-                            </StepContent>
-                          </Step>
-                        )}
-                    </Stepper>
-                    {(selectedMinorSpecialization === "None"
-                      ? activeStep === steps.length - 1
-                      : activeStep === steps.length) && (
-                      <Box>
-                        <Paper
-                          square
-                          elevation={1}
-                          sx={{
-                            p: 3,
-                            textAlign: "center",
-                          }}
-                        >
-                          <Typography>
-                            All steps completed - Submit if you are satisfied
-                            with your selections
-                          </Typography>
+  return (
+    <Box
+      sx={{
+        minWidth: "100vw",
+        minHeight: "100vh",
+        paddingTop: "2rem",
+      }}
+    >
+      <Card sx={{ minWidth: "60vw", maxWidth: "95vw", margin: "auto" }}>
+        <CardContent>
+          <div>
+            <Typography
+              sx={{
+                fontSize: 14,
+                textAlign: "center",
+              }}
+              color="text.primary"
+              gutterBottom
+            >
+              Please provide your valuable feedback
+            </Typography>
+            <Box sx={{ maxWidth: "100%", alignItems: "center" }}>
+              <Stepper activeStep={activeStep} orientation="vertical">
+                {steps.map((step, index) => (
+                  <Step key={step}>
+                    <StepLabel
+                      optional={
+                        index === 2 ? (
+                          <Typography variant="caption">Last step</Typography>
+                        ) : null
+                      }
+                    >
+                      {step}
+                    </StepLabel>
+                    <StepContent TransitionProps={{ unmountOnExit: false }}>
+                      {index === 0 && (
+                        <Typography>
+                          <SelectSubjects
+                            label="Elective II"
+                            subjectObject={ElectiveII}
+                            handleElectiveChange={handleElectiveTwoChange}
+                          />
+                          <SelectSubjects
+                            label="Elective III"
+                            subjectObject={ElectiveIII}
+                            handleElectiveChange={handleElectiveThreeChange}
+                          />
+                        </Typography>
+                      )}
+                      {index === 1 && (
+                        <Box sx={{ m: 1 }}>
+                          {MainSubjects.map((subject) => (
+                            <SubjectRating
+                              key={subject}
+                              subjectLabel={subject}
+                            ></SubjectRating>
+                          ))}
+                        </Box>
+                      )}
+                      <Box sx={{ mb: 2 }}>
+                        <div>
                           <Button
-                            onClick={handleSubmit}
-                            disabled={submitting}
-                            sx={{ mt: 1, mr: 1 }}
                             variant="contained"
+                            onClick={handleNext}
+                            sx={{ mt: 1, mr: 1 }}
                           >
-                            Submit
+                            {index === steps.length - 1 ? "Finish" : "Continue"}
                           </Button>
-                          {submitting && (
-                            <>
-                              <AnimatedText word="Submitting"></AnimatedText>
-                            </>
-                          )}
-                        </Paper>
+                          <Button
+                            disabled={index === 0}
+                            onClick={handleBack}
+                            sx={{ mt: 1, mr: 1 }}
+                          >
+                            Back
+                          </Button>
+                        </div>
                       </Box>
-                    )}
-                  </Box>
-                </div>
+                    </StepContent>
+                  </Step>
+                ))}
+              </Stepper>
+              {activeStep === steps.length && (
+                <Paper square elevation={0} sx={{ p: 3 }}>
+                  <Typography>
+                    All steps completed - you&apos;re finished
+                  </Typography>
+                  <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
+                    Reset
+                  </Button>
+                </Paper>
               )}
-          </CardContent>
-        </Card>
-      </Box>
-    );
-  }
-
-  if (submitted) {
-    content = <Alert severity="success">Feedback submitted successfully</Alert>;
-  }
-
-  return <>{content}</>;
+            </Box>
+          </div>
+        </CardContent>
+      </Card>
+    </Box>
+  );
 };
 
 export default MainPage;
