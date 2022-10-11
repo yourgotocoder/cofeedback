@@ -7,52 +7,50 @@ import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
 
 type Props = {
-    handleSemesterSelected: (selectedSemester: number) => void;
+  handleSemesterSelected: (selectedSemester: number) => void;
 };
 
 const SelectSemester = (props: Props) => {
-    const semesters: number[] = [4, 6];
+  const semesters: number[] = [3, 5, 7];
 
-    return (
-        <Box
-            sx={{
-                width: "100vw",
-                height: "100vh",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-            }}
-        >
-            <Card
-                sx={{
-                    minWidth: "50vw",
-                    height: "50vh",
-                    textAlign: "center",
-                    padding: "2rem",
-                }}
-            >
-                <CardContent>
-                    <Typography sx={{ fontSize: 20 }}>
-                        Please Select Your Semester
-                    </Typography>
-                </CardContent>
-                <CardActions sx={{ display: "flex", flexDirection: "column" }}>
-                    {semesters.map((sem) => (
-                        <div style={{ marginTop: "1.2rem" }}>
-                            <Button
-                                variant="contained"
-                                onClick={() =>
-                                    props.handleSemesterSelected(sem)
-                                }
-                            >
-                                {sem === 4 ? "Fourth Sem" : "Sixth Sem"}
-                            </Button>
-                        </div>
-                    ))}
-                </CardActions>
-            </Card>
-        </Box>
-    );
+  return (
+    <Box
+      sx={{
+        width: "100vw",
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Card
+        sx={{
+          minWidth: "50vw",
+          height: "50vh",
+          textAlign: "center",
+          padding: "2rem",
+        }}
+      >
+        <CardContent>
+          <Typography sx={{ fontSize: 20 }}>
+            Please Select Your Semester
+          </Typography>
+        </CardContent>
+        <CardActions sx={{ display: "flex", flexDirection: "column" }}>
+          {semesters.map((sem) => (
+            <div style={{ marginTop: "1.2rem" }}>
+              <Button
+                variant="contained"
+                onClick={() => props.handleSemesterSelected(sem)}
+              >
+                {`Semester ${sem}`}
+              </Button>
+            </div>
+          ))}
+        </CardActions>
+      </Card>
+    </Box>
+  );
 };
 
 export default SelectSemester;

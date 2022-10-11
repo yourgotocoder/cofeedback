@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./App.css";
-import MainPage6thSem from "./components/SixthSem/MainPage";
-import MainPage4thSem from "./components/FourthSem/MainPage";
+// import MainPage6thSem from "./components/SixthSem/MainPage";
+// import MainPage4thSem from "./components/FourthSem/MainPage";
+import MainPage5thSem from "./components/5thSem/MainPage"
 import SelectSemester from "./components/SelectSemester";
-import GetExcel from "./components/GetExcel";
+// import GetExcel from "./components/GetExcel";
 
 function App() {
     const [semester, setSemester] = useState<number | null>(null);
@@ -14,14 +15,17 @@ function App() {
 
     return (
         <>
-            {/* {semester === null && (
+            {semester === null && (
                 <SelectSemester
                     handleSemesterSelected={handleSemesterSelected}
                 />
             )}
-            {semester === 4 && <MainPage4thSem />}{" "}
-            {semester === 6 && <MainPage6thSem />} */}
-            <GetExcel />
+            {/* {semester === 3 && <MainPage3rdSem} */}
+            {/* {semester === 4 && <MainPage4thSem />}{" "} */}
+            {semester === 5 && <MainPage5thSem/>}
+            {/* {semester === 6 && <MainPage6thSem />} */}
+            {/* {semester === 7 && <MainPage7thSem/>} */}
+            {/* <GetExcel /> */}
         </>
     );
 }

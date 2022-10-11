@@ -11,10 +11,10 @@ import StepContent from "@mui/material/StepContent";
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import SelectSubjects from "./SelectSubjects";
-import Questions from "../Questions";
-import Loading from "../Loading";
+import Questions from "../common/Questions";
+import Loading from "../common/Loading";
 import Alert from "@mui/material/Alert";
-import AnimatedText from "../AnimatedText";
+import AnimatedText from "../common/AnimatedText";
 
 type SubjectQuestions = {
     [key: string]: string[];
