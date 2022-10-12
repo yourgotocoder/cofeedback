@@ -151,7 +151,7 @@ app.get("/get-excel-data-6th-sem", async (req, res) => {
 });
 
 app.get("", (req, res) => {
-  res.json({ message: "Hello from backend" });
+  res.json({ message: "Feedback api works" });
 });
 
 app.listen(3011, () => console.log(`Server started on port 3011`));

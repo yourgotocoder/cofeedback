@@ -14,6 +14,7 @@ import SubjectRating from "../common/SubjectRating";
 import FeedbackParameters from "../../FeedbackParameters";
 import Chip from "@mui/material/Chip";
 import LinearProgress from "@mui/material/LinearProgress";
+import Alert from "@mui/material/Alert";
 
 const steps = ["Select Electives", "Feedback"];
 
@@ -204,7 +205,7 @@ const MainPageContent = () => {
       ...ratingsDetail,
       ...ratingsDetailElectiveSeven,
       ...ratingsDetailElectiveEight,
-      ...ratingsDetailOpenElective
+      ...ratingsDetailOpenElective,
     };
     for (let key in finalRatings) {
       for (let label in finalRatings[key]) {
@@ -226,6 +227,7 @@ const MainPageContent = () => {
         "Content-Type": "application/json",
       },
     });
+    console.log(response);
     if (response.ok) {
       setSubmitted(true);
     }
@@ -241,148 +243,153 @@ const MainPageContent = () => {
     >
       <Card sx={{ minWidth: "60vw", maxWidth: "100vw", margin: "auto" }}>
         <CardContent>
-          <div>
-            <Typography
-              sx={{
-                fontSize: 14,
-                textAlign: "center",
-              }}
-              color="text.primary"
-              gutterBottom
-            >
-              Please provide your valuable feedback
-            </Typography>
-            <Box sx={{ maxWidth: "100%", alignItems: "center" }}>
-              <Stepper activeStep={activeStep} orientation="vertical">
-                {steps.map((step, index) => (
-                  <Step key={step}>
-                    <StepLabel
-                      optional={
-                        index === 2 ? (
-                          <Typography variant="caption">Last step</Typography>
-                        ) : null
-                      }
-                    >
-                      {step}
-                    </StepLabel>
-                    <StepContent TransitionProps={{ unmountOnExit: false }}>
-                      {index === 0 && (
-                        <>
-                          <SelectSubjects
-                            label="Elective VII"
-                            subjectObject={ElectiveVII}
-                            handleElectiveChange={handleElectiveSevenChange}
-                          />
-                          <SelectSubjects
-                            label="Elective VIII"
-                            subjectObject={ElectiveVIII}
-                            handleElectiveChange={handleElectiveEightChange}
-                          />
-                          <SelectSubjects
-                            label="Open Elective"
-                            subjectObject={OpenElectiveI}
-                            handleElectiveChange={handleOpenElectiveChange}
-                          />
-                          <SelectSubjects
-                            label="Section"
-                            subjectObject={["A", "B", "C"]}
-                            handleElectiveChange={handleSectionChange}
-                          />
-                        </>
-                      )}
-                      {index === 1 && (
-                        <Box sx={{ m: 1 }}>
-                          {MainSubjects.map((subject) => (
-                            <SubjectRating
-                              key={subject}
-                              subjectLabel={subject}
-                              subjectRatings={handleSubjectRatingChange}
-                            ></SubjectRating>
-                          ))}
-                          {electiveSeven !== "" && (
-                            <SubjectRating
-                              subjectLabel={electiveSeven}
-                              subjectRatings={
-                                handleSubjectRatingChangeElectiveSeven
-                              }
+          {submitted && (
+            <Alert severity="success">Thank you for submitting for your valuable feedback</Alert>
+          )}
+          {!submitted && (
+            <div>
+              <Typography
+                sx={{
+                  fontSize: 14,
+                  textAlign: "center",
+                }}
+                color="text.primary"
+                gutterBottom
+              >
+                Please provide your valuable feedback
+              </Typography>
+              <Box sx={{ maxWidth: "100%", alignItems: "center" }}>
+                <Stepper activeStep={activeStep} orientation="vertical">
+                  {steps.map((step, index) => (
+                    <Step key={step}>
+                      <StepLabel
+                        optional={
+                          index === 2 ? (
+                            <Typography variant="caption">Last step</Typography>
+                          ) : null
+                        }
+                      >
+                        {step}
+                      </StepLabel>
+                      <StepContent TransitionProps={{ unmountOnExit: false }}>
+                        {index === 0 && (
+                          <>
+                            <SelectSubjects
+                              label="Elective VII"
+                              subjectObject={ElectiveVII}
+                              handleElectiveChange={handleElectiveSevenChange}
                             />
-                          )}
-                          {electiveEight !== "" && (
-                            <SubjectRating
-                              subjectLabel={electiveEight}
-                              subjectRatings={
-                                handleSubjectRatingChangeElectiveEight
-                              }
+                            <SelectSubjects
+                              label="Elective VIII"
+                              subjectObject={ElectiveVIII}
+                              handleElectiveChange={handleElectiveEightChange}
                             />
-                          )}
-                          {openElective !== "" && (
-                            <SubjectRating
-                              subjectLabel={openElective}
-                              subjectRatings={
-                                handleSubjectRatingChangeOpenElective
-                              }
+                            <SelectSubjects
+                              label="Open Elective"
+                              subjectObject={OpenElectiveI}
+                              handleElectiveChange={handleOpenElectiveChange}
                             />
-                          )}
-                          {Labs.map((subject) => (
-                            <SubjectRating
-                              key={subject}
-                              subjectLabel={subject}
-                              subjectRatings={handleSubjectRatingChange}
+                            <SelectSubjects
+                              label="Section"
+                              subjectObject={["A", "B", "C"]}
+                              handleElectiveChange={handleSectionChange}
                             />
-                          ))}
-                        </Box>
-                      )}
-                      <Box sx={{ mb: 2 }}>
-                        <div>
-                          {index === steps.length - 1 ? (
-                            <Box sx={{ m: "auto", width: "300px" }}>
+                          </>
+                        )}
+                        {index === 1 && (
+                          <Box sx={{ m: 1 }}>
+                            {MainSubjects.map((subject) => (
+                              <SubjectRating
+                                key={subject}
+                                subjectLabel={subject}
+                                subjectRatings={handleSubjectRatingChange}
+                              ></SubjectRating>
+                            ))}
+                            {electiveSeven !== "" && (
+                              <SubjectRating
+                                subjectLabel={electiveSeven}
+                                subjectRatings={
+                                  handleSubjectRatingChangeElectiveSeven
+                                }
+                              />
+                            )}
+                            {electiveEight !== "" && (
+                              <SubjectRating
+                                subjectLabel={electiveEight}
+                                subjectRatings={
+                                  handleSubjectRatingChangeElectiveEight
+                                }
+                              />
+                            )}
+                            {openElective !== "" && (
+                              <SubjectRating
+                                subjectLabel={openElective}
+                                subjectRatings={
+                                  handleSubjectRatingChangeOpenElective
+                                }
+                              />
+                            )}
+                            {Labs.map((subject) => (
+                              <SubjectRating
+                                key={subject}
+                                subjectLabel={subject}
+                                subjectRatings={handleSubjectRatingChange}
+                              />
+                            ))}
+                          </Box>
+                        )}
+                        <Box sx={{ mb: 2 }}>
+                          <div>
+                            {index === steps.length - 1 ? (
+                              <Box sx={{ m: "auto", width: "300px" }}>
+                                <Button
+                                  variant="contained"
+                                  sx={{ mt: 1, mr: 1, mb: 1 }}
+                                  onClick={handleSubmit}
+                                  disabled={!invalidForm && submitting}
+                                >
+                                  Finish
+                                </Button>
+                                {submitting && invalidForm && (
+                                  <Chip
+                                    label="Please fill all the fields"
+                                    color="error"
+                                  />
+                                )}
+                                {submitting && !invalidForm && (
+                                  <>
+                                    <Chip
+                                      label="Submitting form"
+                                      color="success"
+                                    />
+                                    <LinearProgress />
+                                  </>
+                                )}
+                              </Box>
+                            ) : (
                               <Button
                                 variant="contained"
-                                sx={{ mt: 1, mr: 1, mb: 1 }}
-                                onClick={handleSubmit}
-                                // disabled={!invalidForm && submitting}
+                                onClick={handleNext}
+                                sx={{ mt: 1, mr: 1 }}
+                                disabled={
+                                  electiveSeven === "" ||
+                                  electiveEight === "" ||
+                                  openElective === "" ||
+                                  section === ""
+                                }
                               >
-                                Finish
+                                Continue
                               </Button>
-                              {submitting && invalidForm && (
-                                <Chip
-                                  label="Please fill all the fields"
-                                  color="error"
-                                />
-                              )}
-                              {submitting && !invalidForm && (
-                                <>
-                                  <Chip
-                                    label="Submitting form"
-                                    color="success"
-                                  />
-                                  <LinearProgress />
-                                </>
-                              )}
-                            </Box>
-                          ) : (
-                            <Button
-                              variant="contained"
-                              onClick={handleNext}
-                              sx={{ mt: 1, mr: 1 }}
-                              disabled={
-                                electiveSeven === "" ||
-                                electiveEight === "" ||
-                                openElective === "" ||
-                                section === ""
-                              }
-                            >
-                              Continue
-                            </Button>
-                          )}
-                        </div>
-                      </Box>
-                    </StepContent>
-                  </Step>
-                ))}
-              </Stepper>
-            </Box>
-          </div>
+                            )}
+                          </div>
+                        </Box>
+                      </StepContent>
+                    </Step>
+                  ))}
+                </Stepper>
+              </Box>
+            </div>
+          )}
         </CardContent>
       </Card>
     </Box>

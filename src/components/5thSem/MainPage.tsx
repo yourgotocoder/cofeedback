@@ -14,6 +14,7 @@ import SubjectRating from "../common/SubjectRating";
 import FeedbackParameters from "../../FeedbackParameters";
 import Chip from "@mui/material/Chip";
 import LinearProgress from "@mui/material/LinearProgress";
+import { Alert } from "@mui/material";
 
 const steps = ["Select Electives", "Feedback"];
 
@@ -181,10 +182,14 @@ const MainPageContent = () => {
         }
       }
     }
-    setInvalidForm(false)
+    setInvalidForm(false);
     const response = await fetch(`http://localhost:3011/submit-feedback`, {
       method: "POST",
-      body: JSON.stringify({ ratingData: {...finalRatings}, section: section, semester: 5 }),
+      body: JSON.stringify({
+        ratingData: { ...finalRatings },
+        section: section,
+        semester: 5,
+      }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -204,134 +209,139 @@ const MainPageContent = () => {
     >
       <Card sx={{ minWidth: "60vw", maxWidth: "100vw", margin: "auto" }}>
         <CardContent>
-          <div>
-            <Typography
-              sx={{
-                fontSize: 14,
-                textAlign: "center",
-              }}
-              color="text.primary"
-              gutterBottom
-            >
-              Please provide your valuable feedback
-            </Typography>
-            <Box sx={{ maxWidth: "100%", alignItems: "center" }}>
-              <Stepper activeStep={activeStep} orientation="vertical">
-                {steps.map((step, index) => (
-                  <Step key={step}>
-                    <StepLabel
-                      optional={
-                        index === 2 ? (
-                          <Typography variant="caption">Last step</Typography>
-                        ) : null
-                      }
-                    >
-                      {step}
-                    </StepLabel>
-                    <StepContent TransitionProps={{ unmountOnExit: false }}>
-                      {index === 0 && (
-                        <>
-                          <SelectSubjects
-                            label="Elective II"
-                            subjectObject={ElectiveII}
-                            handleElectiveChange={handleElectiveTwoChange}
-                          />
-                          <SelectSubjects
-                            label="Elective III"
-                            subjectObject={ElectiveIII}
-                            handleElectiveChange={handleElectiveThreeChange}
-                          />
-                          <SelectSubjects
-                            label="Section"
-                            subjectObject={["A", "B", "C"]}
-                            handleElectiveChange={handleSectionChange}
-                          />
-                        </>
-                      )}
-                      {index === 1 && (
-                        <Box sx={{ m: 1 }}>
-                          {MainSubjects.map((subject) => (
-                            <SubjectRating
-                              key={subject}
-                              subjectLabel={subject}
-                              subjectRatings={handleSubjectRatingChange}
-                            ></SubjectRating>
-                          ))}
-                          {electiveTwo !== "" && (
-                            <SubjectRating
-                              subjectLabel={electiveTwo}
-                              subjectRatings={
-                                handleSubjectRatingChangeElectiveTwo
-                              }
+        {submitted && (
+            <Alert severity="success">Thank you for submitting for your valuable feedback</Alert>
+          )}
+          {!submitted && (
+            <div>
+              <Typography
+                sx={{
+                  fontSize: 14,
+                  textAlign: "center",
+                }}
+                color="text.primary"
+                gutterBottom
+              >
+                Please provide your valuable feedback
+              </Typography>
+              <Box sx={{ maxWidth: "100%", alignItems: "center" }}>
+                <Stepper activeStep={activeStep} orientation="vertical">
+                  {steps.map((step, index) => (
+                    <Step key={step}>
+                      <StepLabel
+                        optional={
+                          index === 2 ? (
+                            <Typography variant="caption">Last step</Typography>
+                          ) : null
+                        }
+                      >
+                        {step}
+                      </StepLabel>
+                      <StepContent TransitionProps={{ unmountOnExit: false }}>
+                        {index === 0 && (
+                          <>
+                            <SelectSubjects
+                              label="Elective II"
+                              subjectObject={ElectiveII}
+                              handleElectiveChange={handleElectiveTwoChange}
                             />
-                          )}
-                          {electiveThree !== "" && (
-                            <SubjectRating
-                              subjectLabel={electiveThree}
-                              subjectRatings={
-                                handleSubjectRatingChangeElectiveThree
-                              }
+                            <SelectSubjects
+                              label="Elective III"
+                              subjectObject={ElectiveIII}
+                              handleElectiveChange={handleElectiveThreeChange}
                             />
-                          )}
-                          {Labs.map((subject) => (
-                            <SubjectRating
-                              key={subject}
-                              subjectLabel={subject}
-                              subjectRatings={handleSubjectRatingChange}
+                            <SelectSubjects
+                              label="Section"
+                              subjectObject={["A", "B", "C"]}
+                              handleElectiveChange={handleSectionChange}
                             />
-                          ))}
-                        </Box>
-                      )}
-                      <Box sx={{ mb: 2 }}>
-                        <div>
-                          {index === steps.length - 1 ? (
-                            <Box sx={{ m: "auto", width: "300px" }}>
+                          </>
+                        )}
+                        {index === 1 && (
+                          <Box sx={{ m: 1 }}>
+                            {MainSubjects.map((subject) => (
+                              <SubjectRating
+                                key={subject}
+                                subjectLabel={subject}
+                                subjectRatings={handleSubjectRatingChange}
+                              ></SubjectRating>
+                            ))}
+                            {electiveTwo !== "" && (
+                              <SubjectRating
+                                subjectLabel={electiveTwo}
+                                subjectRatings={
+                                  handleSubjectRatingChangeElectiveTwo
+                                }
+                              />
+                            )}
+                            {electiveThree !== "" && (
+                              <SubjectRating
+                                subjectLabel={electiveThree}
+                                subjectRatings={
+                                  handleSubjectRatingChangeElectiveThree
+                                }
+                              />
+                            )}
+                            {Labs.map((subject) => (
+                              <SubjectRating
+                                key={subject}
+                                subjectLabel={subject}
+                                subjectRatings={handleSubjectRatingChange}
+                              />
+                            ))}
+                          </Box>
+                        )}
+                        <Box sx={{ mb: 2 }}>
+                          <div>
+                            {index === steps.length - 1 ? (
+                              <Box sx={{ m: "auto", width: "300px" }}>
+                                <Button
+                                  variant="contained"
+                                  sx={{ mt: 1, mr: 1, mb: 1 }}
+                                  onClick={handleSubmit}
+                                  disabled={!invalidForm && submitting}
+                                >
+                                  Finish
+                                </Button>
+                                {submitting && invalidForm && (
+                                  <Chip
+                                    label="Please fill all the fields"
+                                    color="error"
+                                  />
+                                )}
+                                {submitting && !invalidForm && (
+                                  <>
+                                    <Chip
+                                      label="Submitting form"
+                                      color="success"
+                                    />
+                                    <LinearProgress />
+                                  </>
+                                )}
+                              </Box>
+                            ) : (
                               <Button
                                 variant="contained"
-                                sx={{ mt: 1, mr: 1, mb: 1 }}
-                                onClick={handleSubmit}
-                                // disabled={!invalidForm && submitting}
+                                onClick={handleNext}
+                                sx={{ mt: 1, mr: 1 }}
+                                disabled={
+                                  electiveTwo === "" ||
+                                  electiveThree === "" ||
+                                  section === ""
+                                }
                               >
-                                Finish
+                                Continue
                               </Button>
-                              {submitting && invalidForm && (
-                                <Chip
-                                  label="Please fill all the fields"
-                                  color="error"
-                                />
-                              )}
-                              {submitting && !invalidForm && (
-                                <>
-                                  <Chip
-                                    label="Submitting form"
-                                    color="success"
-                                  />
-                                  <LinearProgress />
-                                </>
-                              )}
-                            </Box>
-                          ) : (
-                            <Button
-                              variant="contained"
-                              onClick={handleNext}
-                              sx={{ mt: 1, mr: 1 }}
-                              disabled={
-                                electiveTwo === "" ||
-                                electiveThree === "" ||
-                                section === ""
-                              }
-                            >
-                              Continue
-                            </Button>
-                          )}
-                        </div>
-                      </Box>
-                    </StepContent>
-                  </Step>
-                ))}
-              </Stepper>
-            </Box>
-          </div>
+                            )}
+                          </div>
+                        </Box>
+                      </StepContent>
+                    </Step>
+                  ))}
+                </Stepper>
+              </Box>
+            </div>
+          )}
         </CardContent>
       </Card>
     </Box>
