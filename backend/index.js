@@ -15,32 +15,17 @@ app.use(json2xls.middleware);
 
 app.post("/submit-feedback", async (req, res) => {
     const { body } = req;
-    const transformedDataToBeSaved = body.reduce((prevValue, currentValue) => {
-        const arrayToBeReturned = [...prevValue];
-        const newElement = {};
-        const foundIndex = arrayToBeReturned.findIndex(
-            (element, indexNumber) => element.subject === currentValue.subject
-        );
-        if (foundIndex === -1) {
-            newElement.subject = currentValue.subject;
-            newElement["CO" + currentValue.co] = currentValue.rating;
-            arrayToBeReturned.push(newElement);
-        } else {
-            arrayToBeReturned[foundIndex]["CO" + currentValue.co] =
-                currentValue.rating;
-        }
-        return arrayToBeReturned;
-    }, []);
+    const date = new Date().toLocaleString(undefined, { timeZone: 'Asia/Kolkata'});
     const client = await MongoClient.connect(process.env.DB_URL);
-    const db = client.db("feedback");
+    const db = client.db("feedback-2022");
     const collection = db.collection("feedback-data");
-    const date = new Date().toString();
     const dataToBeSaved = {
-        date,
-        data: transformedDataToBeSaved,
-    };
+        ...body,
+        date
+    }
     const savedPost = await collection.insertOne(dataToBeSaved);
-    client.close();
+    await client.close();
+    console.log(savedPost.insertedId.toString())
     res.json({ error: false, message: "Feedback submitted successfully" });
 });
 

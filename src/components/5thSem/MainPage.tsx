@@ -178,14 +178,13 @@ const MainPageContent = () => {
         if (finalRatings[key][label] === null) {
           setInvalidForm(true);
           return;
-        } else {
-          setInvalidForm(false);
         }
       }
     }
+    setInvalidForm(false)
     const response = await fetch(`http://localhost:3011/submit-feedback`, {
       method: "POST",
-      body: JSON.stringify({ ...finalRatings, section: section }),
+      body: JSON.stringify({ ratingData: {...finalRatings}, section: section, semester: 5 }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -291,7 +290,7 @@ const MainPageContent = () => {
                                 variant="contained"
                                 sx={{ mt: 1, mr: 1, mb: 1 }}
                                 onClick={handleSubmit}
-                                disabled={!invalidForm && submitting}
+                                // disabled={!invalidForm && submitting}
                               >
                                 Finish
                               </Button>
