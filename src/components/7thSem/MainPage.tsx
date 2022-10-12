@@ -15,6 +15,7 @@ import FeedbackParameters from "../../FeedbackParameters";
 import Chip from "@mui/material/Chip";
 import LinearProgress from "@mui/material/LinearProgress";
 import Alert from "@mui/material/Alert";
+import API from "../../resources/api";
 
 const steps = ["Select Electives", "Feedback"];
 
@@ -216,18 +217,20 @@ const MainPageContent = () => {
       }
     }
     setInvalidForm(false);
-    const response = await fetch(`http://localhost:3011/submit-feedback`, {
-      method: "POST",
-      body: JSON.stringify({
-        ratingData: { ...finalRatings },
-        section: section,
-        semester: 7,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    console.log(response);
+    const response = await fetch(
+      `${API}submit-feedback`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          ratingData: { ...finalRatings },
+          section: section,
+          semester: 7,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     if (response.ok) {
       setSubmitted(true);
     }
