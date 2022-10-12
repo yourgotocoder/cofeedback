@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "./App.css";
 // import MainPage6thSem from "./components/SixthSem/MainPage";
 // import MainPage4thSem from "./components/FourthSem/MainPage";
-import MainPage5thSem from "./components/5thSem/MainPage"
+import MainPage5thSem from "./components/5thSem/MainPage";
+import MainPage3rdSem from "./components/3rdSem/MainPage";
 import SelectSemester from "./components/SelectSemester";
 // import GetExcel from "./components/GetExcel";
 
@@ -20,7 +21,7 @@ function App() {
                     handleSemesterSelected={handleSemesterSelected}
                 />
             )}
-            {/* {semester === 3 && <MainPage3rdSem} */}
+            {semester === 3 && <MainPage3rdSem/>}
             {/* {semester === 4 && <MainPage4thSem />}{" "} */}
             {semester === 5 && <MainPage5thSem/>}
             {/* {semester === 6 && <MainPage6thSem />} */}
