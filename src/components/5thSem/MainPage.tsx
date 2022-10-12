@@ -12,6 +12,8 @@ import SelectSubjects from "./SelectSubjects";
 import Loading from "../common/Loading";
 import SubjectRating from "../common/SubjectRating";
 import FeedbackParameters from "../../FeedbackParameters";
+import Chip from "@mui/material/Chip";
+import LinearProgress from "@mui/material/LinearProgress";
 
 const steps = ["Select Electives", "Feedback"];
 
@@ -86,28 +88,30 @@ const MainPageContent = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
+  const [ratingsDetailElectiveTwo, setRatingsDetailElectiveTwo] = useState<any>(
+    {}
+  );
+  const [ratingsDetailElectiveThree, setRatingsDetailElectiveThree] =
+    useState<any>({});
+
   const [electiveTwo, setElectiveTwo] = useState("");
 
   const handleElectiveTwoChange = (value: string) => {
     setElectiveTwo(value);
-    setRatingsDetail((prevValue: any) => {
-      return {
-        ...prevValue,
-        electiveTwo: { [value]: { ...ratingKeys } },
-      };
-    });
+    setRatingsDetailElectiveTwo({ [value]: ratingKeys });
+  };
+
+  const [section, setSection] = useState("");
+
+  const handleSectionChange = (value: string) => {
+    setSection(value);
   };
 
   const [electiveThree, setElectiveThree] = useState("");
 
   const handleElectiveThreeChange = (value: string) => {
     setElectiveThree(value);
-    setRatingsDetail((prevValue: any) => {
-      return {
-        ...prevValue,
-        electiveThree: { [value]: { ...ratingKeys } },
-      };
-    });
+    setRatingsDetailElectiveThree({ [value]: ratingKeys });
   };
 
   const handleSubjectRatingChange = (
@@ -131,15 +135,12 @@ const MainPageContent = () => {
     label: string,
     value: number | null
   ) => {
-    setRatingsDetail((prevValue: any) => {
+    setRatingsDetailElectiveTwo((prevValue: any) => {
       return {
         ...prevValue,
-        electiveTwo: {
-          ...prevValue.electiveTwo,
-          [subjectName]: {
-            ...prevValue.electiveTwo[subjectName],
-            [label]: value,
-          },
+        [subjectName]: {
+          ...prevValue[subjectName],
+          [label]: value,
         },
       };
     });
@@ -150,23 +151,49 @@ const MainPageContent = () => {
     label: string,
     value: number | null
   ) => {
-    setRatingsDetail((prevValue: any) => {
+    setRatingsDetailElectiveThree((prevValue: any) => {
       return {
         ...prevValue,
-        electiveThree: {
-          ...prevValue.electiveThree,
-          [subjectName]: {
-            ...prevValue.electiveThree[subjectName],
-            [label]: value,
-          },
+        [subjectName]: {
+          ...prevValue[subjectName],
+          [label]: value,
         },
       };
     });
   };
 
-  const handleSubmit = () => {
-    console.log(ratingsDetail)
-  }
+  const [invalidForm, setInvalidForm] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async () => {
+    setSubmitting(true);
+    const finalRatings = {
+      ...ratingsDetail,
+      ...ratingsDetailElectiveTwo,
+      ...ratingsDetailElectiveThree,
+    };
+    for (let key in finalRatings) {
+      for (let label in finalRatings[key]) {
+        if (finalRatings[key][label] === null) {
+          setInvalidForm(true);
+          return;
+        } else {
+          setInvalidForm(false);
+        }
+      }
+    }
+    const response = await fetch(`http://localhost:3011/submit-feedback`, {
+      method: "POST",
+      body: JSON.stringify({ ...finalRatings, section: section }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      setSubmitted(true);
+    }
+  };
 
   return (
     <Box
@@ -215,6 +242,11 @@ const MainPageContent = () => {
                             subjectObject={ElectiveIII}
                             handleElectiveChange={handleElectiveThreeChange}
                           />
+                          <SelectSubjects
+                            label="Section"
+                            subjectObject={["A", "B", "C"]}
+                            handleElectiveChange={handleSectionChange}
+                          />
                         </>
                       )}
                       {index === 1 && (
@@ -254,14 +286,41 @@ const MainPageContent = () => {
                       <Box sx={{ mb: 2 }}>
                         <div>
                           {index === steps.length - 1 ? (
-                            <Button variant="contained" sx={{ mt: 1, mr: 1 }} onClick={handleSubmit}>
-                              Submit
-                            </Button>
+                            <Box sx={{ m: "auto", width: "300px" }}>
+                              <Button
+                                variant="contained"
+                                sx={{ mt: 1, mr: 1, mb: 1 }}
+                                onClick={handleSubmit}
+                                disabled={!invalidForm && submitting}
+                              >
+                                Finish
+                              </Button>
+                              {submitting && invalidForm && (
+                                <Chip
+                                  label="Please fill all the fields"
+                                  color="error"
+                                />
+                              )}
+                              {submitting && !invalidForm && (
+                                <>
+                                  <Chip
+                                    label="Submitting form"
+                                    color="success"
+                                  />
+                                  <LinearProgress />
+                                </>
+                              )}
+                            </Box>
                           ) : (
                             <Button
                               variant="contained"
                               onClick={handleNext}
                               sx={{ mt: 1, mr: 1 }}
+                              disabled={
+                                electiveTwo === "" ||
+                                electiveThree === "" ||
+                                section === ""
+                              }
                             >
                               Continue
                             </Button>
