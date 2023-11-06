@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 app.use(json2xls.middleware);
 
-app.post("submit-feedback-third", async (req, res) => {
+app.post("/submit-feedback-third", async (req, res) => {
   const { body } = req;
   const transformedDataToBeSaved = body.reduce((prevValue, currentValue) => {
     const arrayToBeReturned = [...prevValue];
