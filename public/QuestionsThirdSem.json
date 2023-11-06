@@ -1,0 +1,62 @@
+{
+  "Main Subjects": {
+    "MA205A1(Discrete Mathematics)": [
+      "Apply concepts of Group theory to the model real-world problems.",
+      "Analyze the use of graphs in Engineering applications.",
+      "Extend the concepts of Predicate Calculus in computer science like design of computing machines, artificial intelligence, definition of data structures for programming languages etc",
+      "Evaluate problems related to mathematical logic and pigeonhole principle.",
+      "Solve problems using Permutation and Combination, Recursion and generating functions."
+    ],
+    "CS201A1(Data Structures)": [
+      "Describe the working of data structures like array, stack, queue, linked list, tree and graph",
+      "Explain common applications for array, stack, queue, linked list, tree and graph",
+      "Solve a given problem using appropriate data structures and algorithm",
+      "Discuss about the working of the principal algorithms for sorting, searching, and hashing",
+      "Correlate the performance of a program with respect to the choice of data structure & algorithm"
+    ],
+    "CS202A1(Digital Circuits and Logic Design)": [
+      "Relate and implement Boolean algebra in Digital Logic Circuits",
+      "Design combinational logic circuits",
+      "Design sequential logic circuits",
+      "Interpret various logic families",
+      "Explain the working of multivibrator circuits"
+    ],
+    "CS203A1(Computer Organizatio and Architecture)": [
+      "Demonstrate competence in mapping relation between computer programming and computer organization and architecture. ",
+      "Identify computer model requirements. ",
+      "Analyze and evaluate the competence of a model. ",
+      "Identify the evolution of Computer systems and the complexities in data processing. ",
+      "Propose various microprocessor design alternatives to learn the concepts of parallel processing, pipelining and interprocessor system performance"
+    ],
+    "CS204A1(Professional and Software Ethics)": [
+      " Identify regulations, legislation and standards for Intellectual Property Rights ",
+      "Describe the impact of Intellectual Property Rights on engineering and industrial practices vis a vis social, environmental and economic contexts.",
+      "Apply principles of Intellectual Property Rights to sustainable design and development. ",
+      "Analyse ethical lapses and recognize ethical dilemmas. ",
+      "Distinguish professional issues which arise in the intellectual property law context"
+    ],
+    "CS205A1(Object Oriented Concepts and Programming using C++)": [
+      "Describe the principles of Object Oriented Programming and C++ features that support OOP Paradigm.",
+      " Compare and differentiate between OOP and structured or procedural programming.",
+      " Explain programming constructs and features of C++ programming language.  ",
+      "Employ C++ constructs to write Object Oriented Programs to solve problems. ",
+      "Adapt to bottom up approach of problem solving using classes and objects."
+    ]
+  },
+  "Lab": {
+    "CS201A4(Data Structures Lab)": [
+      "Write program related to application of data structures using programming constructs of a language like C programming language",
+      "Identify the suitable input and output for a specified problem statement",
+      "Conclude the working of various algorithms in terms of time and space complexity",
+      "Examine the errors enounterd in the program using appropriate tools and fix them",
+      "Write well-indented and well-documented code "
+    ],
+    "CS202A4(Object Oriented Concpets and Programming using C++ Lab)": [
+      "Tell the syntax and semantics of the C++ programming language. ",
+      "Apply the concepts and principles of Object Oriented programming while writing programs using C++. ",
+      "Extend the concepts of encapsulation, polymorphism, inheritance using class, objects, function/operator overloading, function overriding, etc. ",
+      "Write programs with Inheritance, virtual functions that supports code reusability, dynamic binding and run time polymorphism.  ",
+      "Adapt to bottom up approach of problem solving using classes and objects."
+    ]
+  }
+}

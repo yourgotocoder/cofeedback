@@ -11,7 +11,7 @@ type Props = {
 };
 
 const SelectSemester = (props: Props) => {
-    const semesters: number[] = [4, 6];
+    const semesters: number[] = [3];
 
     return (
         <Box
@@ -41,11 +41,13 @@ const SelectSemester = (props: Props) => {
                         <div style={{ marginTop: "1.2rem" }}>
                             <Button
                                 variant="contained"
-                                onClick={() =>
-                                    props.handleSemesterSelected(sem)
-                                }
+                                onClick={() => props.handleSemesterSelected(sem)}
                             >
-                                {sem === 4 ? "Fourth Sem" : "Sixth Sem"}
+                                {sem === 3
+                                    ? "Third Sem"
+                                    : sem === 5
+                                        ? "Fifth Sem"
+                                        : "Seventh Sem"}
                             </Button>
                         </div>
                     ))}
