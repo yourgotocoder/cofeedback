@@ -1,0 +1,80 @@
+{
+  "Main Subjects": {
+    "COMPILER DESIGN (CS1703)": [
+      "Define the competence in designing compilers",
+      "Describe the functioning in various problem domains.",
+      "Discover complex engineering problem and able to solve it using the concept of compiler design",
+      "Analyze and select optimal design scheme using compiler design principles",
+      "Develop and experiment using knowledge of compilers for compiling different programs."
+    ]
+  },
+  "Elective Seven": {
+    "MACHINE LEARNING (CS1741)": [
+      "Display sufficient understanding of mathematical and engineering fundamentals in the perspective of machine learning theory.",
+      "Identify problems that can be solved using machine learning techniques.",
+      "Appreciate the importance of tolerance of imprecision and uncertainty for design of robust and low-cost intelligent machines.",
+      "Investigate a problem to identify technical issues and solve the problems using various machine learning techniques.",
+      "Design real-life applications using machine learning techniques."
+    ],
+    "DEEP LEARNING (CS1631)": [
+      "Describe deep learning techniques and computing environment that are suitable for the applications under consideration.",
+      "Discuss various solution plans and methodologies for an engineering problem using Deep Learning.",
+      "Develop a set of alternative design solutions to problems for which standard algorithmic solutions do not exist.",
+      "Classify the different technical issues related to Deep Architectures consistent with their level of knowledge and understanding.",
+      "Apply Deep Learning techniques to solve real-life problems which directly or indirectly benefits to the society"
+    ],
+    "CLOUD COMPUTING (CS1732)": [
+      "Explain competence in using engineering fundamentals to visualize solutions using knowledge of software engineering skills.",
+      "Determine a solution plan and methodology for an engineering problem using software engineering.",
+      "Interpret a model for project management as well as define complex problem, also find and analyses requirements",
+      "Develop modern engineering tools, techniques and resources to solve software related problems.",
+      "Demonstrate an ability to identify/create modern engineering tools, techniques and resources to solve cloud architecture and storage solution."
+    ]
+  },
+  "Elective Eight": {
+    "R Programming (CS1756)": [
+      "Choose various mathematical techniques for the data analysis.",
+      "Describe the process, solution and analyse the results",
+      "Develop/create different models and experiment with it.",
+      "Apply appropriate tools, techniques, algorithms etc.",
+      "Examine the case study of the different available models"
+    ],
+    "Ad-Hoc Wireless Networks (CS1731)": [
+      "Understand the involved engineering fundamentals of Ad-Hoc wireless",
+      "Ability to identify the complex engineering problem relating to Infrastructure based wireless network and Ad-Hoc wireless Network.",
+      "Ability to formulate a solution plan and methodology by applying appropriate theory, practices and tools to the development of Ad-Hoc network for related application domain.",
+      "Demonstrate an ability to select optimal design scheme suitable for Ad- Hoc Network considering its inherent characteristics.",
+      "Understand the various routing protocols especially designed for Ad-Hoc network"
+    ],
+    "Social Network Analysis (CS1641)": [
+      "Explain and extend the competence in structural properties of Social Networks fundamentals",
+      "Illustrate the ability to formulate and interpret several Social Network models",
+      "Represent the mathematical representation and analyses Social Network results.",
+      "Compare and analyze Social Network Data to reach a valid conclusion.",
+      "Define competence in Social Network Analysis fundamentals"
+    ],
+    "Cyber Security (CS1743)": [
+      "Discover the concepts of Cyber security and its social, technical and political techniques.",
+      "Illustrate on the various Intrusion detection and prevention techniques.",
+      "Analyze various algorithms based on Cryptography and Network security",
+      "Asses various methods of handling investigations in the field of cyber forensics",
+      "Asses the legal and social issues in the development and management of cyber security."
+    ]
+  },
+  "Lab": {
+    "Compiler Design Lab (1762)": [
+      "Simulate the functioning of various phases of compilers in various problem domains",
+      "Devise solutions to solve complex engineering problem.",
+      "Identify an optimal design among all available design alternatives for further manipulation using compiler design principles to execute the code faster.",
+      "Apply tools using knowledge of compilers for compiling different programs.",
+      "Evaluate the effectiveness of different compilation tools."
+    ],
+    "Intelligent Systems Lab (CS1763)": [
+      "Classify procedures for Machine Learning algorithms.",
+      "Simulate various procedures of Machine learning in any high level language.",
+      "Select appropriate datasets to be used in different algorithms.",
+      "Justify the application of an algorithm in solving real world problems and evaluate its performance and effectiveness.",
+      "Apply Machine learning algorithms in solving various real life problems."
+    ]
+  }
+}

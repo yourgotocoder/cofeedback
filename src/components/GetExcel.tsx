@@ -44,43 +44,84 @@ const transformData = (data: any) => {
 };
 
 const GetExcel = (props: Props) => {
+    const [_3rdSemData, set_3rdSemData] = useState();
     const [_4thSemData, set_4thSemData] = useState();
+    const [_5thSemData, set_5thSemData] = useState();
     const [_6thSemData, set_6thSemData] = useState();
+    const [_7thSemData, set_7thSemData] = useState();
 
     useEffect(() => {
+        fetch("http://localhost:3011/get-excel-data-3rd-sem")
+            .then((response) => response.json())
+            .then((data) => {
+                const arrayWithTotals = transformData(data);
+                set_3rdSemData(arrayWithTotals);
+            });
         fetch("http://localhost:3011/get-excel-data-4th-sem")
             .then((response) => response.json())
             .then((data) => {
                 const arrayWithTotals = transformData(data);
                 set_4thSemData(arrayWithTotals);
-                console.log(arrayWithTotals);
+            });
+        fetch("http://localhost:3011/get-excel-data-5th-sem")
+            .then((response) => response.json())
+            .then((data) => {
+                const arrayWithTotals = transformData(data);
+                set_5thSemData(arrayWithTotals);
             });
         fetch("http://localhost:3011/get-excel-data-6th-sem")
             .then((response) => response.json())
             .then((data) => {
                 const arrayWithTotals = transformData(data);
                 set_6thSemData(arrayWithTotals);
-                console.log(arrayWithTotals);
+            });
+        fetch("http://localhost:3011/get-excel-data-7th-sem")
+            .then((response) => response.json())
+            .then((data) => {
+                const arrayWithTotals = transformData(data);
+                set_7thSemData(arrayWithTotals);
             });
     }, []);
 
-    const handleDownload = () => {
-        const setting = {
-            fileName: "4thSemFeedbackData",
-            extraLength: 3,
-        };
-        if (_4thSemData) {
-            xlsx(_4thSemData, setting);
+    const handleDownload = (sem: number) => {
+        let fileName = "";
+        switch (sem) {
+            case 3:
+                fileName = "3rdSemFeedbackData";
+                break;
+            case 4:
+                fileName = "4thSemFeedbackData";
+                break;
+            case 5:
+                fileName = "5thSemFeedbackData";
+                break;
+            case 6:
+                fileName = "6thSemFeedbackData";
+                break;
+            case 7:
+                fileName = "7thSemFeedbackData";
+                break;
         }
-    };
-
-    const handle6thDownload = () => {
         const setting = {
-            fileName: "6thSemFeedbackData",
+            fileName: fileName,
             extraLength: 3,
         };
-        if (_6thSemData) {
-            xlsx(_6thSemData, setting);
+        switch (sem) {
+            case 3:
+                _3rdSemData && xlsx(_3rdSemData, setting);
+                break;
+            case 4:
+                _4thSemData && xlsx(_4thSemData, setting);
+                break;
+            case 5:
+                _5thSemData && xlsx(_5thSemData, setting);
+                break;
+            case 6:
+                _6thSemData && xlsx(_6thSemData, setting);
+                break;
+            case 7:
+                _7thSemData && xlsx(_7thSemData, setting);
+                break;
         }
     };
 
@@ -88,14 +129,36 @@ const GetExcel = (props: Props) => {
         <>
             <Button
                 variant="contained"
-                onClick={handleDownload}
+                onClick={() => handleDownload(3)}
+                disabled={_3rdSemData === undefined}
+            >
+                GetExcel3rd
+            </Button>
+            <Button
+                variant="contained"
+                onClick={() => handleDownload(5)}
+                disabled={_3rdSemData === undefined}
+            >
+                GetExcel5th
+            </Button>
+            <Button
+                variant="contained"
+                onClick={() => handleDownload(7)}
+                disabled={_3rdSemData === undefined}
+            >
+                GetExcel7th
+            </Button>
+
+            <Button
+                variant="contained"
+                onClick={() => handleDownload(4)}
                 disabled={_4thSemData === undefined}
             >
                 GetExcel4th
             </Button>
             <Button
                 variant="contained"
-                onClick={handle6thDownload}
+                onClick={() => handleDownload(6)}
                 disabled={_6thSemData === undefined}
             >
                 GetExcel6th
