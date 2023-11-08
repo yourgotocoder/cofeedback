@@ -1,0 +1,68 @@
+{
+  "Main Subjects": {
+    "MA205A1(Discrete Mathematics)": [
+      "Apply concepts of Group theory to the model real-world problems.",
+      "Analyze the use of graphs in Engineering applications.",
+      "Evaluate problems related to mathematical logic. Extend the concepts of Predicate Calculus in computer science like design of computing machines, artificial intelligence, definition of data structures for programming languages etc.",
+      "Apply the different theorems and properties of Poset, Lattices and Boolean Algebra in simplifying Boolean Expressions",
+      "Solve problems using Permutation and Combination, Recursion and generating functions."
+    ],
+    "CS201A1(Data Structures)": [
+      "Describe the working of data structures like array, stack, queue, linked list, tree and graph",
+      "Explain common applications for array, stack, queue, linked list, tree and graph",
+      "Solve a given problem using appropriate data structures and algorithm",
+      "Discuss about the working of the principal algorithms for sorting, searching, and hashing",
+      "Correlate the performance of a program with respect to the choice of data structure & algorithm"
+    ],
+    "CSML202A1(Object Oriented Concepts and Programming using C++)": [
+      "Describe the principles of Object Oriented Programming and C++ features that support OOP Paradigm.",
+      "Compare and differentiate between OOP and structured or procedural programming.",
+      "Develop programming constructs and features of C++ programming language.",
+      "Employ C++ constructs to write Object Oriented Programs to solve problems.",
+      "Adapt to bottom up approach of problem solving using classes and objects."
+    ],
+    "CSML203A1(Computer Organization and Architecture)": [
+      "Demonstrate competence in mapping relation between computer programming and computer organization and architecture.",
+      "Identify computer model requirements.",
+      "Analyze and evaluate the competence of a model",
+      "Identify the evolution of Computer systems and the complexities in data processing.",
+      "Propose various microprocessor design alternatives to learn the concepts of parallel processing, pipelining and interprocessor system performance."
+    ],
+    "CSML204A1(Python Programming)": [
+      "Define the basic structure of python programming.",
+      "Differentiate imperative, functional and procedural programming features in Python.",
+      "Practice features for designing and implementing python program.",
+      "Compose applications using various libraries and concepts of Python.",
+      "Select methods to build and package Python modules for reusability"
+    ],
+    "CSML205A1(Machine Learning)": [
+      "Identify methods to solve ML problems.",
+      "Design pattern recognition program systems using approaches of these theories for solving various real-world problems.",
+      "Identify importance of tolerance of imprecision and uncertainty for design of robust and low-cost intelligent machines.",
+      "Describe areas of application of ML.",
+      "Formulate solution strategies for solving ML problems in real life."
+    ],
+    "GN201A1(UHV-II)": [
+      "Students are expected to understand self-exploration and Basic Human Aspirations.",
+      "To understand harmony in themselves (Human being).",
+      "To become more aware of their surroundings (family, society, nature); they would become more responsible in life, and in handling problems with sustainable solutions, while keeping human relationships and human nature in mind.",
+      "They would have better critical ability. They would also become sensitive to their commitment towards what they have understood (human values, human relationship and human society). It is hoped that they would be able to apply what they have learnt to their own self in different day-to-day settings in real life, at least a beginning would be made in this direction "
+    ]
+  },
+  "Lab": {
+    "CSML201A4(Data Structures Lab)": [
+      "Write program related to application of data structures using programming constructs of a language like C programming language",
+      "Identify the suitable input and output for a specified problem statement",
+      "Conclude the working of various algorithms in terms of time and space complexity",
+      "Examine the errors enounterd in the program using appropriate tools and fix them",
+      "Write well-indented and well-documented code "
+    ],
+    "CSML202A4(Object Oriented Concpets and Programming using C++ Lab)": [
+      "Tell the syntax and semantics of the C++ programming language. ",
+      "Apply the concepts and principles of Object Oriented programming while writing programs using C++. ",
+      "Extend the concepts of encapsulation, polymorphism, inheritance using class, objects, function/operator overloading, function overriding, etc. ",
+      "Write programs with Inheritance, virtual functions that supports code reusability, dynamic binding and run time polymorphism.  ",
+      "Adapt to bottom up approach of problem solving using classes and objects."
+    ]
+  }
+}
