@@ -536,7 +536,7 @@ const MainPage = () => {
                                                                 Object.keys(questions["Lab"]).map(
                                                                     (keyValue, indexOfStep) => (
                                                                         <Step key={keyValue}>
-                                                                            <StepLabel>"Lab"</StepLabel>
+                                                                            <StepLabel>{keyValue}</StepLabel>
                                                                             <StepContent
                                                                                 TransitionProps={{
                                                                                     unmountOnExit: false,
@@ -653,7 +653,7 @@ const MainPage = () => {
                                                 </StepContent>
                                             </Step>
                                         </Stepper>
-                                        {activeStep === steps.length && (
+                                        {activeStep === steps.length + 1 && (
                                             <Box>
                                                 <Paper
                                                     square
