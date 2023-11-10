@@ -11,7 +11,7 @@ type Props = {
 };
 
 const SelectSemester = (props: Props) => {
-    const semesters: number[] = [3, 13, 7];
+    const semesters: number[] = [3, 13, 5, 7];
 
     return (
         <Box

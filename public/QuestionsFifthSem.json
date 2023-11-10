@@ -1,0 +1,115 @@
+{
+  "Main Subjects": {
+    "MA1502(Probability Statistics and Stochastic Process)": [
+      "Explain concept of probability, random variables.",
+      "Differentiate the ideas between discrete and continuous random variables.",
+      "Discuss fundamentals of probability and statistical theories.",
+      "Apply the knowledge of probability and statistics to analyze different real-world situations",
+      "Develop the models of many time dependent processes such as signals in communications, time series analysis."
+    ],
+    "CS1502(Operating System)": [
+      "Describe the different operating system architectures and structures.",
+      "Select the appropriate scheduling algorithms or techniques for efficient utilization of computer resource like CPU, Memory, etc.",
+      "Interpret theory of data inconsistency problem and provide a procedure for synchronization problem",
+      "Manage various technical issues related to operating systems’ services using principles of computer science and engineering.",
+      "Compose methods for analyzing the performance of various identified algorithms or techniques in operating systems"
+    ],
+    "CS1508(Computer Networks I)": [
+      "Understand and identify the engineering fundamentals concerning Data Communication and Computer Network.",
+      "Identify the complex engineering problem involved in Data communication and its architecture for a successful network based communication.",
+      "Ability to Practice and formulate a solution for an engineering problem concerning any layers in Data Communication model",
+      "Demonstrate an ability to formulate and interpret a model based on the fundamentals of Computer Networks",
+      "Compare and understand the IOS reference model and TCP-IP reference model for data communication"
+    ],
+    "CS1509(Software Engineering)": [
+      "Demonstrate competence in using engineering fundamentals to visualize solutions using knowledge of software engineering skills.",
+      "Extend an ability to formulate a solution plan and methodology for an engineering problem using software engineering",
+      "Apply an ability to formulate and interpret a model for project management",
+      "Explain an ability to define complex problem , find and analyze requirements",
+      "Apply new software models, techniques and technologies to bring out innovative and novelistic solutions for the growth of the society in all aspects and evolving into their continuous professional development."
+    ]
+  },
+  "Elective One": {
+    "CS1752(Advanced Alogrithms)": [
+      "Analyze a given algorithm and express its time and space complexities in asymptotic notations. Prove correctness in recurrence equations using Iteration Method, Recurrence Tree Method and Master’s Theorem.",
+      "Understanding sorting, graphs & dynamic Programming: analysis and time complexity computation",
+      "Analysis of String matching and Approximation Algorithms",
+      "Exploring parallel and Probabilistic algorithms.",
+      "Classify computational problems into P, NP, NP-Hard"
+    ],
+    "CS1759(Artificial Intelligence)": [
+      "Identify areas in engineering and real life where Artificial Intelligence (AI) can find its application",
+      "Discuss the role of mathematical and statistical models in AI",
+      "Demonstrate an ability to formulate problems using AI",
+      "Analyse techniques and resources to solve AI problems",
+      "Test techniques and resources to solve AI problems."
+    ],
+    "Information Retrieval": [
+      "Apply information retrieval models",
+      "Design Web Search Engine.",
+      "Use Link Analysis",
+      "Use Hadoop and Map Reduce.",
+      "Apply document text mining techniques."
+    ],
+    "CS1545(Artificial Neural Networks)": [
+      "Display sufficient understanding of mathematical and engineering fundamentals in the perspective of Artificial neural network theory.",
+      "Identify Artificial Neural network suitable for a complex problem.",
+      "Awake the importance of tolerance of imprecision and uncertainty for design of robust and low-cost intelligent machines.",
+      "Investigate a problem to identify technical issues and solve the problems using various Artificial neural network.",
+      "Design real-life application using various neural network algorithm."
+    ]
+  },
+  "Elective Two": {
+    "CS1546(Computer Graphics)": [
+      "Understanding the basic of CG, different graphic systems and applications",
+      "Implementation of various algorithms on graphics primitives",
+      "Use of geometric transformation on graphics objects for better representation",
+      "Extraction of object’s parts using clipping technique, visible surface detection",
+      "Representation of 3D objects, modeling, projections on 2D scene"
+    ],
+    "CS1537(Advanced Web Technologies)": [
+      "Define the basic terms of HTML, CSS and JavaScript",
+      "Identify appropriate web based technologies for developing dynamic webpages",
+      "Choose an appropriate database language and technologies for connecting front end to backend",
+      "Distinguish major frameworks for development of web services and cloud applications",
+      "Test appropriate content management system for developing scalable websites"
+    ],
+    "CS1541(Digital Image Processing)": [
+      "Describe the fundamental concepts of a digital image processing system.",
+      "Analyze images in the spatial domain using mathematical transformation function.",
+      "Write the procedure for implementing various image enhancement techniques .",
+      "Interpret image segmentation and representation techniques.",
+      "Select the morphological operation for extracting different features from an image"
+    ],
+    "CS1538(Object Oriented Analysis and Design)": [
+      "Identify object oriented design techniques suitable for a complex problem",
+      "Demonstrate an ability to formulate a solution plan and methodology for an engineering problem using object oriented analysis and design using UML.",
+      "Determination of the formula and interpretation of a model for project management.",
+      "Investigate a problem to identify technical issues and solve the problems using various object oriented design tools and techniques.",
+      "Design real-life application using modern UML tools, techniques and resources ."
+    ]
+  },
+  "Lab": {
+    "CS1561(Operating System Lab)": [
+      "Illustrate the concept of process and thread creation for executing user's task.",
+      "Apply the theory for implementing various process scheduling algorithms.",
+      "Produce a optimal solution for data inconsistency problem by synchronizing processes and threads.",
+      "Examine the various memory management strategies for efficient resource utilization and implement it.",
+      "Analyse and debug various technical issues related to operating systems services and use different types of Modern OS"
+    ],
+    "CS1566(Software Engineering and Object Oriented Analysis Lab)": [
+      "Demonstrate competence in using engineering fundamentals to visualize solutions using knowledge of software engineering skills",
+      "Extend an ability to formulate a solution plan and methodology for an engineering problem using software engineering.",
+      "Apply an ability to formulate and interpret a model for project management",
+      "Identify modern engineering tools, techniques, and resources to solve software related problems.",
+      "Develop a quality software products by possessing the leadership skills as an individual or contributing to the team development and demonstrating effective and modern working strategies by applying both communication and negotiation management skill"
+    ],
+    "CS1567(Scripting Language Lab)": [
+      "Design simple websites using HTML, CSS and Javascrip",
+      "Create front-end web applications using Angular JS",
+      "Build server-side applications using Node JS and Express JS",
+      "Connect front-end web applications with Mongo DB database",
+      "Create a program for solving different problems and evaluate its performance and effectiveness."
+    ]
+  }
+}

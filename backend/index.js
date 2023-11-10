@@ -95,7 +95,7 @@ app.post("/submit-feedback-fifth", async (req, res) => {
   }, []);
   const client = await MongoClient.connect(process.env.DB_URL);
   const db = client.db("feedback-2023");
-  const collection = db.collection("feedback-data-third");
+  const collection = db.collection("feedback-data-fifth");
   const date = new Date().toString();
   const dataToBeSaved = {
     date,
