@@ -168,9 +168,127 @@ app.post("/submit-feedback-6th-sem", async (req, res) => {
   res.json({ error: false, message: "Feedback submitted successfully" });
 });
 
+app.get("/get-excel-data-3rd-sem", async (req, res) => {
+  const client = await MongoClient.connect(process.env.DB_URL);
+  const collection = client
+    .db("feedback-2023")
+    .collection("feedback-data-third");
+  const data = await collection.find().toArray();
+  const justData = data.reduce((previousValues, currentValue) => {
+    const array = currentValue.data;
+    for (let element of array) {
+      previousValues.push(element);
+    }
+    return previousValues;
+  }, []);
+  const reducedData = justData.reduce(
+    (previousValues, currentValue, currentIndex) => {
+      currentValue.subject = currentValue.subject.substring(0, 30);
+      const indexOfSubjectSheet = previousValues.findIndex(
+        (el) => el.sheet === currentValue.subject,
+      );
+      if (indexOfSubjectSheet === -1) {
+        const sheetToBeInserted = {
+          sheet: currentValue.subject,
+          columns: [
+            { label: "Sno.", value: "SNo" },
+            { label: "CO1", value: "CO1" },
+            { label: "CO2", value: "CO2" },
+            { label: "CO3", value: "CO3" },
+            { label: "CO4", value: "CO4" },
+            { label: "CO5", value: "CO5" },
+          ],
+          content: [
+            {
+              SNo: 1,
+              CO1: currentValue.CO1,
+              CO2: currentValue.CO2,
+              CO3: currentValue.CO3,
+              CO4: currentValue.CO4,
+              CO5: currentValue.CO5,
+            },
+          ],
+        };
+        previousValues.push(sheetToBeInserted);
+      } else if (indexOfSubjectSheet !== -1) {
+        previousValues[indexOfSubjectSheet].content.push({
+          SNo: previousValues[indexOfSubjectSheet].content.length + 1,
+          CO1: currentValue.CO1,
+          CO2: currentValue.CO2,
+          CO3: currentValue.CO3,
+          CO4: currentValue.CO4,
+          CO5: currentValue.CO5,
+        });
+      }
+      return previousValues;
+    },
+    [],
+  );
+  res.json({ data: reducedData });
+});
+
 app.get("/get-excel-data-4th-sem", async (req, res) => {
   const client = await MongoClient.connect(process.env.DB_URL);
   const collection = client.db("feedback").collection("feedback-data");
+  const data = await collection.find().toArray();
+  const justData = data.reduce((previousValues, currentValue) => {
+    const array = currentValue.data;
+    for (let element of array) {
+      previousValues.push(element);
+    }
+    return previousValues;
+  }, []);
+  const reducedData = justData.reduce(
+    (previousValues, currentValue, currentIndex) => {
+      currentValue.subject = currentValue.subject.substring(0, 30);
+      const indexOfSubjectSheet = previousValues.findIndex(
+        (el) => el.sheet === currentValue.subject,
+      );
+      if (indexOfSubjectSheet === -1) {
+        const sheetToBeInserted = {
+          sheet: currentValue.subject,
+          columns: [
+            { label: "Sno.", value: "SNo" },
+            { label: "CO1", value: "CO1" },
+            { label: "CO2", value: "CO2" },
+            { label: "CO3", value: "CO3" },
+            { label: "CO4", value: "CO4" },
+            { label: "CO5", value: "CO5" },
+          ],
+          content: [
+            {
+              SNo: 1,
+              CO1: currentValue.CO1,
+              CO2: currentValue.CO2,
+              CO3: currentValue.CO3,
+              CO4: currentValue.CO4,
+              CO5: currentValue.CO5,
+            },
+          ],
+        };
+        previousValues.push(sheetToBeInserted);
+      } else if (indexOfSubjectSheet !== -1) {
+        previousValues[indexOfSubjectSheet].content.push({
+          SNo: previousValues[indexOfSubjectSheet].content.length + 1,
+          CO1: currentValue.CO1,
+          CO2: currentValue.CO2,
+          CO3: currentValue.CO3,
+          CO4: currentValue.CO4,
+          CO5: currentValue.CO5,
+        });
+      }
+      return previousValues;
+    },
+    [],
+  );
+  res.json({ data: reducedData });
+});
+
+app.get("/get-excel-data-5th-sem", async (req, res) => {
+  const client = await MongoClient.connect(process.env.DB_URL);
+  const collection = client
+    .db("feedback-2023")
+    .collection("feedback-data-fifth");
   const data = await collection.find().toArray();
   const justData = data.reduce((previousValues, currentValue) => {
     const array = currentValue.data;
@@ -284,6 +402,65 @@ app.get("/get-excel-data-6th-sem", async (req, res) => {
 
 app.get("", (req, res) => {
   res.json({ message: "Hello from backend" });
+});
+
+app.get("/get-excel-data-7th-sem", async (req, res) => {
+  const client = await MongoClient.connect(process.env.DB_URL);
+  const collection = client
+    .db("feedback-2023")
+    .collection("feedback-data-seventh");
+  const data = await collection.find().toArray();
+  const justData = data.reduce((previousValues, currentValue) => {
+    const array = currentValue.data;
+    for (let element of array) {
+      previousValues.push(element);
+    }
+    return previousValues;
+  }, []);
+  const reducedData = justData.reduce(
+    (previousValues, currentValue, currentIndex) => {
+      currentValue.subject = currentValue.subject.substring(0, 30);
+      const indexOfSubjectSheet = previousValues.findIndex(
+        (el) => el.sheet === currentValue.subject,
+      );
+      if (indexOfSubjectSheet === -1) {
+        const sheetToBeInserted = {
+          sheet: currentValue.subject,
+          columns: [
+            { label: "Sno.", value: "SNo" },
+            { label: "CO1", value: "CO1" },
+            { label: "CO2", value: "CO2" },
+            { label: "CO3", value: "CO3" },
+            { label: "CO4", value: "CO4" },
+            { label: "CO5", value: "CO5" },
+          ],
+          content: [
+            {
+              SNo: 1,
+              CO1: currentValue.CO1,
+              CO2: currentValue.CO2,
+              CO3: currentValue.CO3,
+              CO4: currentValue.CO4,
+              CO5: currentValue.CO5,
+            },
+          ],
+        };
+        previousValues.push(sheetToBeInserted);
+      } else if (indexOfSubjectSheet !== -1) {
+        previousValues[indexOfSubjectSheet].content.push({
+          SNo: previousValues[indexOfSubjectSheet].content.length + 1,
+          CO1: currentValue.CO1,
+          CO2: currentValue.CO2,
+          CO3: currentValue.CO3,
+          CO4: currentValue.CO4,
+          CO5: currentValue.CO5,
+        });
+      }
+      return previousValues;
+    },
+    [],
+  );
+  res.json({ data: reducedData });
 });
 
 app.listen(3011, () => console.log(`Server started on port 3011`));

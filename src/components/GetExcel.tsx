@@ -137,14 +137,14 @@ const GetExcel = (props: Props) => {
             <Button
                 variant="contained"
                 onClick={() => handleDownload(5)}
-                disabled={_3rdSemData === undefined}
+                disabled={_5thSemData === undefined}
             >
                 GetExcel5th
             </Button>
             <Button
                 variant="contained"
                 onClick={() => handleDownload(7)}
-                disabled={_3rdSemData === undefined}
+                disabled={_7thSemData === undefined}
             >
                 GetExcel7th
             </Button>

@@ -26,7 +26,7 @@ function App() {
             {semester === 13 && <MainPageAIML />}{" "}
             {semester === 5 && <MainPage5thSem />}
             {/* {semester === 6 && <MainPage6thSem />} */}
-            {/* <GetExcel /> */}
+            <GetExcel />
         </>
     );
 }
