@@ -10,25 +10,25 @@ import SelectSemester from "./components/SelectSemester";
 import GetExcel from "./components/GetExcel";
 
 function App() {
-    const [semester, setSemester] = useState<number | null>(null);
+  const [semester, setSemester] = useState<number | null>(null);
 
-    const handleSemesterSelected = (semester: number) => {
-        setSemester(semester);
-    };
+  const handleSemesterSelected = (semester: number) => {
+    setSemester(semester);
+  };
 
-    return (
-        <>
-            {semester === null && (
-                <SelectSemester handleSemesterSelected={handleSemesterSelected} />
-            )}
-            {semester === 3 && <MainPage3rdSem />}{" "}
-            {semester === 7 && <MainPage7thSem />}{" "}
-            {semester === 13 && <MainPageAIML />}{" "}
-            {semester === 5 && <MainPage5thSem />}
-            {/* {semester === 6 && <MainPage6thSem />} */}
-            <GetExcel />
-        </>
-    );
+  return (
+    <>
+      {/* {semester === null && ( */}
+      {/*     <SelectSemester handleSemesterSelected={handleSemesterSelected} /> */}
+      {/* )} */}
+      {/* {semester === 3 && <MainPage3rdSem />}{" "} */}
+      {/* {semester === 7 && <MainPage7thSem />}{" "} */}
+      {/* {semester === 13 && <MainPageAIML />}{" "} */}
+      {/* {semester === 5 && <MainPage5thSem />} */}
+      {/* {semester === 6 && <MainPage6thSem />} */}
+      <GetExcel />
+    </>
+  );
 }
 
 export default App;
