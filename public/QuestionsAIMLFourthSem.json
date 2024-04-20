@@ -1,50 +1,43 @@
 {
   "Main Subjects": {
-    "MA206A1(PROBABILITY , STATISTICS AND STOCHASTIC PROCESSES)	": [
+    "MA206A1(Statistical Modelling for Computer Science)	": [
       "Demonstrate basic principles of probability and understand a random variable that describe randomness or an uncertainty in certain realistic situation.",
       "Comprehend concepts of discrete, continuous probability distributions and able to solve problems of probability using Binomial, Poisson, Uniform Distribution, Exponential Distribution, Normal distributions.",
       "Analyze the statistical data and apply various small or large sample tests for testing the Hypothesis.",
       "Analyze the various classifications of Random Processes and characterize phenomena which evolvewith respect to time in a probabilistic manner.",
       "Understand about different Queuing models and its applications."
     ],
-    "CS208A1(Programming Methodology)": [
-      "Understand the difference between various programming languages and its principle",
-      "Use of appropriate programming language to solve the given problem.",
-      "Explain common applications for array, stack, queue, linked list, tree and graph",
-      "Solve a given problem using appropriate framework and Programming language of their choice.",
-      "Developing the real-world application, deploying and exploring the future scope. "
+    "CS208A1(Deep Learning)	": [
+      "Describe deep learning techniques and computing environment that are suitable for the applicationsunder consideration.",
+      "Discuss various solution plans and methodologies for an engineering problem using Deep Learning.",
+      "Classify the different technical issues related to Deep Architectures consistent with their level of knowledge and understanding.",
+      "Develop a set of alternative design solutions to problems for which standard algorithmic solutions do notexist.",
+      "Apply Deep Learning techniques to solve real-life problems which directly or indirectly benefits to the society."
     ],
-    "CS206A1(Design and Analysis of Algorithms)": [
+    "CS207A1(Design and Analysis of Algorithms)	": [
       "Define asymptotic notations and solve problems related to it",
       "Calculate time and space complexities for recursive/non-recursive algorithm based on following algorithm design techniques - divide and conquer, greedy, dynamic programming and branch and bound.",
       "Select appropriate algorithm design technique to solve a given problem.",
       "Explain the working of existing algorithm / algorithm design techniques ",
       "Discuss and describe the classes P, NP, and NP-Complete"
     ],
-    "COMPUTER NETWORKS-I(CS207A1)": [
-      "Understand and identify the engineering fundamentals concerning Data Communication and Computer Network. ",
-      "Identify the complex engineering problem involved in Data communication and its architecture for a successful network based communication.  ",
-      "Ability to Practice and formulate a solution for an engineering problem concerning  any layers in Data Communication model ",
-      "Demonstrate an ability to formulate and interpret a model based on the fundamentals of Computer Networks ",
-      "Compare and understand the IOS reference model and TCP-IP reference model for data communication. "
+    "CS209A1(Software Engineering)	": [
+      "Demonstrate competence in using engineering fundamentals to visualize solutions using knowledge ofsoftware engineering skills.",
+      "Extend an ability to formulate a solution plan and methodology for an engineering problem using software engineering.",
+      "Apply an ability to formulate and interpret a model for project management.",
+      "Explain an ability to define complex problem, find and analyze requirements.",
+      "Apply new software models, techniques and technologies to bring out innovative and novelistic solutionsfor the growth of the society in all aspects and evolving into their continuous professional development."
     ]
   },
   "Elective One": {
-    "CS202A3(Java Prog)": [
+    "CSML201A3 (JAVA PROGRAMMING)": [
       "Demonstrate an ability describe and recall the various object oriented concept",
       "Formulate and interpret an object oriented model and design solution using object oriented concepts.",
       "Ability to illustrate a diverse set of design solutions using techniques of Interface, Packages, File Handling, Multi-threading, etc.",
       "Select and design methodology using bottom up approach and solve open ended problems using Java.",
       "Define and create modern engineering tools, techniques and resources to build software using Java programming language.    "
     ],
-    "CS210A3(MICROPROCESSORS AND PERIPHERAL DEVICES)": [
-      "Identify and describe the structure and functions of basic elements of 8085, 8086 Microprocessors and various peripheral devices.",
-      "Sketch block diagrams of Microprocessors and peripheral devices. Illustrate the execution of instructions by the MP using timing diagrams.",
-      "Design circuit diagrams for interfacing the MP with peripheral devices as per the problem statement for creating an application",
-      "Write programs for microprocessors and MP based applications using assembly language",
-      "Describe the MP-specific assembly language constructs and syntaxes."
-    ],
-    "CS206A3(INFORMATION TRANSMISSION AND CODING THEORY)": [
+    "CSML205A3 (INFORMATION TRANSMISSION & CODING THEORY)	": [
       "Describe the principles and applications of information theory.",
       "Differentiate the various types of coding schemes available in coding theory",
       "Compare various error control encoding and decoding techniques",
@@ -60,12 +53,12 @@
     ]
   },
   "Lab": {
-    "CS203A4(Programming Methodology lab)": [
-      "Analyze the program using various characteristics of programming language.",
-      "Apply the various data structures to solve the particular task. ",
-      "Demonstrate the different database connectivity approach for connecting the program/application to the database.",
-      "Produce an optimal solution for debugging and testing the program to make it error free. ",
-      "Illustrate the advantages of different APIs available for programming languages. "
+    "CS203A4 (DEEP LEARNING LB)": [
+      "Implement deep learning techniques and computing environment that are suitable for the applications under consideration.",
+      "Implement various solution plans and methodologies for an engineering problem using Deep Learning.",
+      "Classify the different technical issues related to Deep Architectures consistent with their level of knowledge and understanding.",
+      "Develop a set of alternative design solutions to problems for which standard algorithmic solutions do not exist.",
+      "Apply Deep Learning techniques to solve real-life problems which directly or indirectly benefits to the society."
     ],
     "CS204A4(Algorithm Lab)	": [
       "Calculate time and space complexities for algorithms using mathematical models",
@@ -83,19 +76,12 @@
       "Demonstrate an ability to collect, evaluate and design the model using representation of data and different descriptive statistics.",
       "Demonstrate an ability to analyze and examine the different regression and variance."
     ],
-    "CS1841(Signals and Network )": [
+    "CS1841(Signals and Network)": [
       "Understand mathematical description and representation of continuous and discrete time signal",
       "Evaluate the signals in frequency domain using Fourier series and Fourier transforms.",
       "Development of the mathematical skills to solve problems based on the limitations of Fourier transform and need for Laplace transform to analyze the system in s- domai",
       "Apply fundamental principles of data communication and networking",
       "Explain the working of waveform coding techniques and analyse their performance."
-    ],
-    "CS1843( Introduction to IOT & Microprocessor)": [
-      "Understanding of impact of information technology solutions on the society",
-      "Understanding the vision of IOT from a global context.",
-      "Understand the application area of IOT.",
-      "Realization of different microprocessor based IOT system.",
-      "Design and development of IOT enabled device and system."
     ],
     "CS1842(Introduction to Machine Learning)": [
       "Relate mathematical fundamentals with machine learning techniques.",
