@@ -1,27 +1,27 @@
 {
   "Main Subjects": {
-    "MA206A1(Statistical Modelling for Computer Science)	": [
+    "MA206A1(Statistical Modelling for Computer Science)": [
       "Demonstrate basic principles of probability and understand a random variable that describe randomness or an uncertainty in certain realistic situation.",
       "Comprehend concepts of discrete, continuous probability distributions and able to solve problems of probability using Binomial, Poisson, Uniform Distribution, Exponential Distribution, Normal distributions.",
       "Analyze the statistical data and apply various small or large sample tests for testing the Hypothesis.",
       "Analyze the various classifications of Random Processes and characterize phenomena which evolvewith respect to time in a probabilistic manner.",
       "Understand about different Queuing models and its applications."
     ],
-    "CS208A1(Deep Learning)	": [
+    "CS208A1(Deep Learning)": [
       "Describe deep learning techniques and computing environment that are suitable for the applicationsunder consideration.",
       "Discuss various solution plans and methodologies for an engineering problem using Deep Learning.",
       "Classify the different technical issues related to Deep Architectures consistent with their level of knowledge and understanding.",
       "Develop a set of alternative design solutions to problems for which standard algorithmic solutions do notexist.",
       "Apply Deep Learning techniques to solve real-life problems which directly or indirectly benefits to the society."
     ],
-    "CS207A1(Design and Analysis of Algorithms)	": [
+    "CS207A1(Design and Analysis of Algorithms)": [
       "Define asymptotic notations and solve problems related to it",
       "Calculate time and space complexities for recursive/non-recursive algorithm based on following algorithm design techniques - divide and conquer, greedy, dynamic programming and branch and bound.",
       "Select appropriate algorithm design technique to solve a given problem.",
       "Explain the working of existing algorithm / algorithm design techniques ",
       "Discuss and describe the classes P, NP, and NP-Complete"
     ],
-    "CS209A1(Software Engineering)	": [
+    "CS209A1(Software Engineering)": [
       "Demonstrate competence in using engineering fundamentals to visualize solutions using knowledge ofsoftware engineering skills.",
       "Extend an ability to formulate a solution plan and methodology for an engineering problem using software engineering.",
       "Apply an ability to formulate and interpret a model for project management.",
@@ -37,14 +37,14 @@
       "Select and design methodology using bottom up approach and solve open ended problems using Java.",
       "Define and create modern engineering tools, techniques and resources to build software using Java programming language.    "
     ],
-    "CSML205A3 (INFORMATION TRANSMISSION & CODING THEORY)	": [
+    "CSML205A3 (INFORMATION TRANSMISSION & CODING THEORY)": [
       "Describe the principles and applications of information theory.",
       "Differentiate the various types of coding schemes available in coding theory",
       "Compare various error control encoding and decoding techniques",
       "Compute amount of information in terms of entropy and apply in source coding and channel coding",
       "Compose methods for analyzing the performance of error control codes"
     ],
-    "CS207A3(COMPUTER GRAPHICS)": [
+    "CS207A3 (COMPUTER GRAPHICS)": [
       "Describe the competence in application of mathematical modelling to computer graphics",
       "Explain an ability to interpret a solution plan and methodology for an engineering problem using computer graphics ",
       "Discuss an ability to conduct investigations of technical issues related to computer vision with their level of knowledge and understanding",
@@ -60,7 +60,7 @@
       "Develop a set of alternative design solutions to problems for which standard algorithmic solutions do not exist.",
       "Apply Deep Learning techniques to solve real-life problems which directly or indirectly benefits to the society."
     ],
-    "CS204A4(Algorithm Lab)	": [
+    "CS204A4(Algorithm Lab)": [
       "Calculate time and space complexities for algorithms using mathematical models",
       "Calculate time and space complexities for algorithms by performing an empirical measurement",
       "Select appropriate algorithm design technique to solve a given problem",

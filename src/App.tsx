@@ -24,6 +24,7 @@ function App() {
       {semester === 4 && <MainPage4thSem />}{" "}
       {/* {semester === 14 && <MainPage7thSem />}{" "} */}
       {/* {semester === 13 && <MainPageAIML />}{" "} */}
+      {semester === 14 && <MainPageAIML />}{" "}
       {/* {semester === 5 && <MainPage5thSem />} */}
       {semester === 6 && <MainPage6thSem />}
       {/* <GetExcel /> */}

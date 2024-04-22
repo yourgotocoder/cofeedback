@@ -351,7 +351,7 @@ app.get("/get-excel-data-third-aiml", async (req, res) => {
 app.get("/get-excel-data-fourth", async (req, res) => {
   const client = await MongoClient.connect(process.env.DB_URL);
   const collection = client
-    .db("feedback-2024")
+    .db("cofeedback-2024")
     .collection("feedback-data-fourth");
   const data = await collection.find().toArray();
   const justData = data.reduce((previousValues, currentValue) => {
@@ -410,7 +410,7 @@ app.get("/get-excel-data-fourth", async (req, res) => {
 app.get("/get-excel-data-fourth-aiml", async (req, res) => {
   const client = await MongoClient.connect(process.env.DB_URL);
   const collection = client
-    .db("feedback-2024")
+    .db("cofeedback-2024")
     .collection("feedback-data-fourth-aiml");
   const data = await collection.find().toArray();
   const justData = data.reduce((previousValues, currentValue) => {
@@ -528,7 +528,7 @@ app.get("/get-excel-data-fifth", async (req, res) => {
 app.get("/get-excel-data-sixth", async (req, res) => {
   const client = await MongoClient.connect(process.env.DB_URL);
   const collection = client
-    .db("feedback-2024")
+    .db("cofeedback-2024")
     .collection("feedback-data-sixth");
   const data = await collection.find().toArray();
   const justData = data.reduce((previousValues, currentValue) => {
@@ -582,10 +582,6 @@ app.get("/get-excel-data-sixth", async (req, res) => {
     [],
   );
   res.json({ data: reducedData });
-});
-
-app.get("", (req, res) => {
-  res.json({ message: "Hello from backend" });
 });
 
 app.get("/get-excel-data-seventh", async (req, res) => {
@@ -645,6 +641,10 @@ app.get("/get-excel-data-seventh", async (req, res) => {
     [],
   );
   res.json({ data: reducedData });
+});
+
+app.get("", (req, res) => {
+  res.json({ message: "Hello from backend" });
 });
 
 app.listen(3011, () => console.log(`Server started on port 3011`));
