@@ -1,6 +1,6 @@
 {
   "Main Subjects": {
-    "MA206A1(PROBABILITY , STATISTICS AND STOCHASTIC PROCESSES)	": [
+    "MA2061(PROBABILITY, STATISTICS AND STOCHASTIC PROCESSES)": [
       "Demonstrate basic principles of probability and understand a random variable that describe randomness or an uncertainty in certain realistic situation.",
       "Comprehend concepts of discrete, continuous probability distributions and able to solve problems of probability using Binomial, Poisson, Uniform Distribution, Exponential Distribution, Normal distributions.",
       "Analyze the statistical data and apply various small or large sample tests for testing the Hypothesis.",
@@ -67,7 +67,7 @@
       "Produce an optimal solution for debugging and testing the program to make it error free. ",
       "Illustrate the advantages of different APIs available for programming languages. "
     ],
-    "CS204A4(Algorithm Lab)	": [
+    "CS204A4(Algorithm Lab)": [
       "Calculate time and space complexities for algorithms using mathematical models",
       "Calculate time and space complexities for algorithms by performing an empirical measurement",
       "Select appropriate algorithm design technique to solve a given problem",

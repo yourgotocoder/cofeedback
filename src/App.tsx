@@ -18,15 +18,15 @@ function App() {
 
   return (
     <>
-      {/* {semester === null && ( */}
-      {/*     <SelectSemester handleSemesterSelected={handleSemesterSelected} /> */}
-      {/* )} */}
-      {/* {semester === 3 && <MainPage3rdSem />}{" "} */}
-      {/* {semester === 7 && <MainPage7thSem />}{" "} */}
+      {semester === null && (
+        <SelectSemester handleSemesterSelected={handleSemesterSelected} />
+      )}
+      {semester === 4 && <MainPage4thSem />}{" "}
+      {/* {semester === 14 && <MainPage7thSem />}{" "} */}
       {/* {semester === 13 && <MainPageAIML />}{" "} */}
       {/* {semester === 5 && <MainPage5thSem />} */}
-      {/* {semester === 6 && <MainPage6thSem />} */}
-      <GetExcel />
+      {semester === 6 && <MainPage6thSem />}
+      {/* <GetExcel /> */}
     </>
   );
 }
