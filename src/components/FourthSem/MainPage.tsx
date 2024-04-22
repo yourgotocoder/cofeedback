@@ -37,7 +37,7 @@ const MainPage = () => {
 
   const [progress, setProgress] = React.useState(0);
   const [buffer, setBuffer] = React.useState(10);
-  const progressRef = React.useRef(() => {});
+  const progressRef = React.useRef(() => { });
 
   const [initialLoading, setInitialLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
@@ -311,10 +311,10 @@ const MainPage = () => {
                                             />
                                           ))}
                                         {activeInnerStep ===
-                                        (!!questions["Main Subjects"] &&
-                                          Object.keys(
-                                            questions["Main Subjects"],
-                                          ).length - 1) ? (
+                                          (!!questions["Main Subjects"] &&
+                                            Object.keys(
+                                              questions["Main Subjects"],
+                                            ).length - 1) ? (
                                           <Box>
                                             <>
                                               <Button
@@ -514,8 +514,8 @@ const MainPage = () => {
                                             ),
                                           )}
                                         {activeLabStep ===
-                                        (!!questions["Lab"] &&
-                                          Object.keys(questions["Lab"]).length -
+                                          (!!questions["Lab"] &&
+                                            Object.keys(questions["Lab"]).length -
                                             1) ? (
                                           <Box>
                                             <>
@@ -664,35 +664,35 @@ const MainPage = () => {
                     {(selectedMinorSpecialization === "None"
                       ? activeStep === steps.length - 1
                       : activeStep === steps.length) && (
-                      <Box>
-                        <Paper
-                          square
-                          elevation={1}
-                          sx={{
-                            p: 3,
-                            textAlign: "center",
-                          }}
-                        >
-                          <Typography>
-                            All steps completed - Submit if you are satisfied
-                            with your selections
-                          </Typography>
-                          <Button
-                            onClick={handleSubmit}
-                            disabled={submitting}
-                            sx={{ mt: 1, mr: 1 }}
-                            variant="contained"
+                        <Box>
+                          <Paper
+                            square
+                            elevation={1}
+                            sx={{
+                              p: 3,
+                              textAlign: "center",
+                            }}
                           >
-                            Submit
-                          </Button>
-                          {submitting && (
-                            <>
-                              <AnimatedText word="Submitting"></AnimatedText>
-                            </>
-                          )}
-                        </Paper>
-                      </Box>
-                    )}
+                            <Typography>
+                              All steps completed - Submit if you are satisfied
+                              with your selections
+                            </Typography>
+                            <Button
+                              onClick={handleSubmit}
+                              disabled={submitting}
+                              sx={{ mt: 1, mr: 1 }}
+                              variant="contained"
+                            >
+                              Submit
+                            </Button>
+                            {submitting && (
+                              <>
+                                <AnimatedText word="Submitting"></AnimatedText>
+                              </>
+                            )}
+                          </Paper>
+                        </Box>
+                      )}
                   </Box>
                 </div>
               )}
