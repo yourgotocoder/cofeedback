@@ -187,7 +187,7 @@ app.post("/submit-feedback-sixth", async (req, res) => {
     return arrayToBeReturned;
   }, []);
   const client = await MongoClient.connect(process.env.DB_URL);
-  const db = client.db("feedback-2024");
+  const db = client.db("cofeedback-2024");
   const collection = db.collection("feedback-data-sixth");
   const date = new Date().toString();
   const dataToBeSaved = {
