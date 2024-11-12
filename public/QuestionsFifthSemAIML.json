@@ -1,0 +1,108 @@
+{
+  "Main Subjects": {
+    "Indurtrial Management (BA346A1)": [
+      "To provide basic knowledge and application of functions of management",
+      "To help students to understand and apply principles of management evolved by pioneers of management.",
+      "To enable students to apply basic quantitative techniques for making decisions related to operations managemen",
+      "To help student apply various techniques for optimal production management",
+      "To apply concepts of materials management for maintaining optimal inventory"
+    ],
+    "OS (CSML301A1)": [
+      "Describe the different operating system architectures and structures.",
+      "Select the appropriate scheduling algorithms or techniques for efficient utilization of computer resource like CPU, Memory, etc.",
+      "Interpret theory of data inconsistency problem and provide a procedure for synchronization problem",
+      "Manage various technical issues related to operating systems’ services using principles of computer science and engineering.",
+      "Compose methods for analyzing the performance of various identified algorithms or techniques in operating systems"
+    ],
+    "FLAT (CSML302A1)": [
+      "Explain different concepts in automata theory and formal languages.",
+      "Produce various grammars and their acceptors",
+      "Analyze the various language acceptors.",
+      "Acquire a fundamental understanding of computational models related to decidability and recursive enumerability..",
+      "Illustrate various proofs using mathematical principles."
+    ],
+    "AI (CSML303A1)": [
+      "Distinguish between the popular view of the field and the actual research results.",
+      "Appreciate the fact that the computational complexity of most AI problems requires us regularly to deal with approximate techniques.",
+      "Describe different perspectives on what the problems of artificial intelligence are and how different approaches are justified.",
+      "Design basic problem solving methods based on AI-based search, knowledge representation, reasoning, planning, and machine learning algorithms.",
+      "Identify problems requiring AI based solutions"
+    ]
+  },
+  "Elective II": {
+    "Advanced Alogrithms (CS1752)": [
+      "Analyze a given algorithm and express its time and space complexities in asymptotic notations. Prove correctness in recurrence equations using Iteration Method, Recurrence Tree Method and Master’s Theorem.",
+      "Understanding sorting, graphs & dynamic Programming: analysis and time complexity computation",
+      "Analysis of String matching and Approximation Algorithms",
+      "Exploring parallel and Probabilistic algorithms.",
+      "Classify computational problems into P, NP, NP-Hard"
+    ],
+    "Artificial Intelligence (CS1759)": [
+      "Identify areas in engineering and real life where Artificial Intelligence (AI) can find its application",
+      "Discuss the role of mathematical and statistical models in AI",
+      "Demonstrate an ability to formulate problems using AI",
+      "Analyse techniques and resources to solve AI problems",
+      "Test techniques and resources to solve AI problems."
+    ],
+    "Information Retrieval": [
+      "Apply information retrieval models",
+      "Design Web Search Engine.",
+      "Use Link Analysis",
+      "Use Hadoop and Map Reduce.",
+      "Apply document text mining techniques."
+    ],
+    "Artificial Neural Networks (CS1545)": [
+      "Display sufficient understanding of mathematical and engineering fundamentals in the perspective of Artificial neural network theory.",
+      "Identify Artificial Neural network suitable for a complex problem.",
+      "Awake the importance of tolerance of imprecision and uncertainty for design of robust and low-cost intelligent machines.",
+      "Investigate a problem to identify technical issues and solve the problems using various Artificial neural network.",
+      "Design real-life application using various neural network algorithm."
+    ]
+  },
+  "Elective III": {
+    "Adv Java Programming (CSML302A3)": [
+      "Write program codes displaying competence in basic object-oriented programming using Java.",
+      "Compare and able to develop scalable network applications using Java.",
+      "Illustrate and practice component-based software.",
+      "Explain and able to conduct investigations of technical issues consistent with their level of knowledge on distributed applications.",
+      "Explain and able to conduct investigations of technical issues consistent with their level of knowledge on distributed applications."
+    ],
+    "Information Retrieval (CSML309A3)": [
+      "Define information retrieval models.",
+      "Develop Web Search Engine.",
+      "Analyze the different tools, techniques and algorithms with an experiment.",
+      "Experiment with Hadoop and Map Reduce.",
+      "Select appropriate tools and techniques."
+    ],
+    "Digital Image Processing (CSML308A3)": [
+      "Describe the fundamental concepts of a digital image processing system.",
+      "Analyze images in the spatial domain using mathematical transformation function.",
+      "Write the procedure for implementing various image enhancement techniques .",
+      "Interpret image segmentation and representation techniques.",
+      "Select the morphological operation for extracting different features from an image"
+    ],
+    "Social Network Analysis (CSML315A3)": [
+      "Identify object oriented design techniques suitable for a complex problem",
+      "Demonstrate an ability to formulate a solution plan and methodology for an engineering problem using object oriented analysis and design using UML.",
+      "Determination of the formula and interpretation of a model for project management.",
+      "Investigate a problem to identify technical issues and solve the problems using various object oriented design tools and techniques.",
+      "Design real-life application using modern UML tools, techniques and resources."
+    ]
+  },
+  "Lab": {
+    "Operating System Lab (CSML301A4)": [
+      "Analyse and debug various technical issues related to operating systems services and use different types of Modern OS",
+      "Illustrate the concept of process and thread creation for executing user's task.",
+      "Apply the theory for implementing various process scheduling algorithms.",
+      "Produce a optimal solution for data inconsistency problem by synchronizing processes and threads.",
+      "Examine the various memory management strategies for efficient resource utilization and implement it."
+    ],
+    "Artificial Intelligence Lab (CSML302A4)": [
+      "Write a program using the rules.",
+      "Solve monkey banana problem using rules in prolog.",
+      "Create an expert system using prolog.",
+      "Implement 4-Queen& traveling salesman problem using prolog.",
+      "Implement water-jug problem using Lisp."
+    ]
+  }
+}
