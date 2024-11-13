@@ -11,7 +11,7 @@ type Props = {
 };
 
 const SelectSemester = (props: Props) => {
-    const semesters: number[] = [5, 15, 7];
+    const semesters: number[] = [3, 13, 23, 5, 15, 7];
 
     return (
         <Box
@@ -43,13 +43,19 @@ const SelectSemester = (props: Props) => {
                                 variant="contained"
                                 onClick={() => props.handleSemesterSelected(sem)}
                             >
-                                {sem === 5
-                                    ? "Fifth Sem"
-                                    : sem === 15
-                                        ? "AIML(Fifth Sem)"
-                                        : sem === 7
-                                            ? "Seventh Sem"
-                                            : ""}
+                                {sem === 3
+                                    ? "Third Sem"
+                                    : sem === 13
+                                        ? "AIML(Third Sem)"
+                                        : sem === 23
+                                            ? "IoT(Third Sem)"
+                                            : sem === 5
+                                                ? "Fifth Sem"
+                                                : sem === 15
+                                                    ? "AIML(Fifth Sem)"
+                                                    : sem === 7
+                                                        ? "Seventh Sem"
+                                                        : ""}
                             </Button>
                         </div>
                     ))}

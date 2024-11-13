@@ -7,21 +7,21 @@
       "Solve problems using Permutation and Combination, Ordering, Recursion and generating functions.",
       "Evaluate problems related to mathematical logic. Extend the concepts of Predicate Calculus in computer"
     ],
-    "Data Structures (CS202A1)": [
+    "Data Structures (CSIC202A1)": [
       "Interpret the storage requirements and identify the appropriate data structure for a problem.",
       "Compare and contrast between linear data structures for selection.",
       "Compare and contrast between nonlinear data structures for selection.",
       "Deduce solutions to problems using appropriate linear/nonlinear data structures.",
       "Implement and write effective codes for basic sorting, searching and hashing algorithms"
     ],
-    "OOPS Using C++ (CS203A1)": [
+    "OOPS Using C++ (CSIC203A1)": [
       "Relate object oriented concepts with features of C++.",
       "Develop solutions to problems using object oriented concepts.",
       "Implement programming constructs and features of C++.",
       "Apply virtual and pure virtual function & complex programming situations",
       "Illustrate the process of data file manipulations using C++."
     ],
-    "Digital Design & Computer Organization (CS201A1)": [
+    "Digital Design and Computer Organization (CSIC201A1)": [
       "Identify various combinational logic circuits and their applications",
       "Identify various sequential logic circuits and their applications.",
       "Design basic digital circuits using HDL.",
@@ -30,35 +30,35 @@
     ]
   },
   "Program Elective": {
-    "Micorprocessor & Peripheral Devices (CS206A3)": [
+    "Micorprocessor & Peripheral Devices (CSIC206A3)": [
       "Identify and describe the structure and functions of basic elements of 8085, 8086 Microprocessors and various peripheral devices.",
       "Sketch block diagrams of Microprocessors and peripheral devices. Illustrate the execution of instructions by the MP using timing diagrams. Explain interfacing of MP with peripheral devices",
       "Design circuit diagrams for interfacing the MP with peripheral devices as per the problem statement for creating an application",
       "Write programs for microprocessors and MP based applications using assembly language",
       "Describe the MP-specific assembly language constructs and syntaxes"
     ],
-    "Java Programming (CS201A3)": [
+    "Java Programming (CSIC201A3)": [
       "Demonstrate an ability describe and recall the various object-oriented concep",
       "Formulate and interpret an object-oriented model and design solution using object oriented concepts.",
       "Ability to illustrate a diverse set of design solutions using techniques of Interface, Packages, File Handling, Multi-threading, etc.",
       "Select and design methodology using bottom up approach and solve open ended problems using Java.",
       "Define and create modern engineering tools, techniques and resources to build software using Java programming language."
     ],
-    "Information Systems & Security (CS224A3)": [
+    "Information Systems & Security (CSIC227A3)": [
       "Understand the basic principles of Management Information System and distinguish planning and control of management system",
       "Identify the benefits and challenges of enterprise systems",
       "Examine the security risk assessment, control and measure the various security management processes.",
       "Demonstrate the security audit tasks and the key aspects of legal and ethical issues.",
       "Develop skills in security auditing, logging, and audit trail analysis and understand the dynamics of intellectual property, privacy, and ethical issues"
     ],
-    "UI/UX Design (CS203A3)": [
+    "UI/UX Design (CSIC203A3)": [
       "Select and utilize design thinking processes and UX/UI tools",
       "Differentiate between user interface and user experience design",
       "Discover how typography and layout enrich the user experience",
       "Distinguish various tools available for user interface design.",
       "Assess various HCI (human-computer interaction) and the psychology behind user decision-making"
     ],
-    "Fundamentals of Web Technology (CS202A3)": [
+    "Fundamentals of Web Technology (CSIC202A3)": [
       "Identify the various terms and components of HTML, CSS, JavaScript, PHP and Drupal",
       "Illustrate various components of web development languages",
       "Connect different modules of open source technologies for website development",
@@ -67,7 +67,7 @@
     ]
   },
   "Lab": {
-    "Data Structures Lab (CS201A4)": [
+    "Data Structures Lab (CSIC201A4)": [
       "Write programs to implement classic data structures",
       "Solve problems using linear data structures.",
       "Solve problems using non-linear data structures.",

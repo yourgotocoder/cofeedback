@@ -1,73 +1,73 @@
 {
   "Main Subjects": {
     "COMPILER DESIGN (CS1703)": [
-      "Define the competence in designing compilers",
-      "Describe the functioning in various problem domains.",
-      "Discover complex engineering problem and able to solve it using the concept of compiler design",
-      "Analyze and select optimal design scheme using compiler design principles",
-      "Develop and experiment using knowledge of compilers for compiling different programs."
+      "Illustrate the working of a compiler and design using tools.",
+      "Explain and implement various parsing techniques.",
+      "Evaluate the performance of a parser based on input and output parameters.",
+      "Analyze and select optimal design schemes using principles of compiler design.",
+      "Evaluate different code generation algorithms and identify issue with them."
     ]
   },
   "Elective Seven": {
-    "MACHINE LEARNING (CS1741)": [
-      "Display sufficient understanding of mathematical and engineering fundamentals in the perspective of machine learning theory.",
-      "Identify problems that can be solved using machine learning techniques.",
-      "Appreciate the importance of tolerance of imprecision and uncertainty for design of robust and low-cost intelligent machines.",
-      "Investigate a problem to identify technical issues and solve the problems using various machine learning techniques.",
-      "Design real-life applications using machine learning techniques."
+    "MACHINE LEARNING (CS1742)": [
+      "Relate mathematical fundamentals with machine learning techniques.",
+      "Build upon fundamentals for machine learning models.",
+      "Identify and use supervised/unsupervised techniques for relevant problems.",
+      "Solve problems using artificial neural network models.",
+      "Determine and justify the use of appropriate methods for dimensionality reduction."
     ],
-    "DEEP LEARNING (CS1631)": [
-      "Describe deep learning techniques and computing environment that are suitable for the applications under consideration.",
-      "Discuss various solution plans and methodologies for an engineering problem using Deep Learning.",
-      "Develop a set of alternative design solutions to problems for which standard algorithmic solutions do not exist.",
-      "Classify the different technical issues related to Deep Architectures consistent with their level of knowledge and understanding.",
-      "Apply Deep Learning techniques to solve real-life problems which directly or indirectly benefits to the society"
+    "ADVANCED OS(CS 1748": [
+      "Explain and manipulate the different concepts in advanced operating systems.",
+      "Analyze the working of various subsystems connected to the network",
+      "Select appropriate approaches for building a range of distributed systems, including some that employ middleware.",
+      "Apply standard design principles in the construction of these systems.",
+      "Select appropriate approaches for building a range of distributed systems"
     ],
-    "CLOUD COMPUTING (CS1732)": [
-      "Explain competence in using engineering fundamentals to visualize solutions using knowledge of software engineering skills.",
-      "Determine a solution plan and methodology for an engineering problem using software engineering.",
-      "Interpret a model for project management as well as define complex problem, also find and analyses requirements",
-      "Develop modern engineering tools, techniques and resources to solve software related problems.",
-      "Demonstrate an ability to identify/create modern engineering tools, techniques and resources to solve cloud architecture and storage solution."
+    "MOBILE COMPUTING(CS 1744)": [
+      "Examine fundamentals of wireless communications.",
+      "Analyze security, energy efficiency, mobility, scalability, and their unique characteristics in wireless networks.",
+      "Develop basic skills for cellular networks design.",
+      "Apply knowledge of TCP/IP extensions for mobile and wireless networking.",
+      "Measure the awareness of the life-long learning, business ethics, professional ethics and current marketing scenarios."
+    ],
+    "DISTRIBUTED DATABASE SYSTEMS(CS 1734)": [
+      "Describe the various range of data models, database architectures and features supported by different database management systems.",
+      "Compare the procedural and non-procedural languages and use them where appropriate to process data.",
+      "Evaluate various types of client-side interfaces to databases using selected modern tools appropriate for the task.",
+      "Discuss issues underpinning distributed database administration, security and performance.",
+      "Define and manipulate distributed database data using Structured Query Language (SQL)"
     ]
   },
   "Elective Eight": {
-    "R Programming (CS1756)": [
-      "Choose various mathematical techniques for the data analysis.",
-      "Describe the process, solution and analyse the results",
-      "Develop/create different models and experiment with it.",
-      "Apply appropriate tools, techniques, algorithms etc.",
-      "Examine the case study of the different available models"
+    "CRYPTOGRAPHY AND NETWORK SECURITY(CS 1733)": [
+      "Define mathematical modelling of a Security services to address modern security issues and challenges.",
+      "Demonstrate and an ability to formulate a solution plan and methodology for security in information systems using Cryptography",
+      "Analyze diverse set of alternative design solutions to meet the basic requirements and goals of a security system.",
+      "Recognize technical issues for existing security principles and network applications consistent with their level of knowledge and understanding.",
+      "Develop solutions for existing security principles and network applications."
     ],
-    "Ad-Hoc Wireless Networks (CS1731)": [
-      "Understand the involved engineering fundamentals of Ad-Hoc wireless",
-      "Ability to identify the complex engineering problem relating to Infrastructure based wireless network and Ad-Hoc wireless Network.",
-      "Ability to formulate a solution plan and methodology by applying appropriate theory, practices and tools to the development of Ad-Hoc network for related application domain.",
-      "Demonstrate an ability to select optimal design scheme suitable for Ad- Hoc Network considering its inherent characteristics.",
-      "Understand the various routing protocols especially designed for Ad-Hoc network"
+    "CLOUD COMPUTING(CS 1732)": [
+      "Analyze the Service Oriented Architecture and Cloud Computing paradigms.",
+      "Implement and evaluate a service mashup.",
+      "Analyze the enterprise models in cloud computing.",
+      "Evaluate a Software as a Service (SaaS) application.",
+      "Illustrate the Security issues associated with the Cloud Computing paradigm."
     ],
-    "Social Network Analysis (CS1641)": [
-      "Explain and extend the competence in structural properties of Social Networks fundamentals",
-      "Illustrate the ability to formulate and interpret several Social Network models",
-      "Represent the mathematical representation and analyses Social Network results.",
-      "Compare and analyze Social Network Data to reach a valid conclusion.",
-      "Define competence in Social Network Analysis fundamentals"
-    ],
-    "Cyber Security (CS1743)": [
-      "Discover the concepts of Cyber security and its social, technical and political techniques.",
-      "Illustrate on the various Intrusion detection and prevention techniques.",
-      "Analyze various algorithms based on Cryptography and Network security",
-      "Asses various methods of handling investigations in the field of cyber forensics",
-      "Asses the legal and social issues in the development and management of cyber security."
+    "HUMAN COMPUTER INTERACTION(CS 1746)": [
+      "Describe and apply core theories, models, and methodologies from the field of HCI",
+      "Analyze one after another the main features of interactive systems, and explain how to gauge the usability of digital environments, tools, and interfaces",
+      "Identify the various tools and techniques for interface analysis, design, and evaluation.",
+      "Identify the impact of usable interfaces in the acceptance and performance utilization of information systems.",
+      "Apply theories and concepts associated with effective work design to real-world application"
     ]
   },
   "Lab": {
     "Compiler Design Lab (1762)": [
-      "Simulate the functioning of various phases of compilers in various problem domains",
-      "Devise solutions to solve complex engineering problem.",
-      "Identify an optimal design among all available design alternatives for further manipulation using compiler design principles to execute the code faster.",
-      "Apply tools using knowledge of compilers for compiling different programs.",
-      "Evaluate the effectiveness of different compilation tools."
+      "Implement various phases of compiler using tools.",
+      "Evaluate the effectiveness of different tools for compiler building.",
+      "Implement through code different parsing methods.",
+      "Identify optimal design techniques for compilers.",
+      "Select appropriate compiler design principles for better execution of solutions to complex engineering problems."
     ],
     "Intelligent Systems Lab (CS1763)": [
       "Classify procedures for Machine Learning algorithms.",

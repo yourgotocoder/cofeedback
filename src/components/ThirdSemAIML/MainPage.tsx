@@ -48,7 +48,7 @@ const MainPage = () => {
     const [coFeedback, setCoFeedback] = useState<any[]>([]);
 
     const fetchQuestions = async () => {
-        const response = await fetch("QuestionsThirdSem.json", {
+        const response = await fetch("QuestionsThirdSemAIML.json", {
             headers: {
                 "Content-Type": "appication/json",
                 Accept: "application/json",
@@ -130,7 +130,7 @@ const MainPage = () => {
     const handleSubmit = async () => {
         setSubmitting(true);
         const response = await fetch(
-            `${process.env.REACT_APP_API_ROUTE}submit-feedback-third`,
+            `${process.env.REACT_APP_API_ROUTE}submit-feedback-third-aiml`,
             {
                 method: "POST",
                 body: JSON.stringify(coFeedback),
