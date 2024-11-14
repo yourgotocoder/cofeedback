@@ -15,7 +15,7 @@ const transformData = (data) => {
   const transformedData = data.reduce((prevValue, currentValue) => {
     const arrayToBeReturned = [...prevValue];
     const newElement = {};
-    const foundIndex = arrayToBeReturned.findindex(
+    const foundIndex = arrayToBeReturned.findIndex(
       (element, indexnumber) => element.subject === currentValue.subject,
     );
     if (foundIndex === -1) {
