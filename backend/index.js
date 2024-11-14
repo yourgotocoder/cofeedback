@@ -7,257 +7,106 @@ require("dotenv").config();
 
 const app = express();
 
-console.log(process.env.DB_URL);
-
 app.use(cors());
 app.use(express.json());
 app.use(json2xls.middleware);
 
-app.post("/submit-feedback-third", async (req, res) => {
-  const { body } = req;
-  const transformedDataToBeSaved = body.reduce((prevValue, currentValue) => {
+const transformData = (data) => {
+  const transformedData = data.reduce((prevValue, currentValue) => {
     const arrayToBeReturned = [...prevValue];
     const newElement = {};
-    const foundIndex = arrayToBeReturned.findIndex(
-      (element, indexNumber) => element.subject === currentValue.subject,
+    const foundIndex = arrayToBeReturned.findindex(
+      (element, indexnumber) => element.subject === currentValue.subject,
     );
     if (foundIndex === -1) {
       newElement.subject = currentValue.subject;
-      newElement["CO" + currentValue.co] = currentValue.rating;
+      newElement["co" + currentValue.co] = currentValue.rating;
       arrayToBeReturned.push(newElement);
     } else {
-      arrayToBeReturned[foundIndex]["CO" + currentValue.co] =
+      arrayToBeReturned[foundIndex]["co" + currentValue.co] =
         currentValue.rating;
     }
     return arrayToBeReturned;
   }, []);
+  return transformedData;
+};
+
+const saveToDb = async (collectionName, data) => {
+  const dateYear = new Date();
+  const year = dateYear.getFullYear();
+  const dbName = `feedback-${year}`;
   const client = await MongoClient.connect(process.env.DB_URL);
-  const db = client.db("feedback-2023");
-  const collection = db.collection("feedback-data-third");
+  const db = client.db(dbName);
+  const collection = db.collection(collectionName);
   const date = new Date().toString();
   const dataToBeSaved = {
     date,
-    data: transformedDataToBeSaved,
+    data,
   };
   const savedPost = await collection.insertOne(dataToBeSaved);
-  client.close();
+  await client.close();
+};
+
+app.post("/submit-feedback-third", async (req, res) => {
+  const { body } = req;
+  const transformeddatatobesaved = transformData(body);
+  await saveToDb("feedback-data-third", transformeddatatobesaved);
   res.json({ error: false, message: "Feedback submitted successfully" });
 });
 
 app.post("/submit-feedback-third-aiml", async (req, res) => {
   const { body } = req;
-  const transformedDataToBeSaved = body.reduce((prevValue, currentValue) => {
-    const arrayToBeReturned = [...prevValue];
-    const newElement = {};
-    const foundIndex = arrayToBeReturned.findIndex(
-      (element, indexNumber) => element.subject === currentValue.subject,
-    );
-    if (foundIndex === -1) {
-      newElement.subject = currentValue.subject;
-      newElement["CO" + currentValue.co] = currentValue.rating;
-      arrayToBeReturned.push(newElement);
-    } else {
-      arrayToBeReturned[foundIndex]["CO" + currentValue.co] =
-        currentValue.rating;
-    }
-    return arrayToBeReturned;
-  }, []);
-  const client = await MongoClient.connect(process.env.DB_URL);
-  const db = client.db("feedback-2023");
-  const collection = db.collection("feedback-data-aiml");
-  const date = new Date().toString();
-  const dataToBeSaved = {
-    date,
-    data: transformedDataToBeSaved,
-  };
-  const savedPost = await collection.insertOne(dataToBeSaved);
-  client.close();
+  const transformedDataToBeSaved = transformData(body);
+  await saveToDb("feedback-data-third-aiml", transformedDataToBeSaved);
   res.json({ error: false, message: "Feedback submitted successfully" });
 });
 
-app.post("/submit-feedback-fifth-aiml", async (req, res) => {
+app.post("/submit-feedback-third-iot", async (req, res) => {
   const { body } = req;
-  const transformedDataToBeSaved = body.reduce((prevValue, currentValue) => {
-    const arrayToBeReturned = [...prevValue];
-    const newElement = {};
-    const foundIndex = arrayToBeReturned.findIndex(
-      (element, indexNumber) => element.subject === currentValue.subject,
-    );
-    if (foundIndex === -1) {
-      newElement.subject = currentValue.subject;
-      newElement["CO" + currentValue.co] = currentValue.rating;
-      arrayToBeReturned.push(newElement);
-    } else {
-      arrayToBeReturned[foundIndex]["CO" + currentValue.co] =
-        currentValue.rating;
-    }
-    return arrayToBeReturned;
-  }, []);
-  const client = await MongoClient.connect(process.env.DB_URL);
-  const db = client.db("feedback-2024");
-  const collection = db.collection("feedback-data-5th-aiml");
-  const date = new Date().toString();
-  const dataToBeSaved = {
-    date,
-    data: transformedDataToBeSaved,
-  };
-  const savedPost = await collection.insertOne(dataToBeSaved);
-  client.close();
+  const transformedDataToBeSaved = transformData(body);
+  await saveToDb("feedback-data-third-iot", transformedDataToBeSaved);
   res.json({ error: false, message: "Feedback submitted successfully" });
 });
 
 app.post("/submit-feedback-fourth", async (req, res) => {
   const { body } = req;
-  const transformedDataToBeSaved = body.reduce((prevValue, currentValue) => {
-    const arrayToBeReturned = [...prevValue];
-    const newElement = {};
-    const foundIndex = arrayToBeReturned.findIndex(
-      (element, indexNumber) => element.subject === currentValue.subject,
-    );
-    if (foundIndex === -1) {
-      newElement.subject = currentValue.subject;
-      newElement["CO" + currentValue.co] = currentValue.rating;
-      arrayToBeReturned.push(newElement);
-    } else {
-      arrayToBeReturned[foundIndex]["CO" + currentValue.co] =
-        currentValue.rating;
-    }
-    return arrayToBeReturned;
-  }, []);
-  const client = await MongoClient.connect(process.env.DB_URL);
-  const db = client.db("cofeedback-2024");
-  const collection = db.collection("feedback-data-fourth");
-  const date = new Date().toString();
-  const dataToBeSaved = {
-    date,
-    data: transformedDataToBeSaved,
-  };
-  const savedPost = await collection.insertOne(dataToBeSaved);
-  client.close();
+  const transformedDataToBeSaved = transformData(body);
+  await save("feedback-data-fourth", transformedDataToBeSaved);
   res.json({ error: false, message: "Feedback submitted successfully" });
 });
 
 app.post("/submit-feedback-fourth-aiml", async (req, res) => {
   const { body } = req;
-  const transformedDataToBeSaved = body.reduce((prevValue, currentValue) => {
-    const arrayToBeReturned = [...prevValue];
-    const newElement = {};
-    const foundIndex = arrayToBeReturned.findIndex(
-      (element, indexNumber) => element.subject === currentValue.subject,
-    );
-    if (foundIndex === -1) {
-      newElement.subject = currentValue.subject;
-      newElement["CO" + currentValue.co] = currentValue.rating;
-      arrayToBeReturned.push(newElement);
-    } else {
-      arrayToBeReturned[foundIndex]["CO" + currentValue.co] =
-        currentValue.rating;
-    }
-    return arrayToBeReturned;
-  }, []);
-  const client = await MongoClient.connect(process.env.DB_URL);
-  const db = client.db("cofeedback-2024");
-  const collection = db.collection("feedback-data-fourth-aiml");
-  const date = new Date().toString();
-  const dataToBeSaved = {
-    date,
-    data: transformedDataToBeSaved,
-  };
-  const savedPost = await collection.insertOne(dataToBeSaved);
-  client.close();
+  const transformedDataToBeSaved = transformData(body);
+  await save("feedback-data-fourth-aiml", transformedDataToBeSaved);
   res.json({ error: false, message: "Feedback submitted successfully" });
 });
 
 app.post("/submit-feedback-fifth", async (req, res) => {
   const { body } = req;
-  const transformedDataToBeSaved = body.reduce((prevValue, currentValue) => {
-    const arrayToBeReturned = [...prevValue];
-    const newElement = {};
-    const foundIndex = arrayToBeReturned.findIndex(
-      (element, indexNumber) => element.subject === currentValue.subject,
-    );
-    if (foundIndex === -1) {
-      newElement.subject = currentValue.subject;
-      newElement["CO" + currentValue.co] = currentValue.rating;
-      arrayToBeReturned.push(newElement);
-    } else {
-      arrayToBeReturned[foundIndex]["CO" + currentValue.co] =
-        currentValue.rating;
-    }
-    return arrayToBeReturned;
-  }, []);
-  const client = await MongoClient.connect(process.env.DB_URL);
-  const db = client.db("feedback-2023");
-  const collection = db.collection("feedback-data-fifth");
-  const date = new Date().toString();
-  const dataToBeSaved = {
-    date,
-    data: transformedDataToBeSaved,
-  };
-  const savedPost = await collection.insertOne(dataToBeSaved);
-  client.close();
+  const transformedDataToBeSaved = transformData(body);
+  await save("feedback-data-fifth", transformedDataToBeSaved);
+  res.json({ error: false, message: "Feedback submitted successfully" });
+});
+
+app.post("/submit-feedback-fifth-aiml", async (req, res) => {
+  const { body } = req;
+  const transformedDataToBeSaved = transformData(body);
+  await saveToDb("feedback-data-fifth-aiml", transformedDataToBeSaved);
   res.json({ error: false, message: "Feedback submitted successfully" });
 });
 
 app.post("/submit-feedback-sixth", async (req, res) => {
   const { body } = req;
-  const transformedDataToBeSaved = body.reduce((prevValue, currentValue) => {
-    const arrayToBeReturned = [...prevValue];
-    const newElement = {};
-    const foundIndex = arrayToBeReturned.findIndex(
-      (element, indexNumber) => element.subject === currentValue.subject,
-    );
-    if (foundIndex === -1) {
-      newElement.subject = currentValue.subject;
-      newElement["CO" + currentValue.co] = currentValue.rating;
-      arrayToBeReturned.push(newElement);
-    } else {
-      arrayToBeReturned[foundIndex]["CO" + currentValue.co] =
-        currentValue.rating;
-    }
-    return arrayToBeReturned;
-  }, []);
-  const client = await MongoClient.connect(process.env.DB_URL);
-  const db = client.db("cofeedback-2024");
-  const collection = db.collection("feedback-data-sixth");
-  const date = new Date().toString();
-  const dataToBeSaved = {
-    date,
-    data: transformedDataToBeSaved,
-  };
-  const savedPost = await collection.insertOne(dataToBeSaved);
-  client.close();
+  const transformedDataToBeSaved = transform(body);
+  await save("feedback-data-sixth", transformedDataToBeSaved);
   res.json({ error: false, message: "Feedback submitted successfully" });
 });
 
 app.post("/submit-feedback-seventh", async (req, res) => {
   const { body } = req;
-  const transformedDataToBeSaved = body.reduce((prevValue, currentValue) => {
-    const arrayToBeReturned = [...prevValue];
-    const newElement = {};
-    const foundIndex = arrayToBeReturned.findIndex(
-      (element, indexNumber) => element.subject === currentValue.subject,
-    );
-    if (foundIndex === -1) {
-      newElement.subject = currentValue.subject;
-      newElement["CO" + currentValue.co] = currentValue.rating;
-      arrayToBeReturned.push(newElement);
-    } else {
-      arrayToBeReturned[foundIndex]["CO" + currentValue.co] =
-        currentValue.rating;
-    }
-    return arrayToBeReturned;
-  }, []);
-  const client = await MongoClient.connect(process.env.DB_URL);
-  const db = client.db("feedback-2023");
-  const collection = db.collection("feedback-data-seventh");
-  const date = new Date().toString();
-  const dataToBeSaved = {
-    date,
-    data: transformedDataToBeSaved,
-  };
-  const savedPost = await collection.insertOne(dataToBeSaved);
-  client.close();
+  const transformedDataToBeSaved = transform(body);
+  await save("feedback-data-seventh", transformedDataToBeSaved);
   res.json({ error: false, message: "Feedback submitted successfully" });
 });
 
