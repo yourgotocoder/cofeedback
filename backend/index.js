@@ -98,14 +98,14 @@ app.post("/submit-feedback-fifth-aiml", async (req, res) => {
 
 app.post("/submit-feedback-sixth", async (req, res) => {
   const { body } = req;
-  const transformedDataToBeSaved = transform(body);
+  const transformedDataToBeSaved = transformData(body);
   await saveToDb("feedback-data-sixth", transformedDataToBeSaved);
   res.json({ error: false, message: "Feedback submitted successfully" });
 });
 
 app.post("/submit-feedback-seventh", async (req, res) => {
   const { body } = req;
-  const transformedDataToBeSaved = transform(body);
+  const transformedDataToBeSaved = transformData(body);
   await saveToDb("feedback-data-seventh", transformedDataToBeSaved);
   res.json({ error: false, message: "Feedback submitted successfully" });
 });
