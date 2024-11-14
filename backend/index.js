@@ -71,21 +71,21 @@ app.post("/submit-feedback-third-iot", async (req, res) => {
 app.post("/submit-feedback-fourth", async (req, res) => {
   const { body } = req;
   const transformedDataToBeSaved = transformData(body);
-  await save("feedback-data-fourth", transformedDataToBeSaved);
+  await saveToDb("feedback-data-fourth", transformedDataToBeSaved);
   res.json({ error: false, message: "Feedback submitted successfully" });
 });
 
 app.post("/submit-feedback-fourth-aiml", async (req, res) => {
   const { body } = req;
   const transformedDataToBeSaved = transformData(body);
-  await save("feedback-data-fourth-aiml", transformedDataToBeSaved);
+  await saveToDb("feedback-data-fourth-aiml", transformedDataToBeSaved);
   res.json({ error: false, message: "Feedback submitted successfully" });
 });
 
 app.post("/submit-feedback-fifth", async (req, res) => {
   const { body } = req;
   const transformedDataToBeSaved = transformData(body);
-  await save("feedback-data-fifth", transformedDataToBeSaved);
+  await saveToDb("feedback-data-fifth", transformedDataToBeSaved);
   res.json({ error: false, message: "Feedback submitted successfully" });
 });
 
@@ -99,14 +99,14 @@ app.post("/submit-feedback-fifth-aiml", async (req, res) => {
 app.post("/submit-feedback-sixth", async (req, res) => {
   const { body } = req;
   const transformedDataToBeSaved = transform(body);
-  await save("feedback-data-sixth", transformedDataToBeSaved);
+  await saveToDb("feedback-data-sixth", transformedDataToBeSaved);
   res.json({ error: false, message: "Feedback submitted successfully" });
 });
 
 app.post("/submit-feedback-seventh", async (req, res) => {
   const { body } = req;
   const transformedDataToBeSaved = transform(body);
-  await save("feedback-data-seventh", transformedDataToBeSaved);
+  await saveToDb("feedback-data-seventh", transformedDataToBeSaved);
   res.json({ error: false, message: "Feedback submitted successfully" });
 });
 
