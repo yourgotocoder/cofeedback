@@ -11,7 +11,7 @@ type Props = {
 };
 
 const SelectSemester = (props: Props) => {
-    const semesters: number[] = [3, 13, 23, 5, 15, 7];
+    const semesters: number[] = [4, 6];
 
     return (
         <Box
@@ -55,7 +55,7 @@ const SelectSemester = (props: Props) => {
                                                     ? "AIML(Fifth Sem)"
                                                     : sem === 7
                                                         ? "Seventh Sem"
-                                                        : ""}
+                                                        : sem === 4 ? "Fourth Sem" : sem == 6 ? "Sixth Sem" : ""}
                             </Button>
                         </div>
                     ))}

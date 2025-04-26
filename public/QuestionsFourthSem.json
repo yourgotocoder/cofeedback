@@ -7,65 +7,86 @@
       "Analyze the various classifications of Random Processes and characterize phenomena which evolvewith respect to time in a probabilistic manner.",
       "Understand about different Queuing models and its applications."
     ],
-    "CS208A1(Programming Methodology)": [
-      "Understand the difference between various programming languages and its principle",
-      "Use of appropriate programming language to solve the given problem.",
-      "Explain common applications for array, stack, queue, linked list, tree and graph",
-      "Solve a given problem using appropriate framework and Programming language of their choice.",
-      "Developing the real-world application, deploying and exploring the future scope. "
+    "DBMS": [
+      "Describe fundamental elements of a relational database management system",
+      "Design entity-relationship diagrams to represent simple database application scenarios",
+      "Explain the basic concepts of relational data model, Entity-relationship model, Relational database design, relational algebra and database language SQL",
+      "Apply and relate the concept of transaction, concurrency control and recovery in database ",
+      "Analyze various Normalization techniques and improve the database design by normalization"
     ],
-    "CS206A1(Design and Analysis of Algorithms)": [
+    "Design and Analysis of Algorithms": [
       "Define asymptotic notations and solve problems related to it",
       "Calculate time and space complexities for recursive/non-recursive algorithm based on following algorithm design techniques - divide and conquer, greedy, dynamic programming and branch and bound.",
       "Select appropriate algorithm design technique to solve a given problem.",
       "Explain the working of existing algorithm / algorithm design techniques ",
       "Discuss and describe the classes P, NP, and NP-Complete"
     ],
-    "COMPUTER NETWORKS-I(CS207A1)": [
-      "Understand and identify the engineering fundamentals concerning Data Communication and Computer Network. ",
-      "Identify the complex engineering problem involved in Data communication and its architecture for a successful network based communication.  ",
-      "Ability to Practice and formulate a solution for an engineering problem concerning  any layers in Data Communication model ",
-      "Demonstrate an ability to formulate and interpret a model based on the fundamentals of Computer Networks ",
-      "Compare and understand the IOS reference model and TCP-IP reference model for data communication. "
+    "UHVII Ethical Human Conduct": [
+      "Students are expected to understand self-exploration and Basic Human Aspirations.",
+      "To understand harmony in themselves (Human being).",
+      "To become more aware of their surroundings (family, society, nature); they would become more responsible in life, and in handling problems with sustainable solutions, while keeping human relationships and human nature in mind.",
+      "They would have better critical ability. They would also become sensitive to their commitment towards what they have understood (human values, human relationship and human society). It is hoped that they would be able to apply what they have learnt to their own self in different day-to-day settings in real life, at least a beginning would be made in this direction.",
+      "To become a better human"
     ]
   },
-  "Elective One": {
-    "CS202A3(Java Prog)": [
-      "Demonstrate an ability describe and recall the various object oriented concept",
-      "Formulate and interpret an object oriented model and design solution using object oriented concepts.",
-      "Ability to illustrate a diverse set of design solutions using techniques of Interface, Packages, File Handling, Multi-threading, etc.",
-      "Select and design methodology using bottom up approach and solve open ended problems using Java.",
-      "Define and create modern engineering tools, techniques and resources to build software using Java programming language.    "
+  "Elective Two": {
+    "INFORMATION RETRIEVAL": [
+      "Explain the importance of information and its retrieval during present times.",
+      "Illustrate and analyse various information retrieval techniques.",
+      "Interpret the design and working principles of web based search engines.",
+      "Utilize Hadoop and map reduce for storage and processing of data.",
+      "Apply and implement categorization algorithms for document text mining."
     ],
-    "CS210A3(MICROPROCESSORS AND PERIPHERAL DEVICES)": [
-      "Identify and describe the structure and functions of basic elements of 8085, 8086 Microprocessors and various peripheral devices.",
-      "Sketch block diagrams of Microprocessors and peripheral devices. Illustrate the execution of instructions by the MP using timing diagrams.",
-      "Design circuit diagrams for interfacing the MP with peripheral devices as per the problem statement for creating an application",
-      "Write programs for microprocessors and MP based applications using assembly language",
-      "Describe the MP-specific assembly language constructs and syntaxes."
+    "SIGNALS AND NETWORKS": [
+      "Compute mathematical description and representation of continuous and discrete time signals and networks",
+      "Illustrate input output relationship for linear shift invariant system and understand the convolution operator for continuous and discrete time system",
+      "Measure the signals in frequency domain using Fourier series and Fourier transforms",
+      "Predict the limitations of Fourier transform and need for Laplace transform",
+      "Develop the ability to analyze the system in S- domain and Z- domain"
     ],
-    "CS206A3(INFORMATION TRANSMISSION AND CODING THEORY)": [
-      "Describe the principles and applications of information theory.",
-      "Differentiate the various types of coding schemes available in coding theory",
-      "Compare various error control encoding and decoding techniques",
-      "Compute amount of information in terms of entropy and apply in source coding and channel coding",
-      "Compose methods for analyzing the performance of error control codes"
+    "ADVANCED COMPUTER ORGANIZATION": [
+      "Identify various components of a computer and their interconnection.",
+      "Identify basic components and design of the CPU: the ALU and control unit.",
+      "Compare and select various Memory devices as per requirement.",
+      "Compare various types of IO mapping techniques.",
+      "Critique the performance issues of cache memory and virtual memory."
     ],
-    "CS207A3(COMPUTER GRAPHICS)": [
-      "Describe the competence in application of mathematical modelling to computer graphics",
-      "Explain an ability to interpret a solution plan and methodology for an engineering problem using computer graphics ",
-      "Discuss an ability to conduct investigations of technical issues related to computer vision with their level of knowledge and understanding",
-      "Illustrate an ability to advance an engineering design to defined end state",
-      " Compare different algorithms used to solve a computer vision problem."
+    "SPEECH PROCESSING": [
+      "Explain the speech production and perception process.",
+      "Analyze speech signals in time and frequency domain.",
+      "Describe statistical modeling techniques for speech signal.",
+      "Apply channel compensation and classification techniques to speech processing applications.",
+      "Implement simple algorithms for processing speech signals."
+    ],
+    "EMBEDDED SYSTEMS": [
+      "Identify the internal architecture and interfacing of different peripheral devices with Microcontrollers",
+      "Understand hardware and software design requirements of embedded systems",
+      "Analyze the role of embedded systems in industry",
+      "Evaluate the requirements of programming Embedded Systems, related software architectures and tool chain for Embedded Systems",
+      "Design real time embedded systems using the concepts of RTOS."
+    ],
+    "VLSI": [
+      "Identify the various IC fabrication methods.",
+      "Discuss the layout of simple MOS circuit using Lambda based design rules.",
+      "Apply the lambda-based design rules for subsystem design.",
+      "Design an application using Verilog HDL.",
+      "Evaluate a digital system using Hardware Description Language."
+    ],
+    "ADVANCED JAVA PROGRAMMING": [
+      "Write program codes displaying competence in basic object-oriented programming using Java",
+      "Compare and able to develop scalable network applications using Java",
+      "Illustrate and practice component-based software",
+      "Explain and able to conduct investigations of technical issues consistent with their level of knowledge on distributed applications.",
+      "Design and implement the understanding pertaining to database applications"
     ]
   },
   "Lab": {
-    "CS203A4(Programming Methodology lab)": [
-      "Analyze the program using various characteristics of programming language.",
-      "Apply the various data structures to solve the particular task. ",
-      "Demonstrate the different database connectivity approach for connecting the program/application to the database.",
-      "Produce an optimal solution for debugging and testing the program to make it error free. ",
-      "Illustrate the advantages of different APIs available for programming languages. "
+    "DBMS LAB": [
+      "Select appropriate SQL/MongoDB commands and functions for a given query on the database. ",
+      "Infer constraints and relationships between tables from conceptual/logical level schema and convert them into relationship and integrity constraints at the physical level schema.",
+      "Write Oracle PL/SQL Programs for data processing.",
+      "Design nested queries for efficient data processing on the database.",
+      "Test an SQL interface of a multi-user relational DBMS package to create, secure, populate, maintain, and query a database."
     ],
     "CS204A4(Algorithm Lab)": [
       "Calculate time and space complexities for algorithms using mathematical models",
@@ -73,29 +94,6 @@
       "Select appropriate algorithm design technique to solve a given problem",
       "Write a computer program to implement any algorithm using a programming language",
       "Choose the most optimal algorithm by comparing time and space complexities"
-    ]
-  },
-  "Minor Specialization": {
-    "CS1844(Probability and Statistics in Data Analytics)": [
-      "Demonstrate an ability to describe the basic concepts of probability and random variables.",
-      "Demonstrate an ability to discuss and analyze random sampling and statistical inference concepts.",
-      "Demonstrate an ability to calculate and decide the estimation and testing of hypothesis.",
-      "Demonstrate an ability to collect, evaluate and design the model using representation of data and different descriptive statistics.",
-      "Demonstrate an ability to analyze and examine the different regression and variance."
-    ],
-    "CS1841(Signals and Network )": [
-      "Understand mathematical description and representation of continuous and discrete time signal",
-      "Evaluate the signals in frequency domain using Fourier series and Fourier transforms.",
-      "Development of the mathematical skills to solve problems based on the limitations of Fourier transform and need for Laplace transform to analyze the system in s- domai",
-      "Apply fundamental principles of data communication and networking",
-      "Explain the working of waveform coding techniques and analyse their performance."
-    ],
-    "CS1842(Introduction to Machine Learning)": [
-      "Relate mathematical fundamentals with machine learning techniques.",
-      "Build upon fundamentals for machine learning models.",
-      "Identify and use supervised/unsupervised techniques for relevant problems.",
-      "Solve problems using artificial neural network models.",
-      "Determine and justify the use of appropriate methods for dimensionality reduction."
     ]
   }
 }

@@ -14,7 +14,7 @@ import GetExcel from "./components/GetExcel";
 
 function App() {
   const [semester, setSemester] = useState<number | null>(null);
-
+  console.log('Production')
   const handleSemesterSelected = (semester: number) => {
     setSemester(semester);
   };
@@ -24,15 +24,15 @@ function App() {
       {semester === null && (
         <SelectSemester handleSemesterSelected={handleSemesterSelected} />
       )}
-      {semester === 3 && <MainPage3rdSem />}{" "}
-      {semester === 13 && <MainPage3rdSemAIML />}{" "}
-      {semester === 23 && <MainPage3rdSemIoT />}{" "}
-      {semester === 15 && <MainPage5thSemAIML />}
-      {semester === 5 && <MainPage5thSem />}
-      {semester === 7 && <MainPage7thSem />}{" "}
+      {/* {semester === 3 && <MainPage3rdSem />}{" "} */}
+      {/* {semester === 13 && <MainPage3rdSemAIML />}{" "} */}
+      {/* {semester === 23 && <MainPage3rdSemIoT />}{" "} */}
+      {/* {semester === 15 && <MainPage5thSemAIML />} */}
+      {/* {semester === 5 && <MainPage5thSem />} */}
+      {/* {semester === 7 && <MainPage7thSem />}{" "} */}
       {/* {semester === 14 && <MainPageAIML />}{" "} */}
-      {/* {semester === 4 && <MainPage4thSem />}{" "} */}
-      {/* {semester === 6 && <MainPage6thSem />} */}
+      {semester === 4 && <MainPage4thSem />}{" "}
+      {semester === 6 && <MainPage6thSem />}
       {/* <GetExcel /> */}
     </>
   );

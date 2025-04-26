@@ -22,18 +22,16 @@ type SubjectQuestions = {
 
 interface FeedbackQuestions {
     "Main Subjects"?: SubjectQuestions;
+    "Elective Three"?: SubjectQuestions;
     "Elective Four"?: SubjectQuestions;
-    "Elective Five"?: SubjectQuestions;
-    "Elective Six"?: SubjectQuestions;
     Lab?: SubjectQuestions;
 }
 
 const MainPage = () => {
     const [questions, setQuestions] = useState<FeedbackQuestions>({
         "Main Subjects": {},
+        "Elective Three": {},
         "Elective Four": {},
-        "Elective Five": {},
-        "Elective Six": {},
         Lab: {},
     });
 
@@ -46,9 +44,8 @@ const MainPage = () => {
     const [submitted, setSubmitted] = useState(false);
 
     const [steps, setSteps] = useState<string[]>([""]);
+    const [selectedElectiveThree, setSelectedElectiveThree] = useState<string>();
     const [selectedElectiveFour, setSelectedElectiveFour] = useState<string>();
-    const [selectedElectiveFive, setSelectedElectiveFive] = useState<string>();
-    const [selectedElectiveSix, setSelectedElectiveSix] = useState<string>();
 
     const [coFeedback, setCoFeedback] = useState<any[]>([]);
 
@@ -131,11 +128,8 @@ const MainPage = () => {
     const handleElectiveFourChange = (value: string) => {
         setSelectedElectiveFour(value);
     };
-    const handleElectiveFiveChange = (value: string) => {
-        setSelectedElectiveFive(value);
-    };
-    const handleElectiveSixChange = (value: string) => {
-        setSelectedElectiveSix(value);
+    const handleElectiveThreeChange = (value: string) => {
+        setSelectedElectiveThree(value);
     };
 
     const handleSubmit = async () => {
@@ -174,8 +168,8 @@ const MainPage = () => {
             >
                 <Card sx={{ minWidth: "60vw", maxWidth: "95vw", margin: "auto" }}>
                     <CardContent>
-                        {!!questions["Elective Five"] &&
-                            Object.keys(questions["Elective Five"]).length > 1 && (
+                        {!!questions["Elective Three"] &&
+                            Object.keys(questions["Elective Three"]).length > 1 && (
                                 <div>
                                     <Typography
                                         sx={{
@@ -210,6 +204,18 @@ const MainPage = () => {
                                                 >
                                                     <Stack spacing={1}>
                                                         <Box>
+                                                            {!!questions["Elective Three"] && (
+                                                                <SelectSubjects
+                                                                    label="Elective Five"
+                                                                    subjectObject={questions["Elective Three"]}
+                                                                    handleElectiveChange={
+                                                                        handleElectiveThreeChange
+                                                                    }
+                                                                />
+                                                            )}
+                                                        </Box>
+
+                                                        <Box>
                                                             {!!questions["Elective Four"] && (
                                                                 <SelectSubjects
                                                                     label="Elective Four"
@@ -220,34 +226,13 @@ const MainPage = () => {
                                                                 />
                                                             )}
                                                         </Box>
-                                                        <Box>
-                                                            {!!questions["Elective Five"] && (
-                                                                <SelectSubjects
-                                                                    label="Elective Five"
-                                                                    subjectObject={questions["Elective Five"]}
-                                                                    handleElectiveChange={
-                                                                        handleElectiveFiveChange
-                                                                    }
-                                                                />
-                                                            )}
-                                                        </Box>
-                                                        <Box>
-                                                            {!!questions["Elective Six"] && (
-                                                                <SelectSubjects
-                                                                    label="Elective Six"
-                                                                    subjectObject={questions["Elective Six"]}
-                                                                    handleElectiveChange={handleElectiveSixChange}
-                                                                />
-                                                            )}
-                                                        </Box>
                                                     </Stack>
                                                     <Box sx={{ mb: 2 }}>
                                                         <div>
                                                             <Button
                                                                 disabled={
-                                                                    !selectedElectiveFour ||
-                                                                    !selectedElectiveFive ||
-                                                                    !selectedElectiveSix
+                                                                    !selectedElectiveThree ||
+                                                                    !selectedElectiveFour
                                                                 }
                                                                 variant="contained"
                                                                 onClick={handleNext}
@@ -325,7 +310,8 @@ const MainPage = () => {
                                                                                                     (indexOfStep === 0 &&
                                                                                                         coFeedback.length < 5) ||
                                                                                                     (indexOfStep === 1 &&
-                                                                                                        coFeedback.length < 10)
+                                                                                                        coFeedback.length < 10) ||
+                                                                                                    (indexOfStep === 2 && coFeedback.length < 15)
                                                                                                 }
                                                                                             >
                                                                                                 Next
@@ -361,7 +347,10 @@ const MainPage = () => {
                                                                                                     (indexOfStep === 0 &&
                                                                                                         coFeedback.length < 5) ||
                                                                                                     (indexOfStep === 1 &&
-                                                                                                        coFeedback.length < 10)
+                                                                                                        coFeedback.length < 10) ||
+                                                                                                    (indexOfStep === 2 &&
+                                                                                                        coFeedback.length < 15)
+
                                                                                                 }
                                                                                             >
                                                                                                 Continue
@@ -414,7 +403,7 @@ const MainPage = () => {
                                             </Step>
                                             <Step>
                                                 <StepLabel>
-                                                    {(!!selectedElectiveFour && selectedElectiveFour) ||
+                                                    {(!!selectedElectiveThree && selectedElectiveThree) ||
                                                         steps[2]}
                                                 </StepLabel>
                                                 <StepContent
@@ -423,69 +412,17 @@ const MainPage = () => {
                                                     }}
                                                 >
                                                     <Box>
-                                                        {!!questions["Elective Four"] &&
-                                                            !!selectedElectiveFour &&
-                                                            questions["Elective Four"][
-                                                                selectedElectiveFour
+                                                        {!!questions["Elective Three"] &&
+                                                            !!selectedElectiveThree &&
+                                                            questions["Elective Three"][
+                                                                selectedElectiveThree
                                                             ].map((element, indexValue) => (
                                                                 <Questions
                                                                     key={element}
                                                                     label={element}
                                                                     coNumber={indexValue + 1}
                                                                     rating={null}
-                                                                    subjectName={selectedElectiveFour}
-                                                                    ratingChange={handleRatingChange}
-                                                                />
-                                                            ))}
-                                                    </Box>
-                                                    <Box sx={{ mb: 2 }}>
-                                                        <div>
-                                                            <Button
-                                                                variant="contained"
-                                                                onClick={handleNext}
-                                                                sx={{
-                                                                    mt: 1,
-                                                                    mr: 1,
-                                                                }}
-                                                                disabled={coFeedback.length < 15}
-                                                            >
-                                                                Continue
-                                                            </Button>
-                                                            <Button
-                                                                onClick={handleBack}
-                                                                sx={{
-                                                                    mt: 1,
-                                                                    mr: 1,
-                                                                }}
-                                                            >
-                                                                Back
-                                                            </Button>
-                                                        </div>
-                                                    </Box>
-                                                </StepContent>
-                                            </Step>
-                                            <Step>
-                                                <StepLabel>
-                                                    {(!!selectedElectiveFive && selectedElectiveFive) ||
-                                                        steps[3]}
-                                                </StepLabel>
-                                                <StepContent
-                                                    TransitionProps={{
-                                                        unmountOnExit: false,
-                                                    }}
-                                                >
-                                                    <Box>
-                                                        {!!questions["Elective Five"] &&
-                                                            !!selectedElectiveFive &&
-                                                            questions["Elective Five"][
-                                                                selectedElectiveFive
-                                                            ].map((element, indexValue) => (
-                                                                <Questions
-                                                                    key={element}
-                                                                    label={element}
-                                                                    coNumber={indexValue + 1}
-                                                                    rating={null}
-                                                                    subjectName={selectedElectiveFive}
+                                                                    subjectName={selectedElectiveThree}
                                                                     ratingChange={handleRatingChange}
                                                                 />
                                                             ))}
@@ -518,8 +455,8 @@ const MainPage = () => {
                                             </Step>
                                             <Step>
                                                 <StepLabel>
-                                                    {(!!selectedElectiveSix && selectedElectiveSix) ||
-                                                        steps[4]}
+                                                    {(!!selectedElectiveFour && selectedElectiveFour) ||
+                                                        steps[3]}
                                                 </StepLabel>
                                                 <StepContent
                                                     TransitionProps={{
@@ -527,17 +464,17 @@ const MainPage = () => {
                                                     }}
                                                 >
                                                     <Box>
-                                                        {!!questions["Elective Six"] &&
-                                                            !!selectedElectiveSix &&
-                                                            questions["Elective Six"][
-                                                                selectedElectiveSix
+                                                        {!!questions["Elective Four"] &&
+                                                            !!selectedElectiveFour &&
+                                                            questions["Elective Four"][
+                                                                selectedElectiveFour
                                                             ].map((element, indexValue) => (
                                                                 <Questions
                                                                     key={element}
                                                                     label={element}
                                                                     coNumber={indexValue + 1}
                                                                     rating={null}
-                                                                    subjectName={selectedElectiveSix}
+                                                                    subjectName={selectedElectiveFour}
                                                                     ratingChange={handleRatingChange}
                                                                 />
                                                             ))}
@@ -547,11 +484,11 @@ const MainPage = () => {
                                                             <Button
                                                                 variant="contained"
                                                                 onClick={handleNext}
-                                                                disabled={coFeedback.length < 25}
                                                                 sx={{
                                                                     mt: 1,
                                                                     mr: 1,
                                                                 }}
+                                                                disabled={coFeedback.length < 25}
                                                             >
                                                                 Continue
                                                             </Button>
@@ -568,9 +505,8 @@ const MainPage = () => {
                                                     </Box>
                                                 </StepContent>
                                             </Step>
-
                                             <Step>
-                                                <StepLabel>{steps[5]}</StepLabel>
+                                                <StepLabel>{steps[4]}</StepLabel>
                                                 <StepContent
                                                     TransitionProps={{
                                                         unmountOnExit: false,
