@@ -82,6 +82,13 @@ app.post("/submit-feedback-fourth-aiml", async (req, res) => {
   res.json({ error: false, message: "Feedback submitted successfully" });
 });
 
+app.post("/submit-feedback-fourth-iot", async (req, res) => {
+  const { body } = req;
+  const transformedDataToBeSaved = transformData(body);
+  await saveToDb("feedback-data-fourth-iot", transformedDataToBeSaved);
+  res.json({ error: false, message: "Feedback submitted successfully" });
+});
+
 app.post("/submit-feedback-fifth", async (req, res) => {
   const { body } = req;
   const transformedDataToBeSaved = transformData(body);

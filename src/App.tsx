@@ -9,6 +9,7 @@ import MainPage7thSem from "./components/SeventhSem/MainPage";
 import MainPage5thSem from "./components/FifthSem/MainPage";
 import MainPage5thSemAIML from "./components/FifthSemAIML/MainPage";
 import MainPage4thSem from "./components/FourthSem/MainPage";
+import MainPage4thSemIoT from "./components/FourthSemIoT/MainPage";
 import SelectSemester from "./components/SelectSemester";
 import GetExcel from "./components/GetExcel";
 
@@ -32,6 +33,7 @@ function App() {
       {/* {semester === 7 && <MainPage7thSem />}{" "} */}
       {/* {semester === 14 && <MainPageAIML />}{" "} */}
       {semester === 4 && <MainPage4thSem />}{" "}
+      {semester === 24 && <MainPage4thSemIoT />}{" "}
       {semester === 6 && <MainPage6thSem />}
       {/* <GetExcel /> */}
     </>

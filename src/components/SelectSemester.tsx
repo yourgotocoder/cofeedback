@@ -10,8 +10,63 @@ type Props = {
     handleSemesterSelected: (selectedSemester: number) => void;
 };
 
+const semesterDisplay = (sem: number): string => {
+    let semester = '';
+    switch (sem) {
+        case 3:
+            semester = "Third Sem (CSE)"
+            break;
+        case 13:
+            semester = "Third Sem (AI&ML)"
+            break;
+        case 23:
+            semester = "Third Sem (IoT)"
+            break;
+        case 5:
+            semester = "Fifth Sem (CSE)"
+            break;
+        case 15:
+            semester = "Fifth  Sem (AI&ML)"
+            break;
+        case 25:
+            semester = "Fifth Sem (IoT)"
+            break;
+        case 7:
+            semester = "Seventh Sem (CSE)"
+            break;
+        case 17:
+            semester = "Seventh Sem (AI&ML)"
+            break;
+        case 27:
+            semester = "Seventh Sem (IoT)"
+            break;
+        case 4:
+            semester = "Fourth Sem (CSE)"
+            break;
+        case 14:
+            semester = "Fourth Sem (AI&ML)"
+            break;
+        case 24:
+            semester = "Fourth Sem (IoT)"
+            break;
+        case 6:
+            semester = "Sixth Sem (CSE)"
+            break;
+        case 16:
+            semester = "Sixth Sem (AI&ML)"
+            break;
+        case 26:
+            semester = "Sixth Sem (IoT)"
+            break;
+
+        default:
+            break;
+    }
+    return semester
+}
+
 const SelectSemester = (props: Props) => {
-    const semesters: number[] = [4, 6];
+    const semesters: number[] = [4, 6, 24];
 
     return (
         <Box
@@ -43,19 +98,7 @@ const SelectSemester = (props: Props) => {
                                 variant="contained"
                                 onClick={() => props.handleSemesterSelected(sem)}
                             >
-                                {sem === 3
-                                    ? "Third Sem"
-                                    : sem === 13
-                                        ? "AIML(Third Sem)"
-                                        : sem === 23
-                                            ? "IoT(Third Sem)"
-                                            : sem === 5
-                                                ? "Fifth Sem"
-                                                : sem === 15
-                                                    ? "AIML(Fifth Sem)"
-                                                    : sem === 7
-                                                        ? "Seventh Sem"
-                                                        : sem === 4 ? "Fourth Sem" : sem == 6 ? "Sixth Sem" : ""}
+                                {semesterDisplay(sem)}
                             </Button>
                         </div>
                     ))}
