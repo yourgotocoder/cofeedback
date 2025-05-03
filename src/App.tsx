@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import MainPage6thSem from "./components/SixthSem/MainPage";
+import MainPage6thSemAIML from "./components/SixthSemAIML/MainPage";
 import MainPage3rdSem from "./components/ThirdSem/MainPage";
 import MainPage3rdSemIoT from "./components/ThirdSemIoT/MainPage";
 import MainPage3rdSemAIML from "./components/ThirdSemAIML/MainPage";
@@ -35,6 +36,7 @@ function App() {
       {semester === 4 && <MainPage4thSem />}{" "}
       {semester === 24 && <MainPage4thSemIoT />}{" "}
       {semester === 6 && <MainPage6thSem />}
+      {semester === 16 && <MainPage6thSemAIML />}
       {/* <GetExcel /> */}
     </>
   );

@@ -110,6 +110,13 @@ app.post("/submit-feedback-sixth", async (req, res) => {
   res.json({ error: false, message: "Feedback submitted successfully" });
 });
 
+app.post("/submit-feedback-sixth-aiml", async (req, res) => {
+  const { body } = req;
+  const transformedDataToBeSaved = transformData(body);
+  await saveToDb("feedback-data-sixth-aiml", transformedDataToBeSaved);
+  res.json({ error: false, message: "Feedback submitted successfully" });
+});
+
 app.post("/submit-feedback-seventh", async (req, res) => {
   const { body } = req;
   const transformedDataToBeSaved = transformData(body);
