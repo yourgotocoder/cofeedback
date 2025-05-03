@@ -44,7 +44,6 @@
       "Differentiate between different version of Blockchain technology ",
       "Illustrate use of blockchain technology in a broader context like health, banking sector and identify security concerns in blockchain technology"
     ],
-    
     "Human Computer Interaction": [
       "Describe and apply core theories, models, and methodologies from the field of HCI.",
       "Analyze one after another the main features of interactive systems, and explain how to gauge the usability of digital environments, tools, and interfaces.",
@@ -61,13 +60,6 @@
     ]
   },
   "Elective Four": {
-    "MACHINE LEARNING": [
-      "Relate mathematical fundamentals with machine learning techniques.",
-      "Build upon fundamentals for machine learning models.",
-      "Identify and use supervised/unsupervised techniques for relevant problems.",
-      "Solve problems using artificial neural network models.",
-      "Determine and justify the use of appropriate methods for dimensionality reduction."
-    ],
     "CLOUD COMPUTING": [
       "Analyse the Service Oriented Architecture and Cloud Computing paradigms.",
       "Implement and evaluate a service mashup.",
@@ -76,21 +68,14 @@
       "Illustrate the Security issues associated with the Cloud Computing paradigm."
     ],
     "Ethical Hacking": [
-      "Examine competence in applying acquired expertise in computer networks",
-      "Determine an ability to interpret and evaluate behaviour of malwares and their countermeasures",
-      "Evaluate the approaches used by hackers and work on its countermeasures to reach a valid conclusion",
-      "Describe an ability to identify the limitation of tools used to break an insecure web application",
-      "Decide the problem in the decision-making process between possible options using tools"
-    ],
-    "DEEP LEARNING": [
-      "Describe deep learning techniques and computing environment that are suitable for the applications under consideration.",
-      "Discuss various solution plans and methodologies for an engineering problem using Deep Learning.",
-      "Develop a set of alternative design solutions to problems for which standard algorithmic solutions do not exist.",
-      "Classify the different technical issues related to Deep Architectures consistent with their level of knowledge and understanding.",
-      "Apply Deep Learning techniques to solve real-life problems which directly or indirectly benefits to the society"
+      "Define competence in Social Network Analysis fundamentals.",
+      "Explain and extend the competence in structural properties of Social Network fundamentals.",
+      "Illustrate the ability to formulate and interpret several Social Network models.",
+      "Represent the mathematical representation and analyses Social Network results",
+      "Compare and analyze Social Network Data to reach a valid conclusion."
     ],
     "AGILE METHODOLOGY": [
-      "Analyze the strengths and weaknesses of an agile approach within a particular development context",
+      "Explain the philosophy and historical context of agile methods.",
       "Enumerate the common agile practices and principles based on the contemporary scientific discourse",
       "Analyze the strengths and weaknesses of an agile approach within a particular development context",
       "Modify selected agile practices and principles based on own experience from project",
@@ -102,22 +87,15 @@
       "Construct language models for understanding pragmatics of the language",
       "Illustrate modeling concepts using programming languages like Python.",
       "Evaluate basic language modeling techniques using some standard data set."
-    ],
-    "CRYPTOGRAPHY and NETWORK SECURITY" : [
-      "Define mathematical modelling of a Security services to address modern security issues and challenges.",
-      "Demonstrate and an ability to formulate a solution plan and methodology for security in information systems using Cryptography",
-      "Analyze diverse set of alternative design solutions to meet the basic requirements and goals of a security system.",
-      "Recognize technical issues for existing security principles and network applications consistent with their level of knowledge and understanding.",
-      "Develop solutions for existing security principles and network applications."
     ]
   },
   "Lab": {
-    "COMPILER DESIGN LAB": [
-      "Simulate the functioning of various phases of compilers in various problem domains.",
-      "Devise solutions to solve complex engineering problem.",
-      "Identify an optimal design among all available design alternatives for further manipulation using compiler design principles to execute the code faster.",
-      "Apply tools using knowledge of compilers for compiling different programs.",
-      "Evaluate the effectiveness of different compilation tools"
+    "TRANSFER LEARNING LAB": [
+      "Difference between traditional machine learning and transfer learning",
+      "Select appropriate part of the knowledge can be transferred from the source to the target to improve the performance of the target task.",
+      "Interpret when to transfer and when not to, so that one improves the target task performance/results and does not degrade them.",
+      "Apply how to transfer the knowledge gained from the source model based on our current domain/task .",
+      "Classify transfer learning strategies as three major categories depending upon the task domain and the amount of labeled/unlabeled data present."
     ],
     "DBMS LAB": [
       "Select appropriate SQL/MongoDB commands and functions for a given query on the database. ",
