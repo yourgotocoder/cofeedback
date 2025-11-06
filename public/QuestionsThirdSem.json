@@ -51,19 +51,26 @@
       "Demonstrate the security audit tasks and the key aspects of legal and ethical issues.",
       "Develop skills in security auditing, logging, and audit trail analysis and understand the dynamics of intellectual property, privacy, and ethical issues"
     ],
-    "UI/UX Design (CS203A3)": [
-      "Select and utilize design thinking processes and UX/UI tools",
-      "Differentiate between user interface and user experience design",
-      "Discover how typography and layout enrich the user experience",
-      "Distinguish various tools available for user interface design.",
-      "Assess various HCI (human-computer interaction) and the psychology behind user decision-making"
+    "Computer Graphics (CS205A3)": [
+      "Describe the competence in application of mathematical modelling to computer graphics",
+      "Explain an ability to interpret a solution plan and methodology for an engineering problem using computer graphics",
+      "Discuss an ability to conduct investigations of technical issues related to computer vision with their level of knowledge and understanding",
+      "Illustrate an ability to advance an engineering design to defined end state",
+      "Compare different algorithms used to solve a computer vision problem."
     ],
-    "Fundamentals of Web Technology (CS202A3)": [
-      "Identify the various terms and components of HTML, CSS, JavaScript, PHP and Drupal",
-      "Illustrate various components of web development languages",
-      "Connect different modules of open source technologies for website development",
-      "Select appropriate web technology for implementing solution to a given problem",
-      "Construct a web domain using appropriate tools and techniques"
+    "Information Transmission and Coding Theory (CS204A3)": [
+      "Describe the principles and applications of information theory.",
+      "Differentiate the various types of coding schemes available in coding theory",
+      "Compare various error control encoding and decoding techniques",
+      "Compute amount of information in terms of entropy and apply in source coding and channel coding",
+      "Compose methods for analysing the performance of error control codes"
+    ],
+    "Mathemaical Foundations for Machine Learning (CS227A3)": [
+      "Understand the fundamentals of linear algebra, a crucial mathematical concept in machine learning.",
+      "Apply matrix decomposition techniques, such as Cholesky, Eigen, and singular value decomposition, to machine learning issues.",
+      "Use the vector calculus concepts such as partial derivatives, Jacobian, Hessian in Taylor series and relevant problems.",
+      "Apply probability and distribution principles to real-world issues.",
+      "Apply appropriate convex optimization techniques to a particular machine learning problem."
     ]
   },
   "Lab": {

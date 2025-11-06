@@ -11,62 +11,62 @@ type Props = {
 };
 
 const semesterDisplay = (sem: number): string => {
-    let semester = '';
+    let semester = "";
     switch (sem) {
         case 3:
-            semester = "Third Sem (CSE)"
+            semester = "Third Sem (CSE)";
             break;
         case 13:
-            semester = "Third Sem (AI&ML)"
+            semester = "Third Sem (AI&ML)";
             break;
         case 23:
-            semester = "Third Sem (IoT)"
+            semester = "Third Sem (IoT)";
             break;
         case 5:
-            semester = "Fifth Sem (CSE)"
+            semester = "Fifth Sem (CSE)";
             break;
         case 15:
-            semester = "Fifth  Sem (AI&ML)"
+            semester = "Fifth  Sem (AI&ML)";
             break;
         case 25:
-            semester = "Fifth Sem (IoT)"
+            semester = "Fifth Sem (IoT)";
             break;
         case 7:
-            semester = "Seventh Sem (CSE)"
+            semester = "Seventh Sem (CSE)";
             break;
         case 17:
-            semester = "Seventh Sem (AI&ML)"
+            semester = "Seventh Sem (AI&ML)";
             break;
         case 27:
-            semester = "Seventh Sem (IoT)"
+            semester = "Seventh Sem (IoT)";
             break;
         case 4:
-            semester = "Fourth Sem (CSE)"
+            semester = "Fourth Sem (CSE)";
             break;
         case 14:
-            semester = "Fourth Sem (AI&ML)"
+            semester = "Fourth Sem (AI&ML)";
             break;
         case 24:
-            semester = "Fourth Sem (IoT)"
+            semester = "Fourth Sem (IoT)";
             break;
         case 6:
-            semester = "Sixth Sem (CSE)"
+            semester = "Sixth Sem (CSE)";
             break;
         case 16:
-            semester = "Sixth Sem (AI&ML)"
+            semester = "Sixth Sem (AI&ML)";
             break;
         case 26:
-            semester = "Sixth Sem (IoT)"
+            semester = "Sixth Sem (IoT)";
             break;
 
         default:
             break;
     }
-    return semester
-}
+    return semester;
+};
 
 const SelectSemester = (props: Props) => {
-    const semesters: number[] = [4, 6, 16, 24];
+    const semesters: number[] = [3, 13, 23];
 
     return (
         <Box

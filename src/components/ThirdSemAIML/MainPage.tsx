@@ -130,7 +130,7 @@ const MainPage = () => {
     const handleSubmit = async () => {
         setSubmitting(true);
         const response = await fetch(
-            `${process.env.REACT_APP_API_ROUTE}submit-feedback-third-aiml`,
+            `${process.env.REACT_APP_API_ROUTE}submit-feedback?sem=3&branch=aiml`,
             {
                 method: "POST",
                 body: JSON.stringify(coFeedback),

@@ -57,7 +57,7 @@ const getCollection = async (collectionName) => {
   await client.close();
   const data = await collection.find().toArray();
   return data;
-}
+};
 
 app.post("/submit-feedback", async (req, res) => {
   const { body } = req;
@@ -66,7 +66,7 @@ app.post("/submit-feedback", async (req, res) => {
   // The code below is better than doing the whole switch thing
   // Remember to redesign the DB
   // await saveToDb(`feedback-data-${sem}-${branch}`);
-  switch (sem) {
+  switch (+sem) {
     case 3:
       if (branch === "cse") {
         await saveToDb("feedback-data-third", transformeddatatobesaved);

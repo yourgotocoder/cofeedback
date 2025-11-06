@@ -22,15 +22,15 @@
       "Illustrate the process of data file manipulations using C++."
     ],
     "Machine Learning (CSML201A1)": [
-      "Identify methods to solve ML problems.",
-      "Design pattern recognition program systems using approaches of these theories fors olving various real-world problems",
-      "Identify importance of tolerance of imprecision and uncertainty for design of robust and low-cost intelligent machines.",
-      "Describe areas of application of ML.",
-      "Formulate solution strategies for solving ML problems in real life."
+      "Relate mathematical fundamentals with machine learning techniques.",
+      "Build upon fundamentals for machine learning models.",
+      "Identify and use supervised/unsupervised techniques for relevant problems.",
+      "Solve problems using artificial neural network models.",
+      "Determine and justify the use of appropriate methods for dimensionality reduction"
     ]
   },
   "Program Elective": {
-    "Micorprocessor & Peripheral Devices (CSML206A3)": [
+    "Micorprocessor & Peripheral Devices (CS206A3)": [
       "Identify and describe the structure and functions of basic elements of 8085, 8086 Microprocessors and various peripheral devices.",
       "Sketch block diagrams of Microprocessors and peripheral devices. Illustrate the execution of instructions by the MP using timing diagrams. Explain interfacing of MP with peripheral devices",
       "Design circuit diagrams for interfacing the MP with peripheral devices as per the problem statement for creating an application",
@@ -51,19 +51,26 @@
       "Demonstrate the security audit tasks and the key aspects of legal and ethical issues.",
       "Develop skills in security auditing, logging, and audit trail analysis and understand the dynamics of intellectual property, privacy, and ethical issues"
     ],
-    "UI/UX Design (CSML203A3)": [
-      "Select and utilize design thinking processes and UX/UI tools",
-      "Differentiate between user interface and user experience design",
-      "Discover how typography and layout enrich the user experience",
-      "Distinguish various tools available for user interface design.",
-      "Assess various HCI (human-computer interaction) and the psychology behind user decision-making"
+    "Computer Graphics (CSML205A3)": [
+      "Describe the competence in application of mathematical modelling to computer graphics",
+      "Explain an ability to interpret a solution plan and methodology for an engineering problem using computer graphics",
+      "Discuss an ability to conduct investigations of technical issues related to computer vision with their level of knowledge and understanding",
+      "Illustrate an ability to advance an engineering design to defined end state",
+      "Compare different algorithms used to solve a computer vision problem."
     ],
-    "Fundamentals of Web Technology (CSML202A3)": [
-      "Identify the various terms and components of HTML, CSS, JavaScript, PHP and Drupal",
-      "Illustrate various components of web development languages",
-      "Connect different modules of open source technologies for website development",
-      "Select appropriate web technology for implementing solution to a given problem",
-      "Construct a web domain using appropriate tools and techniques"
+    "Information Transmission and Coding Theory (CSML204A3)": [
+      "Describe the principles and applications of information theory.",
+      "Differentiate the various types of coding schemes available in coding theory",
+      "Compare various error control encoding and decoding techniques",
+      "Compute amount of information in terms of entropy and apply in source coding and channel coding",
+      "Compose methods for analysing the performance of error control codes"
+    ],
+    "Mathemaical Foundations for Machine Learning (CSML211A3)": [
+      "Understand the fundamentals of linear algebra, a crucial mathematical concept in machine learning.",
+      "Apply matrix decomposition techniques, such as Cholesky, Eigen, and singular value decomposition, to machine learning issues.",
+      "Use the vector calculus concepts such as partial derivatives, Jacobian, Hessian in Taylor series and relevant problems.",
+      "Apply probability and distribution principles to real-world issues.",
+      "Apply appropriate convex optimization techniques to a particular machine learning problem."
     ]
   },
   "Lab": {
