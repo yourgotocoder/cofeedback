@@ -9,6 +9,7 @@ import MainPageAIML from "./components/AIML/MainPage";
 import MainPage7thSem from "./components/SeventhSem/MainPage";
 import MainPage5thSem from "./components/FifthSem/MainPage";
 import MainPage5thSemAIML from "./components/FifthSemAIML/MainPage";
+import MainPage5thSemIoT from "./components/FifthSemIoT/MainPage";
 import MainPage4thSem from "./components/FourthSem/MainPage";
 import MainPage4thSemIoT from "./components/FourthSemIoT/MainPage";
 import SelectSemester from "./components/SelectSemester";
@@ -29,8 +30,9 @@ function App() {
       {semester === 3 && <MainPage3rdSem />}{" "}
       {semester === 13 && <MainPage3rdSemAIML />}{" "}
       {semester === 23 && <MainPage3rdSemIoT />}{" "}
-      {/* {semester === 5 && <MainPage5thSem />} */}
-      {/* {semester === 15 && <MainPage5thSemAIML />} */}
+      {semester === 5 && <MainPage5thSem />}
+      {semester === 15 && <MainPage5thSemAIML />}
+      {semester === 25 && <MainPage5thSemIoT />}
       {/* {semester === 7 && <MainPage7thSem />}{" "} */}
       {/* {semester === 14 && <MainPageAIML />}{" "} */}
       {/* {semester === 4 && <MainPage4thSem />}{" "} */}

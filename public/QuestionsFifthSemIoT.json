@@ -1,34 +1,34 @@
 {
   "Main Subjects": {
-    "Industrial Training (CS301A9)": [
+    "Industrial Training (CSIC301A9)": [
       "Select and provide comprehensive learning platform to students where they can enhance their employ ability skills and become job ready along with real corporate exposure.",
       "Adapt and enhance knowledge in one particular technology",
       "Express and demonstrate self-confidence and helps in finding their own proficiency",
       "Develop leadership ability and responsibility to perform or execute the given task",
       "Illustrate and practice within a real job situation."
     ],
-    "Operating System (CS303A1)": [
+    "Operating System (CSIC303A1)": [
       "Identify the roles played by the operating system.",
       "Build processes and apply appropriate algorithms for process scheduling through the identification of appropriate criteria.",
       "Identify critical section problems and model solution based on standard procedures.",
       "Develop deadlock detection, prevention, avoidance and recovery methods.",
       "Analyze file system concepts."
     ],
-    "FLAT (CS302A1)": [
-      "Explain different concepts in automata theory and formal languages.",
-      "Produce various grammars and their acceptors",
-      "Analyze the various language acceptors.",
-      "Acquire a fundamental understanding of computational models related to decidability and recursive enumerability..",
-      "Illustrate various proofs using mathematical principles."
+    "Automata Theory and Compiler Design (CSIC302A1)": [
+      "Build Deterministic Finite State Machines to recognize Regular Languages.",
+      "Apply principles of Finite Automata to Lexical Analysis",
+      "Summarize the concept of Regular languages and Context Free Languages",
+      "Use YACC tool to parse grammars.",
+      "Design a compiler for a concise programming language"
     ],
-    "Computer Networks (CS304A1)": [
+    "Computer Networks (CSIC304A1)": [
       "Summarize data communication and computer network fundamentals based on layered network architecture.",
       "Learn random access and controlled access techniques in data link layer",
       "Select appropriate error detection and correction techniques for data link layer.",
       "Classify design issues of network layer protocols",
       "List IEEE specification for Ethernet and wireless local area network."
     ],
-    "Artificial Intelligence (CS301A1)": [
+    "Artificial Intelligence (CSIC301A1)": [
       "Distinguish between the popular view of the field and the actual research results.",
       "Appreciate the fact that the computational complexity of most AI problems requires us regularly to deal with approximate techniques",
       "Describe different perspectives on what the problems of artificial intelligence are and how different approaches are justified.",
@@ -37,42 +37,42 @@
     ]
   },
   "Elective III": {
-    "Autonomous Mobile Robotics and Computational Intelligence (CS305A3)": [
+    "Autonomous Mobile Robotics and Computational Intelligence (CSIC305A3)": [
       "Identify application of Robots",
       "Describe the evolution, kind of robots and basics of design of a Robotics System",
       "Choose correct choices of Locomotion, Kinematics, Perception technique",
       "Apply Intelligent Algorithms for decision making in Motion Planning and path optimization",
       "Develop simple robot control systems integrating perception, planning, and action"
     ],
-    "Cryptography and Network Security (CS311A3)": [
+    "Cryptography and Network Security (CSIC311A3)": [
       "Define mathematical modelling of a Security service to address modern security issues and challenges.",
       "Demonstrate and an ability to formulate a solution plan and methodology for security in information systems using Cryptography.",
       "Analyze diverse set of alternative design solutions to meet the basic requirements and goals of a security system",
       "Recognize technical issues for existing security principles and network applications consistent with their level of knowledge and understanding.",
       "Develop solutions for existing security principles and network applications."
     ],
-    "Speech and Natural Language Processing (CS303A3)": [
+    "Speech and Natural Language Processing (CSIC303A3)": [
       "Define the concepts used for describing and analyzing language.",
       "Explain semantics related to the language.",
       "Construct language models for understanding pragmatics of the language.",
       "Illustrate modeling concepts using programming languages like Python.",
       "Evaluate basic language modeling techniques using some standard data set."
     ],
-    "Advanced Alogrithm (CS315A3)": [
+    "Advanced Alogrithm (CSIC315A3)": [
       "Analyse any given algorithm to compute and represent its complexity parameters using appropriate notations.",
       "Identify case-based solutions to problems using algorithmic techniques and complexities.",
       "Analyse string matching and approximation algorithms.",
       "Explore parallel and probabilistic algorithms",
       "Classify computational problems into appropriate classes e.g. P, NP Hard, NP Complete"
     ],
-    "Computer Vision (CS309A3)": [
+    "Computer Vision (CSIC309A3)": [
       "Identify fundamental principles of Image Processing underlying Computer Vision based implementations.",
       "Discuss known principles of human visual system, Understand Image formation process and Its representation including its geometry",
       "Identify features, extract them, and model them for real-time computer vision applications.",
       "Recommend appropriate techniques for implementing clustering, classification, and dimension reduction as per the needs of the applications.",
       "Design of a computer vision system for a specific problem"
     ],
-    "Internet of Things (CS306A3)": [
+    "Internet of Things (CSIC306A3)": [
       "Visualize the impact of information technology solutions on the society.",
       "Identify the application areas of IOT.",
       "Identify building blocks of Internet of Things and characteristics.",
@@ -81,14 +81,14 @@
     ]
   },
   "Lab": {
-    "Operating System Lab (CS301A4)": [
+    "Operating System Lab (CSIC301A4)": [
       "Analyse and debug various technical issues related to operating systems services and use different types of Modern OS",
       "Illustrate the concept of process and thread creation for executing user's task.",
       "Apply the theory for implementing various process scheduling algorithms.",
       "Produce a optimal solution for data inconsistency problem by synchronizing processes and threads.",
       "Examine the various memory management strategies for efficient resource utilization and implement it."
     ],
-    "Computer Network Lab (CS302A4": [
+    "Computer Network Lab (CSIC302A4": [
       "Identify and understand various functions used in socket programs",
       "Develop and test of socket program for client server interaction for various purpose.",
       "Implementing and Validate Sub network with static and various dynamic routing protocols.",

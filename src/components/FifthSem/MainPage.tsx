@@ -22,13 +22,13 @@ type SubjectQuestions = {
 
 interface FeedbackQuestions {
     "Main Subjects"?: SubjectQuestions;
-    "Elective II"?: SubjectQuestions;
+    "Elective III"?: SubjectQuestions;
     Lab?: SubjectQuestions;
 }
 
 const MainPage = () => {
     const [questions, setQuestions] = useState<FeedbackQuestions>({
-        "Elective II": {},
+        "Elective III": {},
         "Main Subjects": {},
         Lab: {},
     });
@@ -130,7 +130,7 @@ const MainPage = () => {
     const handleSubmit = async () => {
         setSubmitting(true);
         const response = await fetch(
-            `${process.env.REACT_APP_API_ROUTE}submit-feedback-fifth`,
+            `${process.env.REACT_APP_API_ROUTE}submit-feedback?sem=5&branch=cse`,
             {
                 method: "POST",
                 body: JSON.stringify(coFeedback),
@@ -180,8 +180,8 @@ const MainPage = () => {
             >
                 <Card sx={{ minWidth: "60vw", maxWidth: "95vw", margin: "auto" }}>
                     <CardContent>
-                        {!!questions["Elective II"] &&
-                            Object.keys(questions["Elective II"]).length > 1 && (
+                        {!!questions["Elective III"] &&
+                            Object.keys(questions["Elective III"]).length > 1 && (
                                 <div>
                                     <Typography
                                         sx={{
@@ -216,10 +216,10 @@ const MainPage = () => {
                                                 >
                                                     <Stack spacing={1}>
                                                         <Box>
-                                                            {!!questions["Elective II"] && (
+                                                            {!!questions["Elective III"] && (
                                                                 <SelectSubjects
-                                                                    label="Program Elective II"
-                                                                    subjectObject={questions["Elective II"]}
+                                                                    label="Program Elective III"
+                                                                    subjectObject={questions["Elective III"]}
                                                                     handleElectiveChange={
                                                                         handleProgramElectiveChange
                                                                     }
@@ -311,7 +311,9 @@ const MainPage = () => {
                                                                                                     (indexOfStep === 2 &&
                                                                                                         coFeedback.length < 15) ||
                                                                                                     (indexOfStep === 3 &&
-                                                                                                        coFeedback.length < 20)
+                                                                                                        coFeedback.length < 20) ||
+                                                                                                    (indexOfStep === 4 &&
+                                                                                                        coFeedback.length < 25)
                                                                                                 }
                                                                                             >
                                                                                                 Next
@@ -351,7 +353,9 @@ const MainPage = () => {
                                                                                                     (indexOfStep === 2 &&
                                                                                                         coFeedback.length < 15) ||
                                                                                                     (indexOfStep === 3 &&
-                                                                                                        coFeedback.length < 20)
+                                                                                                        coFeedback.length < 20) ||
+                                                                                                    (indexOfStep === 4 &&
+                                                                                                        coFeedback.length < 25)
                                                                                                 }
                                                                                             >
                                                                                                 Continue
@@ -414,9 +418,9 @@ const MainPage = () => {
                                                     }}
                                                 >
                                                     <Box>
-                                                        {!!questions["Elective II"] &&
+                                                        {!!questions["Elective III"] &&
                                                             !!selectedProgramElective &&
-                                                            questions["Elective II"][
+                                                            questions["Elective III"][
                                                                 selectedProgramElective
                                                             ].map((element, indexValue) => (
                                                                 <Questions
@@ -438,7 +442,7 @@ const MainPage = () => {
                                                                     mt: 1,
                                                                     mr: 1,
                                                                 }}
-                                                                disabled={coFeedback.length < 25}
+                                                                disabled={coFeedback.length < 30}
                                                             >
                                                                 Continue
                                                             </Button>
@@ -503,9 +507,9 @@ const MainPage = () => {
                                                                                                 variant="contained"
                                                                                                 disabled={
                                                                                                     (indexOfStep === 0 &&
-                                                                                                        coFeedback.length < 30) ||
+                                                                                                        coFeedback.length < 35) ||
                                                                                                     (indexOfStep === 1 &&
-                                                                                                        coFeedback.length < 35)
+                                                                                                        coFeedback.length < 40)
                                                                                                 }
                                                                                                 sx={{
                                                                                                     mt: 1,
@@ -543,9 +547,9 @@ const MainPage = () => {
                                                                                                 }}
                                                                                                 disabled={
                                                                                                     (indexOfStep === 0 &&
-                                                                                                        coFeedback.length < 30) ||
+                                                                                                        coFeedback.length < 35) ||
                                                                                                     (indexOfStep === 1 &&
-                                                                                                        coFeedback.length < 35)
+                                                                                                        coFeedback.length < 40)
                                                                                                 }
                                                                                             >
                                                                                                 Continue

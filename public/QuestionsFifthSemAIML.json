@@ -1,78 +1,99 @@
 {
   "Main Subjects": {
-    "Indurtrial Management (BA346A1)": [
-      "To provide basic knowledge and application of functions of management",
-      "To help students to understand and apply principles of management evolved by pioneers of management.",
-      "To enable students to apply basic quantitative techniques for making decisions related to operations managemen",
-      "To help student apply various techniques for optimal production management",
-      "To apply concepts of materials management for maintaining optimal inventory"
+    "Industrial Training (CSML301A9)": [
+      "Select and provide comprehensive learning platform to students where they can enhance their employ ability skills and become job ready along with real corporate exposure.",
+      "Adapt and enhance knowledge in one particular technology",
+      "Express and demonstrate self-confidence and helps in finding their own proficiency",
+      "Develop leadership ability and responsibility to perform or execute the given task",
+      "Illustrate and practice within a real job situation."
     ],
-    "OS (CSML301A1)": [
+    "Operating System (CSML303A1)": [
       "Identify the roles played by the operating system.",
       "Build processes and apply appropriate algorithms for process scheduling through the identification of appropriate criteria.",
       "Identify critical section problems and model solution based on standard procedures.",
       "Develop deadlock detection, prevention, avoidance and recovery methods.",
       "Analyze file system concepts."
     ],
-    "FLAT (CSML302A1)": [
-      "Explain different concepts in automata theory and formal languages.",
-      "Produce various grammars and their acceptors",
-      "Analyze the various language acceptors.",
-      "Acquire a fundamental understanding of computational models related to decidability and recursive enumerability..",
-      "Illustrate various proofs using mathematical principles."
+    "Python Programming (CSML302A1)": [
+      "Define the basic structure of python programming.",
+      "Differentiate imperative, functional and procedural programming features in Python",
+      "Practice features for designing and implementing python program.",
+      "Compose applications using various libraries and concepts of Python.",
+      "Select methods to build and package Python modules for reusability"
     ],
-    "AI (CSML303A1)": [
+    "Computer Networks (CSML304A1)": [
+      "Summarize data communication and computer network fundamentals based on layered network architecture.",
+      "Learn random access and controlled access techniques in data link layer",
+      "Select appropriate error detection and correction techniques for data link layer.",
+      "Classify design issues of network layer protocols",
+      "List IEEE specification for Ethernet and wireless local area network."
+    ],
+    "Artificial Intelligence (CS301A1)": [
       "Distinguish between the popular view of the field and the actual research results.",
-      "Appreciate the fact that the computational complexity of most AI problems requires us regularly to deal with approximate techniques.",
+      "Appreciate the fact that the computational complexity of most AI problems requires us regularly to deal with approximate techniques",
       "Describe different perspectives on what the problems of artificial intelligence are and how different approaches are justified.",
-      "Design basic problem solving methods based on AI-based search, knowledge representation, reasoning, planning, and machine learning algorithms.",
-      "Identify problems requiring AI based solutions"
+      "Design basic problem-solving methods based on AI-based search, knowledge representation, reasoning, planning, and machine learning algorithms",
+      "Identify problems requiring AI based solutions."
     ]
   },
-  "Elective II": {
-    "Adv Java Programming (CSML302A3)": [
-      "Write program codes displaying competence in basic object-oriented programming using Java.",
-      "Compare and able to develop scalable network applications using Java.",
-      "Illustrate and practice component-based software.",
-      "Explain and able to conduct investigations of technical issues consistent with their level of knowledge on distributed applications.",
-      "Design and implement the understanding pertaining to database applications."
+  "Elective III": {
+    "Autonomous Mobile Robotics and Computational Intelligence (CSML305A3)": [
+      "Identify application of Robots",
+      "Describe the evolution, kind of robots and basics of design of a Robotics System",
+      "Choose correct choices of Locomotion, Kinematics, Perception technique",
+      "Apply Intelligent Algorithms for decision making in Motion Planning and path optimization",
+      "Develop simple robot control systems integrating perception, planning, and action"
     ],
-    "Information Retrieval": [
-      "Explain the importance of information and its retrieval during present times.",
-      "Illustrate and analyse various information retrieval techniques",
-      "Interpret the design and working principles of web based search engines.",
-      "Utilize Hadoop and map reduce for storage and processing of data.",
-      "Apply and implement categorization algorithms for document text mining."
+    "Cryptography and Network Security (CSML311A3)": [
+      "Define mathematical modelling of a Security service to address modern security issues and challenges.",
+      "Demonstrate and an ability to formulate a solution plan and methodology for security in information systems using Cryptography.",
+      "Analyze diverse set of alternative design solutions to meet the basic requirements and goals of a security system",
+      "Recognize technical issues for existing security principles and network applications consistent with their level of knowledge and understanding.",
+      "Develop solutions for existing security principles and network applications."
     ],
-    "Digital Image Processing (CSML308A3)": [
-      "Describe the fundamental concepts of a digital image processing system.",
-      "Analyze images in the spatial domain using mathematical transformation function.",
-      "Write the procedure for implementing various image enhancement techniques .",
-      "Interpret image segmentation and representation techniques.",
-      "Select the morphological operation for extracting different features from an image"
+    "Speech and Natural Language Processing (CSML303A3)": [
+      "Define the concepts used for describing and analyzing language.",
+      "Explain semantics related to the language.",
+      "Construct language models for understanding pragmatics of the language.",
+      "Illustrate modeling concepts using programming languages like Python.",
+      "Evaluate basic language modeling techniques using some standard data set."
     ],
-    "Social Network Analysis (CSML315A3)": [
-      "Explain and extend the competence in structural models of Social Network fundamentals.",
-      "Illustrate the ability to formulate and interpret several Social Network",
-      "Extract and formally represent results through analysis of social networks",
-      "Analyze Social Network Graphs to reach a valid conclusion",
-      "Compare design parameters of social networks."
+    "Advanced Alogrithm (CSML315A3)": [
+      "Analyse any given algorithm to compute and represent its complexity parameters using appropriate notations.",
+      "Identify case-based solutions to problems using algorithmic techniques and complexities.",
+      "Analyse string matching and approximation algorithms.",
+      "Explore parallel and probabilistic algorithms",
+      "Classify computational problems into appropriate classes e.g. P, NP Hard, NP Complete"
+    ],
+    "Computer Vision (CSML309A3)": [
+      "Identify fundamental principles of Image Processing underlying Computer Vision based implementations.",
+      "Discuss known principles of human visual system, Understand Image formation process and Its representation including its geometry",
+      "Identify features, extract them, and model them for real-time computer vision applications.",
+      "Recommend appropriate techniques for implementing clustering, classification, and dimension reduction as per the needs of the applications.",
+      "Design of a computer vision system for a specific problem"
+    ],
+    "Internet of Things (CSML306A3)": [
+      "Visualize the impact of information technology solutions on the society.",
+      "Identify the application areas of IOT.",
+      "Identify building blocks of Internet of Things and characteristics.",
+      "Establish interconnection and integration of the physical world and the cyber space.",
+      "Design & develop IOT devices"
     ]
   },
   "Lab": {
-    "Operating System Lab (CSML301A4)": [
-      "Analyse and debug various technical issues related to operating systems services and use different types of Modern OS",
-      "Illustrate the concept of process and thread creation for executing user's task.",
-      "Apply the theory for implementing various process scheduling algorithms.",
-      "Produce a optimal solution for data inconsistency problem by synchronizing processes and threads.",
-      "Examine the various memory management strategies for efficient resource utilization and implement it."
+    "Machine Learning Lab (CSML301A4)": [
+      "Explore and identify appropriate functions from the NumPy library.",
+      "Explore and identify appropriate functions from the Pandas and matplotlib libraries.",
+      "Pre-process available data using standard techniques.",
+      "Compare, choose and implement appropriate classification algorithm for a given dataset.",
+      "Deploy a finished model using Pickle and joblib"
     ],
-    "Artificial Intelligence Lab (CSML302A4)": [
-      "Write a program using the rules.",
-      "Solve monkey banana problem using rules in prolog.",
-      "Create an expert system using prolog.",
-      "Implement 4-Queen& traveling salesman problem using prolog.",
-      "Implement water-jug problem using Lisp."
+    "Computer Network Lab (CSML302A4)": [
+      "Identify and understand various functions used in socket programs",
+      "Develop and test of socket program for client server interaction for various purpose.",
+      "Implementing and Validate Sub network with static and various dynamic routing protocols.",
+      "Analyze the packet structure of various protocols used for communication",
+      "Understand the fundamentals of SDN"
     ]
   }
 }

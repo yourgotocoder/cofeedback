@@ -66,7 +66,7 @@ const semesterDisplay = (sem: number): string => {
 };
 
 const SelectSemester = (props: Props) => {
-    const semesters: number[] = [3, 13, 23];
+    const semesters: number[] = [3, 13, 23, 5, 15, 25];
 
     return (
         <Box

@@ -48,7 +48,7 @@ const MainPage = () => {
     const [coFeedback, setCoFeedback] = useState<any[]>([]);
 
     const fetchQuestions = async () => {
-        const response = await fetch("QuestionsFifthSemAIML.json", {
+        const response = await fetch("QuestionsFifthSemIoT.json", {
             headers: {
                 "Content-Type": "appication/json",
                 Accept: "application/json",
@@ -130,7 +130,7 @@ const MainPage = () => {
     const handleSubmit = async () => {
         setSubmitting(true);
         const response = await fetch(
-            `${process.env.REACT_APP_API_ROUTE}submit-feedback?sem=5&branch=aiml`,
+            `${process.env.REACT_APP_API_ROUTE}submit-feedback?sem=5&branch=iot`,
             {
                 method: "POST",
                 body: JSON.stringify(coFeedback),
