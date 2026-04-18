@@ -1,6 +1,6 @@
 {
   "Main Subjects": {
-    "MA2061(PROBABILITY, STATISTICS AND STOCHASTIC PROCESSES)": [
+    "MA206A1(PROBABILITY , STATISTICS AND STOCHASTIC PROCESSES)": [
       "Demonstrate basic principles of probability and understand a random variable that describe randomness or an uncertainty in certain realistic situation.",
       "Comprehend concepts of discrete, continuous probability distributions and able to solve problems of probability using Binomial, Poisson, Uniform Distribution, Exponential Distribution, Normal distributions.",
       "Analyze the statistical data and apply various small or large sample tests for testing the Hypothesis.",
@@ -10,31 +10,31 @@
     "DBMS": [
       "Describe fundamental elements of a relational database management system",
       "Design entity-relationship diagrams to represent simple database application scenarios",
-      "Explain the basic concepts of relational data model, Entity-relationship model, Relational database design, relational algebra and database language SQL",
-      "Apply and relate the concept of transaction, concurrency control and recovery in database ",
+      "Explain the basic concepts of relational data model, Entity-relationship model, Relational database design, relational algebra and database language SQL",
+      "Apply and relate the concept of transaction, concurrency control and recovery in database ",
       "Analyze various Normalization techniques and improve the database design by normalization"
     ],
-    "Design and Analysis of Algorithms": [
+    "DESIGN AND ANALYSIS OF ALGORITHMS": [
       "Define asymptotic notations and solve problems related to it",
       "Calculate time and space complexities for recursive/non-recursive algorithm based on following algorithm design techniques - divide and conquer, greedy, dynamic programming and branch and bound.",
       "Select appropriate algorithm design technique to solve a given problem.",
       "Explain the working of existing algorithm / algorithm design techniques ",
       "Discuss and describe the classes P, NP, and NP-Complete"
     ],
-    "UHVII Ethical Human Conduct": [
+    "UNIVERSAL HUMAN VALUES II": [
       "Students are expected to understand self-exploration and Basic Human Aspirations.",
       "To understand harmony in themselves (Human being).",
       "To become more aware of their surroundings (family, society, nature); they would become more responsible in life, and in handling problems with sustainable solutions, while keeping human relationships and human nature in mind.",
       "They would have better critical ability. They would also become sensitive to their commitment towards what they have understood (human values, human relationship and human society). It is hoped that they would be able to apply what they have learnt to their own self in different day-to-day settings in real life, at least a beginning would be made in this direction.",
-      "To become a better human"
+      "Understand human values and ethics"
     ]
   },
   "Elective Two": {
     "INFORMATION RETRIEVAL": [
       "Explain the importance of information and its retrieval during present times.",
       "Illustrate and analyse various information retrieval techniques.",
-      "Interpret the design and working principles of web based search engines.",
-      "Utilize Hadoop and map reduce for storage and processing of data.",
+      "Extract and formally represent results through analysis of social networks. ",
+      "Analyze Social Network Graphs to reach a valid conclusion",
       "Apply and implement categorization algorithms for document text mining."
     ],
     "SOCIAL NETWORK ANALYSIS": [
@@ -44,12 +44,19 @@
       "Analyze Social Network Graphs to reach a valid conclusion.",
       "Critically compare design parameters of social networks."
     ],
-    "ADVANCED COMPUTER ORGANIZATION": [
+    "ADVANCED COMPUTER ORGANIZATION AND ARCHITECTURE": [
       "Identify various components of a computer and their interconnection.",
       "Identify basic components and design of the CPU: the ALU and control unit.",
       "Compare and select various Memory devices as per requirement.",
       "Compare various types of IO mapping techniques.",
       "Critique the performance issues of cache memory and virtual memory."
+    ],
+    "EMBEDDED SYSTEMS(NPTEL)": [
+      "Identify the internal architecture and interfacing of different peripheral devices with Microcontrollers",
+      "Understand hardware and software design requirements of embedded systems",
+      "Analyze the role of embedded systems in industry",
+      "Evaluate the requirements of programming Embedded Systems, related software architectures and tool chain for Embedded Systems",
+      "Design real time embedded systems using the concepts of RTOS."
     ],
     "Principles of Programming Languages": [
       "Solve basic problems using fundamental principles of Artificial Neural Networks.",
@@ -58,14 +65,7 @@
       "Mitigate problems arising out of improper design of networks or data variations using basic techniques.",
       "Design appropriate networks to solve real life problems"
     ],
-    "EMBEDDED SYSTEMS": [
-      "Identify the internal architecture and interfacing of different peripheral devices with Microcontrollers",
-      "Understand hardware and software design requirements of embedded systems",
-      "Analyze the role of embedded systems in industry",
-      "Evaluate the requirements of programming Embedded Systems, related software architectures and tool chain for Embedded Systems",
-      "Design real time embedded systems using the concepts of RTOS."
-    ],
-    "ADVANCED JAVA PROGRAMMING": [
+    "ADVANCED JAVA ROGRAMMING": [
       "Write program codes displaying competence in basic object-oriented programming using Java",
       "Compare and able to develop scalable network applications using Java",
       "Illustrate and practice component-based software",
@@ -81,7 +81,7 @@
       "Design nested queries for efficient data processing on the database.",
       "Test an SQL interface of a multi-user relational DBMS package to create, secure, populate, maintain, and query a database."
     ],
-    "CS204A4(Algorithm Lab)": [
+    "ALGORITHM  LAB": [
       "Calculate time and space complexities for algorithms using mathematical models",
       "Calculate time and space complexities for algorithms by performing an empirical measurement",
       "Select appropriate algorithm design technique to solve a given problem",

@@ -130,7 +130,7 @@ const MainPage = () => {
   const handleSubmit = async () => {
     setSubmitting(true);
     const response = await fetch(
-      `${process.env.REACT_APP_API_ROUTE}/submit-feedback-fourth`,
+      `${process.env.REACT_APP_API_ROUTE}submit-feedback?sem=4&branch=cse`,
       {
         method: "POST",
         body: JSON.stringify(coFeedback),

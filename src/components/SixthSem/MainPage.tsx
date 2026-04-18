@@ -135,7 +135,7 @@ const MainPage = () => {
     const handleSubmit = async () => {
         setSubmitting(true);
         const response = await fetch(
-            `${process.env.REACT_APP_API_ROUTE}/submit-feedback-sixth`,
+            `${process.env.REACT_APP_API_ROUTE}submit-feedback?sem=6&branch=cse`,
             {
                 method: "POST",
                 body: JSON.stringify(coFeedback),
@@ -310,8 +310,7 @@ const MainPage = () => {
                                                                                                     (indexOfStep === 0 &&
                                                                                                         coFeedback.length < 5) ||
                                                                                                     (indexOfStep === 1 &&
-                                                                                                        coFeedback.length < 10) ||
-                                                                                                    (indexOfStep === 2 && coFeedback.length < 15)
+                                                                                                        coFeedback.length < 10)
                                                                                                 }
                                                                                             >
                                                                                                 Next
@@ -347,10 +346,7 @@ const MainPage = () => {
                                                                                                     (indexOfStep === 0 &&
                                                                                                         coFeedback.length < 5) ||
                                                                                                     (indexOfStep === 1 &&
-                                                                                                        coFeedback.length < 10) ||
-                                                                                                    (indexOfStep === 2 &&
-                                                                                                        coFeedback.length < 15)
-
+                                                                                                        coFeedback.length < 10)
                                                                                                 }
                                                                                             >
                                                                                                 Continue
@@ -432,7 +428,7 @@ const MainPage = () => {
                                                             <Button
                                                                 variant="contained"
                                                                 onClick={handleNext}
-                                                                disabled={coFeedback.length < 20}
+                                                                disabled={coFeedback.length < 15}
                                                                 sx={{
                                                                     mt: 1,
                                                                     mr: 1,
@@ -488,7 +484,7 @@ const MainPage = () => {
                                                                     mt: 1,
                                                                     mr: 1,
                                                                 }}
-                                                                disabled={coFeedback.length < 25}
+                                                                disabled={coFeedback.length < 20}
                                                             >
                                                                 Continue
                                                             </Button>
@@ -553,9 +549,9 @@ const MainPage = () => {
                                                                                                 variant="contained"
                                                                                                 disabled={
                                                                                                     (indexOfStep === 0 &&
-                                                                                                        coFeedback.length < 30) ||
+                                                                                                        coFeedback.length < 25) ||
                                                                                                     (indexOfStep === 1 &&
-                                                                                                        coFeedback.length < 35)
+                                                                                                        coFeedback.length < 30)
                                                                                                 }
                                                                                                 sx={{
                                                                                                     mt: 1,
@@ -593,9 +589,9 @@ const MainPage = () => {
                                                                                                 }}
                                                                                                 disabled={
                                                                                                     (indexOfStep === 0 &&
-                                                                                                        coFeedback.length < 30) ||
+                                                                                                        coFeedback.length < 25) ||
                                                                                                     (indexOfStep === 1 &&
-                                                                                                        coFeedback.length < 35)
+                                                                                                        coFeedback.length < 30)
                                                                                                 }
                                                                                             >
                                                                                                 Continue

@@ -7,13 +7,6 @@
       "Explain an ability to define complex problem, find and analyze requirements",
       "Apply new software models, techniques and technologies to bring out innovative and novelistic solutions for the growth of the society in all aspects and evolving into their continuous professional development."
     ],
-    "Database Management System (CS305A1)": [
-      "Describe fundamental elements of a relational database management system",
-      "Design entity-relationship diagrams to represent simple database application scenarios",
-      "Explain the basic concepts of relational data model, Entity-relationship model, Relational database design, relational algebra and database language SQL",
-      "Apply and relate the concept of transaction, concurrency control and recovery in database ",
-      "Analyze various Normalization techniques and improve the database design by normalization"
-    ],
     "Compiler Design (CS306A1)": [
       "Define the competence in designing compilers.",
       "Describe the functioning in various problem domains.",
@@ -23,47 +16,40 @@
     ]
   },
   "Elective Three": {
-    "AUTONOMOUS MOBILE ROBOTICS AND COMPUTATIONAL INTELLIGENCE": [
-      "Identify application of Robots",
-      "Describe the evolution, kind of robots and basics of design of a Robotics System",
-      "Choose correct choices of Locomotion, Kinematics, Perception techniques",
-      "Apply Intelligent Algorithms for decision making in Motion Planning and path optimization",
-      "Develop simple robot control systems integrating perception, planning, and action"
+    "DISTRIBUTED DATABASE SYSTEMS": [
+      "Describe the various range of data models, database architectures and features supported by different database management systems.",
+      "Compare the procedural and non-procedural languages and use them where appropriate to process data.",
+      "Evaluate various types of client-side interfaces to databases using selected modern tools appropriate for the task.",
+      "Discuss issues underpinning distributed database administration, security and performance.",
+      "Define and manipulate distributed database data using Structured Query Language(SQL)."
     ],
-    "IoT": [
-      "Visualize the impact of information technology solutions on the society.",
-      "Identify the application areas of IOT.",
-      "Identify building blocks of Internet of Things and characteristics.",
-      "Establish interconnection and integration of the physical world and the cyber space.",
-      "Design & develop IOT Devices."
+    "CLOUD COMPUTING": [
+      "Analyse the Service Oriented Architecture and Cloud Computing paradigms.",
+      "Implement and evaluate a service mashup.",
+      "Analyse the enterprise models in cloud computing.",
+      "Evaluate a Software as a Service (SaaS) application.",
+      "Illustrate the Security issues associated with the Cloud Computing paradigm."
     ],
-    "Blockchain Coding": [
-      "Describe crypto currencies and blockchain fundamentals",
-      "Explain individual building blocks and understand the working mechanism of any blockchain technology.",
-      "Discover the modern engineering tools, techniques and resources in the field of blockchain technology.",
-      "Differentiate between different version of Blockchain technology ",
-      "Illustrate use of blockchain technology in a broader context like health, banking sector and identify security concerns in blockchain technology"
+    "ETHICAL HACKING": [
+      "Examine competence in applying acquired expertise in computer networks",
+      "Determine an ability to interpret and evaluate behaviour of malwares and their countermeasures",
+      "Evaluate the approaches used by hackers and work on its countermeasures to reach a valid conclusion",
+      "Describe an ability to identify the limitation of tools used to break an insecure web application",
+      "Decide the problem in the decision-making process between possible options using tools"
     ],
-    "Advanced OS": [
-      "Explain and manipulate the different concepts in advanced operating systems.",
-      "Analyze the working of various subsystems connected to the network.",
-      "Select appropriate approaches for building a range of distributed systems, including some that employ middleware",
-      "Apply standard design principles in the construction of these systems.",
-      "Select appropriate approaches for building a range of distributed systems"
+    "DEEP LEARNING": [
+      "Describe deep learning techniques and computing environment that are suitable for the applications under consideration.",
+      "Discuss various solution plans and methodologies for an engineering problem using Deep Learning.",
+      "Classify the different technical issues related to Deep Architectures consistent with their level of knowledge and understanding.",
+      "Develop a set of alternative design solutions to problems for which standard algorithmic solutions do not exist.",
+      "Apply Deep Learning techniques to solve real-life problems which directly or indirectly benefits to the society."
     ],
-    "OOAD using UML": [
-      "Identify objectoriented design techniques suitable for a complex problem",
-      "Demonstrate an ability to formulate a solution plan and methodology for an engineering problem using object-oriented analysis and design using UML.",
-      "Determination of the formula and interpretation of a model for project management.",
-      "Investigate a problem to identify technical issues and solve the problems using various object-oriented design tools and techniques",
-      "Design real-life application using modern UML tools, techniques and resources."
-    ],
-    "Human Computer Interaction": [
-      "Describe and apply core theories, models, and methodologies from the field of HCI.",
-      "Analyze one after another the main features of interactive systems, and explain how to gauge the usability of digital environments, tools, and interfaces.",
-      "Name the various tools and techniques for interface analysis, design, and evaluation.",
-      "Identify the impact of usable interfaces in the acceptance and performance utilization of information systems.",
-      "Apply theories and concepts associated with effective work design to real-world application"
+    "ADVANCED COMPUTER NETWORKS(NPTEL)": [
+      "Understand and discover the engineering fundamentals involved in Computer Network and other related frame work",
+      "Identify the complex engineering problem relating computer network relating to host Identification data delivery and routing.",
+      "Ability to formulate a solution plan and methodology for an engineering problem concerning Network Security",
+      "Ability to formulate and interpret a model based on the Computer Networks and its related framework.",
+      "Understand and explain basic responsibilities/concept of protocols in protocol present stack, DNS, SDN and Distributed System"
     ],
     "ADHOC Wireless Network": [
       "Describe the unique issues in ad-hoc/sensor networks.",
@@ -74,33 +60,40 @@
     ]
   },
   "Elective Four": {
-    "MACHINE LEARNING": [
-      "Relate mathematical fundamentals with machine learning techniques.",
-      "Build upon fundamentals for machine learning models.",
-      "Identify and use supervised/unsupervised techniques for relevant problems.",
-      "Solve problems using artificial neural network models.",
-      "Determine and justify the use of appropriate methods for dimensionality reduction."
+    "DISTRIBUTED SYSTEMS": [
+      "Observe the complexities of distributed system development.",
+      "Develop a strategy to overcome important issues including time, inter-process communication, and state management in distributed computing.",
+      "Construct systems in a constrained distributed environment by integrating several modules and validate the detailed design.",
+      "Illustrate the ability to apply the knowledge in analyzing and designing distributed systems.",
+      "Summarize the middleware technologies that support distributed applications such as RPC, RMI and object-based middleware."
     ],
-    "CLOUD COMPUTING": [
-      "Analyse the Service Oriented Architecture and Cloud Computing paradigms.",
-      "Implement and evaluate a service mashup.",
-      "Analyse the enterprise models in cloud computing.",
-      "Evaluate a Software as a Service (SaaS) application.",
-      "Illustrate the Security issues associated with the Cloud Computing paradigm."
+    "CYBER SECURITY": [
+      "Discover the concepts of cyber security and its effect on social, technical and political scenarios.",
+      "Explain detection and prevention techniques for various cyber-attacks.",
+      "Analyze cryptography based algorithms for network security.",
+      "Explain the legal and social issues in the development and management of cyber security.",
+      "Assess various methods of handling investigations in the field of cyber forensics."
     ],
-    "Ethical Hacking": [
-      "Examine competence in applying acquired expertise in computer networks",
-      "Determine an ability to interpret and evaluate behaviour of malwares and their countermeasures",
-      "Evaluate the approaches used by hackers and work on its countermeasures to reach a valid conclusion",
-      "Describe an ability to identify the limitation of tools used to break an insecure web application",
-      "Decide the problem in the decision-making process between possible options using tools"
+    "BLOCK CHAIN CODING": [
+      "Describe crypto currencies and blockchain fundamentals",
+      "Explain individual building blocks and understand the working mechanism of any blockchain technology.",
+      "Discover the modern engineering tools, techniques and resources in the field of blockchain technology.",
+      "Differentiate between different version of Blockchain technology",
+      "Illustrate use of blockchain technology in a broader context like health, banking sector and identify security concerns in blockchain technology"
     ],
-    "DEEP LEARNING": [
-      "Describe deep learning techniques and computing environment that are suitable for the applications under consideration.",
-      "Discuss various solution plans and methodologies for an engineering problem using Deep Learning.",
-      "Develop a set of alternative design solutions to problems for which standard algorithmic solutions do not exist.",
-      "Classify the different technical issues related to Deep Architectures consistent with their level of knowledge and understanding.",
-      "Apply Deep Learning techniques to solve real-life problems which directly or indirectly benefits to the society"
+    "HUMAN COMPUTER INTERACTION": [
+      "Describe and apply core theories, models, and methodologies from the field of HCI.",
+      "Analyze one after another the main features of interactive systems, and explain how to gauge the usability of digital environments, tools, and interfaces.",
+      "Name the various tools and techniques for interface analysis, design, and evaluation.",
+      "Identify the impact of usable interfaces in the acceptance and performance utilization of information systems.",
+      "Apply theories and concepts associated with effective work design to real-world application"
+    ],
+    "REINFORCEMENT LEARNING (NPTEL)": [
+      "Knowledge Creation on Reinforcement Learning",
+      "Understand Tabular methods and Q-networks",
+      "Apply different policy optimization technique",
+      "Analysis different tools and modeling techniques for problems of dynamic decision making under uncertainty",
+      "They will know the algorithms they can apply when faced with such problems and the convergence and accuracy guarantees that such algorithms would provide."
     ],
     "AGILE METHODOLOGY": [
       "Analyze the strengths and weaknesses of an agile approach within a particular development context",
@@ -108,20 +101,6 @@
       "Analyze the strengths and weaknesses of an agile approach within a particular development context",
       "Modify selected agile practices and principles based on own experience from project",
       "Employ the latest tools in agile methodology"
-    ],
-    "SPEECH and Nautral Language Processing" : [
-      "Define the concepts used for describing and analyzing language.",
-      "Explain semantics related to the language.",
-      "Construct language models for understanding pragmatics of the language",
-      "Illustrate modeling concepts using programming languages like Python.",
-      "Evaluate basic language modeling techniques using some standard data set."
-    ],
-    "CRYPTOGRAPHY and NETWORK SECURITY" : [
-      "Define mathematical modelling of a Security services to address modern security issues and challenges.",
-      "Demonstrate and an ability to formulate a solution plan and methodology for security in information systems using Cryptography",
-      "Analyze diverse set of alternative design solutions to meet the basic requirements and goals of a security system.",
-      "Recognize technical issues for existing security principles and network applications consistent with their level of knowledge and understanding.",
-      "Develop solutions for existing security principles and network applications."
     ]
   },
   "Lab": {
@@ -132,12 +111,12 @@
       "Apply tools using knowledge of compilers for compiling different programs.",
       "Evaluate the effectiveness of different compilation tools"
     ],
-    "DBMS LAB": [
-      "Select appropriate SQL/MongoDB commands and functions for a given query on the database. ",
-      "Infer constraints and relationships between tables from conceptual/logical level schema and convert them into relationship and integrity constraints at the physical level schema.",
-      "Write Oracle PL/SQL Programs for data processing.",
-      "Design nested queries for efficient data processing on the database.",
-      "Test an SQL interface of a multi-user relational DBMS package to create, secure, populate, maintain, and query a database."
+    "SOFTWARE ENGINEERING LAB": [
+      "Demonstrate competence in using engineering fundamentals to visualize solutions using knowledge of software engineering skills.",
+      "Extend an ability to formulate a solution plan and methodology for an engineering problem using software engineering.",
+      "Apply an ability to formulate and interpret a model for project management",
+      "Intergrate an ability to identify/create modern engineering tools, techniques, and resources to solve software related problems.",
+      "Develop a quality software product by possessing the leadership skills as an individual or contributing to the team development and demonstrating effective and modern working strategies by applying both communication and negotiation management skill."
     ]
   }
 }

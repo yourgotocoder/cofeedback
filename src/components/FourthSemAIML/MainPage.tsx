@@ -22,36 +22,32 @@ type SubjectQuestions = {
 
 interface FeedbackQuestions {
   "Main Subjects"?: SubjectQuestions;
-  "Elective One"?: SubjectQuestions;
+  "Elective Two"?: SubjectQuestions;
   Lab?: SubjectQuestions;
-  "Minor Specialization": SubjectQuestions;
 }
 
 const MainPage = () => {
   const [questions, setQuestions] = useState<FeedbackQuestions>({
     "Main Subjects": {},
-    "Elective One": {},
+    "Elective Two": {},
     Lab: {},
-    "Minor Specialization": {},
   });
 
   const [progress, setProgress] = React.useState(0);
   const [buffer, setBuffer] = React.useState(10);
-  const progressRef = React.useRef(() => { });
+  const progressRef = React.useRef(() => {});
 
   const [initialLoading, setInitialLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   const [steps, setSteps] = useState<string[]>([""]);
-  const [selectedElectiveOne, setSelectedElectiveOne] = useState<string>();
-  const [selectedMinorSpecialization, setSelectedMinorSpecialization] =
-    useState<string>();
+  const [selectedElectiveTwo, setSelectedElectiveTwo] = useState<string>();
 
   const [coFeedback, setCoFeedback] = useState<any[]>([]);
 
   const fetchQuestions = async () => {
-    const response = await fetch("QuestionsAIMLFourthSem.json", {
+    const response = await fetch("QuestionsFourthSemAIML.json", {
       headers: {
         "Content-Type": "appication/json",
         Accept: "application/json",
@@ -60,9 +56,8 @@ const MainPage = () => {
     const data = await response.json();
 
     const keys = Object.keys(data);
-    keys.unshift("Choose your electives and minor specialization");
+    keys.unshift("Choose your electives");
     setSteps(keys);
-    data["Minor Specialization"].None = [];
     console.log(data);
     setQuestions(data);
     setInitialLoading(false);
@@ -128,18 +123,14 @@ const MainPage = () => {
     fetchQuestions();
   }, []);
 
-  const handleElectiveOneChange = (value: string) => {
-    setSelectedElectiveOne(value);
-  };
-
-  const handleMinorChange = (value: string) => {
-    setSelectedMinorSpecialization(value);
+  const handleElectiveTwoChange = (value: string) => {
+    setSelectedElectiveTwo(value);
   };
 
   const handleSubmit = async () => {
     setSubmitting(true);
     const response = await fetch(
-      `${process.env.REACT_APP_API_ROUTE}/submit-feedback-fourth-aiml`,
+      `${process.env.REACT_APP_API_ROUTE}submit-feedback?sem=4&branch=aiml`,
       {
         method: "POST",
         body: JSON.stringify(coFeedback),
@@ -189,8 +180,8 @@ const MainPage = () => {
       >
         <Card sx={{ minWidth: "60vw", maxWidth: "95vw", margin: "auto" }}>
           <CardContent>
-            {!!questions["Elective One"] &&
-              Object.keys(questions["Elective One"]).length > 1 && (
+            {!!questions["Elective Two"] &&
+              Object.keys(questions["Elective Two"]).length > 1 && (
                 <div>
                   <Typography
                     sx={{
@@ -225,22 +216,11 @@ const MainPage = () => {
                         >
                           <Stack spacing={1}>
                             <Box>
-                              {!!questions["Elective One"] && (
+                              {!!questions["Elective Two"] && (
                                 <SelectSubjects
                                   label="Elective One"
-                                  subjectObject={questions["Elective One"]}
-                                  handleElectiveChange={handleElectiveOneChange}
-                                />
-                              )}
-                            </Box>
-                            <Box>
-                              {!!questions["Minor Specialization"] && (
-                                <SelectSubjects
-                                  label="Minor Specialization"
-                                  subjectObject={
-                                    questions["Minor Specialization"]
-                                  }
-                                  handleElectiveChange={handleMinorChange}
+                                  subjectObject={questions["Elective Two"]}
+                                  handleElectiveChange={handleElectiveTwoChange}
                                 />
                               )}
                             </Box>
@@ -248,10 +228,7 @@ const MainPage = () => {
                           <Box sx={{ mb: 2 }}>
                             <div>
                               <Button
-                                disabled={
-                                  !selectedElectiveOne ||
-                                  !selectedMinorSpecialization
-                                }
+                                disabled={!selectedElectiveTwo}
                                 variant="contained"
                                 onClick={handleNext}
                                 sx={{
@@ -311,10 +288,10 @@ const MainPage = () => {
                                             />
                                           ))}
                                         {activeInnerStep ===
-                                          (!!questions["Main Subjects"] &&
-                                            Object.keys(
-                                              questions["Main Subjects"],
-                                            ).length - 1) ? (
+                                        (!!questions["Main Subjects"] &&
+                                          Object.keys(
+                                            questions["Main Subjects"],
+                                          ).length - 1) ? (
                                           <Box>
                                             <>
                                               <Button
@@ -425,8 +402,8 @@ const MainPage = () => {
                       </Step>
                       <Step>
                         <StepLabel>
-                          {(!!selectedElectiveOne && selectedElectiveOne) ||
-                            "Elective One"}
+                          {(!!selectedElectiveTwo && selectedElectiveTwo) ||
+                            "Elective Two"}
                         </StepLabel>
                         <StepContent
                           TransitionProps={{
@@ -434,17 +411,17 @@ const MainPage = () => {
                           }}
                         >
                           <Box>
-                            {!!questions["Elective One"] &&
-                              !!selectedElectiveOne &&
-                              questions["Elective One"][
-                                selectedElectiveOne
+                            {!!questions["Elective Two"] &&
+                              !!selectedElectiveTwo &&
+                              questions["Elective Two"][
+                                selectedElectiveTwo
                               ].map((element, indexValue) => (
                                 <Questions
                                   key={element}
                                   label={element}
                                   coNumber={indexValue + 1}
                                   rating={null}
-                                  subjectName={selectedElectiveOne}
+                                  subjectName={selectedElectiveTwo}
                                   ratingChange={handleRatingChange}
                                 />
                               ))}
@@ -514,8 +491,8 @@ const MainPage = () => {
                                             ),
                                           )}
                                         {activeLabStep ===
-                                          (!!questions["Lab"] &&
-                                            Object.keys(questions["Lab"]).length -
+                                        (!!questions["Lab"] &&
+                                          Object.keys(questions["Lab"]).length -
                                             1) ? (
                                           <Box>
                                             <>
@@ -604,95 +581,37 @@ const MainPage = () => {
                           </Box>
                         </StepContent>
                       </Step>
-                      {selectedMinorSpecialization &&
-                        selectedMinorSpecialization !== "None" && (
-                          <Step>
-                            <StepLabel>
-                              {(!!selectedMinorSpecialization &&
-                                selectedMinorSpecialization) ||
-                                steps[4]}
-                            </StepLabel>
-                            <StepContent
-                              TransitionProps={{
-                                unmountOnExit: false,
-                              }}
-                            >
-                              <Box>
-                                {!!questions["Minor Specialization"] &&
-                                  !!selectedMinorSpecialization &&
-                                  questions["Minor Specialization"][
-                                    selectedMinorSpecialization
-                                  ].map((element, indexValue) => (
-                                    <Questions
-                                      key={element}
-                                      label={element}
-                                      coNumber={indexValue + 1}
-                                      rating={null}
-                                      subjectName={selectedMinorSpecialization}
-                                      ratingChange={handleRatingChange}
-                                    />
-                                  ))}
-                              </Box>
-                              <Box sx={{ mb: 2 }}>
-                                <div>
-                                  <Button
-                                    variant="contained"
-                                    onClick={handleNext}
-                                    sx={{
-                                      mt: 1,
-                                      mr: 1,
-                                    }}
-                                    disabled={coFeedback.length < 40}
-                                  >
-                                    Continue
-                                  </Button>
-                                  <Button
-                                    onClick={handleBack}
-                                    sx={{
-                                      mt: 1,
-                                      mr: 1,
-                                    }}
-                                  >
-                                    Back
-                                  </Button>
-                                </div>
-                              </Box>
-                            </StepContent>
-                          </Step>
-                        )}
                     </Stepper>
-                    {(selectedMinorSpecialization === "None"
-                      ? activeStep === steps.length - 1
-                      : activeStep === steps.length) && (
-                        <Box>
-                          <Paper
-                            square
-                            elevation={1}
-                            sx={{
-                              p: 3,
-                              textAlign: "center",
-                            }}
+                    {activeStep === steps.length && (
+                      <Box>
+                        <Paper
+                          square
+                          elevation={1}
+                          sx={{
+                            p: 3,
+                            textAlign: "center",
+                          }}
+                        >
+                          <Typography>
+                            All steps completed - Submit if you are satisfied
+                            with your selections
+                          </Typography>
+                          <Button
+                            onClick={handleSubmit}
+                            disabled={submitting}
+                            sx={{ mt: 1, mr: 1 }}
+                            variant="contained"
                           >
-                            <Typography>
-                              All steps completed - Submit if you are satisfied
-                              with your selections
-                            </Typography>
-                            <Button
-                              onClick={handleSubmit}
-                              disabled={submitting}
-                              sx={{ mt: 1, mr: 1 }}
-                              variant="contained"
-                            >
-                              Submit
-                            </Button>
-                            {submitting && (
-                              <>
-                                <AnimatedText word="Submitting"></AnimatedText>
-                              </>
-                            )}
-                          </Paper>
-                        </Box>
-                      )}
+                            Submit
+                          </Button>
+                          {submitting && (
+                            <>
+                              <AnimatedText word="Submitting"></AnimatedText>
+                            </>
+                          )}
+                        </Paper>
+                      </Box>
+                    )}
                   </Box>
                 </div>
               )}
