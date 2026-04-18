@@ -24,22 +24,22 @@ function App() {
 
   return (
     <>
-      {semester === null && (
-        <SelectSemester handleSemesterSelected={handleSemesterSelected} />
-      )}
-      {semester === 3 && <MainPage3rdSem />}{" "}
-      {semester === 13 && <MainPage3rdSemAIML />}{" "}
-      {semester === 23 && <MainPage3rdSemIoT />}{" "}
-      {semester === 5 && <MainPage5thSem />}
-      {semester === 15 && <MainPage5thSemAIML />}
-      {semester === 25 && <MainPage5thSemIoT />}
+      {/* {semester === null && ( */}
+      {/*   <SelectSemester handleSemesterSelected={handleSemesterSelected} /> */}
+      {/* )} */}
+      {/* {semester === 3 && <MainPage3rdSem />}{" "} */}
+      {/* {semester === 13 && <MainPage3rdSemAIML />}{" "} */}
+      {/* {semester === 23 && <MainPage3rdSemIoT />}{" "} */}
+      {/* {semester === 5 && <MainPage5thSem />} */}
+      {/* {semester === 15 && <MainPage5thSemAIML />} */}
+      {/* {semester === 25 && <MainPage5thSemIoT />} */}
       {/* {semester === 7 && <MainPage7thSem />}{" "} */}
       {/* {semester === 14 && <MainPageAIML />}{" "} */}
       {/* {semester === 4 && <MainPage4thSem />}{" "} */}
       {/* {semester === 24 && <MainPage4thSemIoT />}{" "} */}
       {/* {semester === 6 && <MainPage6thSem />} */}
       {/* {semester === 16 && <MainPage6thSemAIML />} */}
-      {/* <GetExcel /> */}
+      <GetExcel />
     </>
   );
 }

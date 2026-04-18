@@ -51,11 +51,13 @@ const getCollection = async (collectionName) => {
   const dateYear = new Date();
   const year = dateYear.getFullYear();
   const dbName = `feedback-${year}`;
+  console.log(collectionName);
   const client = await MongoClient.connect(process.env.DB_URL);
+  if (client) console.log(`Connected  to db`);
   const db = client.db(dbName);
   const collection = db.collection(collectionName);
-  await client.close();
   const data = await collection.find().toArray();
+  await client.close();
   return data;
 };
 
@@ -132,9 +134,10 @@ app.post("/submit-feedback", async (req, res) => {
 app.get("/get-excel-data", async (req, res) => {
   const { sem, branch } = req.query;
   let data;
-  switch (sem) {
+  switch (+sem) {
     case 3:
       if (branch === "cse") {
+        console.log("Running here");
         data = await getCollection("feedback-data-third");
       } else if (branch === "aiml") {
         data = await getCollection("feedback-data-third-aiml");
@@ -220,11 +223,11 @@ app.get("/get-excel-data", async (req, res) => {
           content: [
             {
               SNo: 1,
-              CO1: currentValue.CO1,
-              CO2: currentValue.CO2,
-              CO3: currentValue.CO3,
-              CO4: currentValue.CO4,
-              CO5: currentValue.CO5,
+              CO1: currentValue.co1,
+              CO2: currentValue.co2,
+              CO3: currentValue.co3,
+              CO4: currentValue.co4,
+              CO5: currentValue.co5,
             },
           ],
         };
@@ -232,11 +235,11 @@ app.get("/get-excel-data", async (req, res) => {
       } else if (indexOfSubjectSheet !== -1) {
         previousValues[indexOfSubjectSheet].content.push({
           SNo: previousValues[indexOfSubjectSheet].content.length + 1,
-          CO1: currentValue.CO1,
-          CO2: currentValue.CO2,
-          CO3: currentValue.CO3,
-          CO4: currentValue.CO4,
-          CO5: currentValue.CO5,
+          CO1: currentValue.co1,
+          CO2: currentValue.co2,
+          CO3: currentValue.co3,
+          CO4: currentValue.co4,
+          CO5: currentValue.co5,
         });
       }
       return previousValues;

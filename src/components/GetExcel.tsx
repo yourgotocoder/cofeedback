@@ -45,49 +45,49 @@ const transformData = (data: any) => {
 
 const GetExcel = (props: Props) => {
   const [_3rdSemData, set_3rdSemData] = useState();
-  const [_4thSemData, set_4thSemData] = useState();
+  const [_3rdSemDataAIML, set_3rdSemDataAIML] = useState();
+  const [_3rdSemDataIoT, set_3rdSemDataIoT] = useState();
   const [_5thSemData, set_5thSemData] = useState();
-  const [_6thSemData, set_6thSemData] = useState();
-  const [_7thSemData, set_7thSemData] = useState();
-  const [_AISemData, set_AISemData] = useState();
+  const [_5thSemDataAIML, set_5thSemDataAIML] = useState();
+  const [_5thSemDataIoT, set_5thSemDataIoT] = useState();
 
   useEffect(() => {
-    fetch("http://localhost:3011/get-excel-data-3rd-sem")
+    fetch("http://localhost:3011/get-excel-data?sem=3&branch=cse")
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         const arrayWithTotals = transformData(data);
         set_3rdSemData(arrayWithTotals);
       });
-    fetch("http://localhost:3011/get-excel-data-aiml-sem")
+    fetch("http://localhost:3011/get-excel-data?sem=3&branch=aiml")
       .then((response) => response.json())
       .then((data) => {
         const arrayWithTotals = transformData(data);
-        set_AISemData(arrayWithTotals);
+        set_3rdSemDataAIML(arrayWithTotals);
       });
-
-    fetch("http://localhost:3011/get-excel-data-4th-sem")
+    fetch("http://localhost:3011/get-excel-data?sem=3&branch=iot")
       .then((response) => response.json())
       .then((data) => {
         const arrayWithTotals = transformData(data);
-        set_4thSemData(arrayWithTotals);
+        set_3rdSemDataIoT(arrayWithTotals);
       });
-    fetch("http://localhost:3011/get-excel-data-5th-sem")
+    fetch("http://localhost:3011/get-excel-data?sem=5&branch=cse")
       .then((response) => response.json())
       .then((data) => {
         const arrayWithTotals = transformData(data);
         set_5thSemData(arrayWithTotals);
       });
-    fetch("http://localhost:3011/get-excel-data-6th-sem")
+    fetch("http://localhost:3011/get-excel-data?sem=5&branch=aiml")
       .then((response) => response.json())
       .then((data) => {
         const arrayWithTotals = transformData(data);
-        set_6thSemData(arrayWithTotals);
+        set_5thSemDataAIML(arrayWithTotals);
       });
-    fetch("http://localhost:3011/get-excel-data-7th-sem")
+    fetch("http://localhost:3011/get-excel-data?sem=5&branch=iot")
       .then((response) => response.json())
       .then((data) => {
         const arrayWithTotals = transformData(data);
-        set_7thSemData(arrayWithTotals);
+        set_5thSemDataIoT(arrayWithTotals);
       });
   }, []);
 
@@ -109,8 +109,17 @@ const GetExcel = (props: Props) => {
       case 7:
         fileName = "7thSemFeedbackData";
         break;
-      case 9:
-        fileName = "AIMLFeedbackData";
+      case 13:
+        fileName = "3rdSemAIMLFeedbackData";
+        break;
+      case 23:
+        fileName = "3rdSemIoTFeedbackData";
+        break;
+      case 15:
+        fileName = "5thSemAIMLFeedbackData";
+        break;
+      case 25:
+        fileName = "5thSemIoTFeedbackData";
         break;
     }
     const setting = {
@@ -121,20 +130,20 @@ const GetExcel = (props: Props) => {
       case 3:
         _3rdSemData && xlsx(_3rdSemData, setting);
         break;
-      case 4:
-        _4thSemData && xlsx(_4thSemData, setting);
-        break;
       case 5:
         _5thSemData && xlsx(_5thSemData, setting);
         break;
-      case 6:
-        _6thSemData && xlsx(_6thSemData, setting);
+      case 13:
+        _3rdSemDataAIML && xlsx(_3rdSemDataAIML, setting);
         break;
-      case 7:
-        _7thSemData && xlsx(_7thSemData, setting);
+      case 15:
+        _5thSemDataAIML && xlsx(_5thSemDataAIML, setting);
         break;
-      case 9:
-        _AISemData && xlsx(_AISemData, setting);
+      case 23:
+        _3rdSemDataIoT && xlsx(_3rdSemDataIoT, setting);
+        break;
+      case 25:
+        _5thSemDataIoT && xlsx(_5thSemDataIoT, setting);
         break;
     }
   };
@@ -150,10 +159,17 @@ const GetExcel = (props: Props) => {
       </Button>
       <Button
         variant="contained"
-        onClick={() => handleDownload(9)}
-        disabled={_AISemData === undefined}
+        onClick={() => handleDownload(13)}
+        disabled={_3rdSemDataAIML === undefined}
       >
-        GetExcelAIML
+        GetExcel3rdAIML
+      </Button>
+      <Button
+        variant="contained"
+        onClick={() => handleDownload(23)}
+        disabled={_3rdSemDataIoT === undefined}
+      >
+        GetExcel3rdIoT
       </Button>
 
       <Button
@@ -165,25 +181,17 @@ const GetExcel = (props: Props) => {
       </Button>
       <Button
         variant="contained"
-        onClick={() => handleDownload(7)}
-        disabled={_7thSemData === undefined}
+        onClick={() => handleDownload(15)}
+        disabled={_5thSemDataAIML === undefined}
       >
-        GetExcel7th
-      </Button>
-
-      <Button
-        variant="contained"
-        onClick={() => handleDownload(4)}
-        disabled={_4thSemData === undefined}
-      >
-        GetExcel4th
+        GetExcel5thAIML
       </Button>
       <Button
         variant="contained"
-        onClick={() => handleDownload(6)}
-        disabled={_6thSemData === undefined}
+        onClick={() => handleDownload(25)}
+        disabled={_5thSemDataIoT === undefined}
       >
-        GetExcel6th
+        GetExcel5thIoT
       </Button>
     </>
   );
