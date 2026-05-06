@@ -1,6 +1,6 @@
 {
   "Main Subjects": {
-    "MA2061(PROBABILITY, STATISTICS AND STOCHASTIC PROCESSES)": [
+    "MA206A1(PROBABILITY , STATISTICS AND STOCHASTIC PROCESSES)": [
       "Demonstrate basic principles of probability and understand a random variable that describe randomness or an uncertainty in certain realistic situation.",
       "Comprehend concepts of discrete, continuous probability distributions and able to solve problems of probability using Binomial, Poisson, Uniform Distribution, Exponential Distribution, Normal distributions.",
       "Analyze the statistical data and apply various small or large sample tests for testing the Hypothesis.",
@@ -10,23 +10,60 @@
     "DBMS": [
       "Describe fundamental elements of a relational database management system",
       "Design entity-relationship diagrams to represent simple database application scenarios",
-      "Explain the basic concepts of relational data model, Entity-relationship model, Relational database design, relational algebra and database language SQL",
-      "Apply and relate the concept of transaction, concurrency control and recovery in database ",
+      "Explain the basic concepts of relational data model, Entity-relationship model, Relational database design, relational algebra and database language SQL",
+      "Apply and relate the concept of transaction, concurrency control and recovery in database ",
       "Analyze various Normalization techniques and improve the database design by normalization"
     ],
-    "IOT and MICROCONTROLLERS": [
+    "IoT AND MICROCONTROLLERS": [
       "Introduction to Microcontroller and 8051 family",
       "Architectural aspects of 8051 microcontroller",
       "Assembly language programming with various types of instruction sets",
-      "Assembly language programming with various types of instruction sets",
-      "Interfacing with memory and devices along with interface different analog and digital sensors which are basic building for any interactive system design."
+      "Programming the internal resources such as serial ports, I/O ports, timers, and counters etc.",
+      "Interfacing with memory and devices along with interface different analog and digital sensors which are basic building blocks for any interactive system design."
     ],
-    "UHVII Ethical Human Conduct": [
-      "To help the students appreciate the essential complementarily between 'VALUES' and 'SKILLS' to ensure sustained happiness and prosperity which are the core aspirations of all human beings.",
-      "To facilitate the development of a Holistic perspective among students towards life and profession as well as towards happiness and prosperity based on a correct understanding of Human reality and the rest of existence. Such a holistic perspective forms the basis of Universal Human Values and movement towards value-based living in a natural way.",
-      "To highlight plausible implications of such a Holistic understanding in terms of ethical human conduct, trustful and mutually fulfilling human behaviour and mutually enriching interaction with Nature.",
-      "_",
-      "__"
+    "UNIVERSAL HUMAN VALUES II": [
+      "Students are expected to understand self-exploration and Basic Human Aspirations.",
+      "To understand harmony in themselves (Human being).",
+      "To become more aware of their surroundings (family, society, nature); they would become more responsible in life, and in handling problems with sustainable solutions, while keeping human relationships and human nature in mind.",
+      "They would have better critical ability. They would also become sensitive to their commitment towards what they have understood (human values, human relationship and human society). It is hoped that they would be able to apply what they have learnt to their own self in different day-to-day settings in real life, at least a beginning would be made in this direction.",
+      "Understand human values and ethics"
+    ]
+  },
+  "Elective Two": {
+    "INFORMATION RETRIEVAL": [
+      "Explain the importance of information and its retrieval during present times.",
+      "Illustrate and analyse various information retrieval techniques.",
+      "Extract and formally represent results through analysis of social networks. ",
+      "Analyze Social Network Graphs to reach a valid conclusion",
+      "Apply and implement categorization algorithms for document text mining."
+    ],
+    "SOCIAL NETWORK ANALYSIS": [
+      "Explain and extend the competence in structural models of Social Network fundamentals.",
+      "Illustrate the ability to formulate and interpret several Social Network.",
+      "Measure the signals in frequency domain using Fourier series and Fourier transforms",
+      "Analyze Social Network Graphs to reach a valid conclusion.",
+      "Critically compare design parameters of social networks."
+    ],
+    "ADVANCED COMPUTER ORGANIZATION AND ARCHITECTURE": [
+      "Identify various components of a computer and their interconnection.",
+      "Identify basic components and design of the CPU: the ALU and control unit.",
+      "Compare and select various Memory devices as per requirement.",
+      "Compare various types of IO mapping techniques.",
+      "Critique the performance issues of cache memory and virtual memory."
+    ],
+    "Principles of Programming Languages": [
+      "Solve basic problems using fundamental principles of Artificial Neural Networks.",
+      "Identify the type of network suitable for a given problem category.",
+      "Estimate the importance of tolerance of imprecision and uncertainty for design of robust and low- cost intelligent machines.",
+      "Mitigate problems arising out of improper design of networks or data variations using basic techniques.",
+      "Design appropriate networks to solve real life problems"
+    ],
+    "ADVANCED JAVA ROGRAMMING": [
+      "Write program codes displaying competence in basic object-oriented programming using Java",
+      "Compare and able to develop scalable network applications using Java",
+      "Illustrate and practice component-based software",
+      "Explain and able to conduct investigations of technical issues consistent with their level of knowledge on distributed applications.",
+      "Design and implement the understanding pertaining to database applications"
     ]
   },
   "Lab": {
@@ -37,12 +74,12 @@
       "Design nested queries for efficient data processing on the database.",
       "Test an SQL interface of a multi-user relational DBMS package to create, secure, populate, maintain, and query a database."
     ],
-    "IOT and MICROCONTROLLERS LAB": [
-      "Select appropriate SQL/MongoDB commands and functions for a given query on the database.",
-      "Infer constraints and relationships between tables from conceptual/logical level schema and convert them into relations and integrity constraints at the physical level schema.",
-      "Write Oracle PL/SQL Programs for data processing.",
-      "Design nested queries for efficient data processing on the database.",
-      "Test an SQL interface of a multi-user relational DBMS package to create, secure, populate, maintain, and query a database."
+    "IOT AND MICROCONTROLLER LAB (CSIC202A4)": [
+      "Calculate time and space complexities for algorithms using mathematical models",
+      "Calculate time and space complexities for algorithms by performing an empirical measurement",
+      "Select appropriate algorithm design technique to solve a given problem",
+      "Write a computer program to implement any algorithm using a programming language",
+      "Choose the most optimal algorithm by comparing time and space complexities"
     ]
   }
 }

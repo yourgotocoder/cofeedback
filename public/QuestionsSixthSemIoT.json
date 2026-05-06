@@ -1,0 +1,92 @@
+{
+  "Main Subjects": {
+    "CYBER SECURITY USING MACHINE LEARNING (CSICS305A1)": [
+      "Understand and map machine learning algorithms to Cyber security framework for classification purposes.",
+      "Develop and implement machine learning models for cybersecurity applications for spam and anomaly detection.",
+      "Understand and analyze behavior of network traffic and malwares to identify issues and basic attributes useful in designing secure systems.",
+      "Determine the vulnerabilities associated with Consumer Web and the importance of machine learning intervention for prevention and mitigation.",
+      "Recognize weaknesses and pitfalls of Machine Learning based Cyber Systems"
+    ],
+    "IOT COMMUNICATION PROTOCOL (CSIC306A1)": [
+      "Understand fundamentals of IoT architecture outline and standards.",
+      "Analyze different architectural views.",
+      "Identify the importance of IoT Data Link Layer & Network Layer Protocols.",
+      "Identify the importance of Iot Transport & Session Layer Protocols.",
+      "Recognize the impact of engineering and industrial practices on social contexts."
+    ]
+  },
+  "Elective Four": {
+    "DISTRIBUTED DATABASE SYSTEMS": [
+      "Describe the various range of data models, database architectures and features supported by different database management systems.",
+      "Compare the procedural and non-procedural languages and use them where appropriate to process data.",
+      "Evaluate various types of client-side interfaces to databases using selected modern tools appropriate for the task.",
+      "Discuss issues underpinning distributed database administration, security and performance.",
+      "Define and manipulate distributed database data using Structured Query Language(SQL)."
+    ],
+    "CLOUD COMPUTING": [
+      "Analyse the Service Oriented Architecture and Cloud Computing paradigms.",
+      "Implement and evaluate a service mashup.",
+      "Analyse the enterprise models in cloud computing.",
+      "Evaluate a Software as a Service (SaaS) application.",
+      "Illustrate the Security issues associated with the Cloud Computing paradigm."
+    ],
+    "ETHICAL HACKING": [
+      "Examine competence in applying acquired expertise in computer networks",
+      "Determine an ability to interpret and evaluate behaviour of malwares and their countermeasures",
+      "Evaluate the approaches used by hackers and work on its countermeasures to reach a valid conclusion",
+      "Describe an ability to identify the limitation of tools used to break an insecure web application",
+      "Decide the problem in the decision-making process between possible options using tools"
+    ],
+    "DEEP LEARNING": [
+      "Describe deep learning techniques and computing environment that are suitable for the applications under consideration.",
+      "Discuss various solution plans and methodologies for an engineering problem using Deep Learning.",
+      "Classify the different technical issues related to Deep Architectures consistent with their level of knowledge and understanding.",
+      "Develop a set of alternative design solutions to problems for which standard algorithmic solutions do not exist.",
+      "Apply Deep Learning techniques to solve real-life problems which directly or indirectly benefits to the society."
+    ],
+    "ADVANCED COMPUTER NETWORKS(NPTEL)": [
+      "Understand and discover the engineering fundamentals involved in Computer Network and other related frame work",
+      "Identify the complex engineering problem relating computer network relating to host Identification data delivery and routing.",
+      "Ability to formulate a solution plan and methodology for an engineering problem concerning Network Security",
+      "Ability to formulate and interpret a model based on the Computer Networks and its related framework.",
+      "Understand and explain basic responsibilities/concept of protocols in protocol present stack, DNS, SDN and Distributed System"
+    ],
+    "ADHOC WIRELESS NETWORK": [
+      "Describe the unique issues in ad-hoc/sensor networks.",
+      "Enumerate current technology trends for the implementation and deployment of wireless ad-hoc/sensor networks.",
+      "Discuss the challenges in designing MAC, routing and transport protocols for wireless ad-hoc/sensor networks.",
+      "Explain the challenges in designing routing and transport protocols for wireless Ad- hoc/sensor networks",
+      "Recognize the various sensor network Platforms, tools and applications."
+    ],
+    "BLOCK CHAIN CODING": [
+      "Describe crypto currencies and blockchain fundamentals",
+      "Explain individual building blocks and understand the working mechanism of any blockchain technology.",
+      "Discover the modern engineering tools, techniques and resources in the field of blockchain technology.",
+      "Differentiate between different version of Blockchain technology ",
+      "Illustrate use of blockchain technology in a broader context like health, banking sector and identify security concerns in blockchain technology"
+    ],
+    "HUMAN COMPUTER INTERACTION": [
+      "Describe and apply core theories, models, and methodologies from the field of HCI.",
+      "Analyze one after another the main features of interactive systems, and explain how to gauge the usability of digital environments, tools, and interfaces.",
+      "Name the various tools and techniques for interface analysis, design, and evaluation.",
+      "Identify the impact of usable interfaces in the acceptance and performance utilization of information systems.",
+      "Apply theories and concepts associated with effective work design to real-world application"
+    ]
+  },
+  "Lab": {
+    "IOT COMMUNICATION LAB": [
+      "Understand the concept of M2M (machine to machine) with necessary protocols and get awareness in implementation of distance sensor.",
+      "Write program related to get the skill to program using python scripting language which is used in many IoT devices",
+      "Develop, deploy and maintain the Android Applications for IoT devices",
+      "Examine the errors encountered in the program using appropriate tools and fix them",
+      "Write well-indented and well-documented code"
+    ],
+    "CYBER SECURITY USING ML LAB": [
+      "Understand and map machine learning algorithms to Cyber security framework for classification purposes.",
+      "Develop and implement machine learning models for cybersecurity applications for spam and anomaly detection",
+      "Understand and analyze behavior of network traffic and malwares to identify issues and basic attributes useful in designing secure systems.",
+      "Determine the vulnerabilities associated with Consumer Web and the importance of machine learning intervention for prevention and mitigation.",
+      "Recognize weaknesses and pitfalls of Machine Learning based Cyber Systems."
+    ]
+  }
+}
